@@ -2,7 +2,7 @@
   "version":      "1",
   "updated_at":   "2016-01-01T01:01:01.111Z",
   "name":         "Permit Verification Service",
-  "url":          "",
+  "url":          "[empty]",
   "agency":       "DIBP",
   "service":      "dto.gov.au",
   "description":  "Permit Verification Service Dashboard",
