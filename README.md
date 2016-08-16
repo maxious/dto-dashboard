@@ -58,7 +58,17 @@ rake import:data
 
 ### Run the App
 
-To run on the default port (3000)
+Install npm dependencies for the front end build pipeline, run 
+```
+npm install
+```
+
+Compile the front end assets (later this will be part of rails server)
+```
+npm run build
+```
+
+Start the app on the default port (3000)
 ```
 rails server
 ```
