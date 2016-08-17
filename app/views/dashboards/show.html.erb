@@ -1,0 +1,92 @@
+<div aria-hidden="true" class="patterns">
+  <svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <pattern id="diagonal-stripe-1" patternUnits="userSpaceOnUse" width="10" height="10">
+        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScvPgogIDxwYXRoIGQ9J00tMSwxIGwyLC0yCiAgICAgICAgICAgTTAsMTAgbDEwLC0xMAogICAgICAgICAgIE05LDExIGwyLC0yJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzEnLz4KPC9zdmc+Cg=="
+               x="0" y="0" width="10" height="10"></image>
+      </pattern>
+    </defs>
+  </svg>
+</div>
+<div id="<%= @dashboard.id %>>" class="<%= dashboard.name %>">
+  <div class="hero-region">
+    <div class="container">
+      <div class="row dashboard__top">
+        <a href="/" aria-hidden="true" class="back-link">Back to overview</a>
+        <div class="dashboard__header">
+          <h1><%= @dashboard.name.chomp('Dashboard') %> </h1>
+          <div class="badge__holder">
+            <span class="badge-default">
+              <%-# if (dashboard.displayKPIs() && dashboard.hasHero()) -%>
+              <%-# <div class='hero-widget hero' data-data=JSON.stringify(@dashboard.hero.datasets)></div> -%>
+              <% if @dashboard.display_hero && @dashboard.display_kpis then %>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid metric-breakdown-view">
+  <% if dashboard.display_kpis then %>
+      <div class="clearfix dashboard__kpis">
+        <div class="container">
+          <div class="row">
+            <%-# we need render a set of KPIs here but where is the data? - for (let widget of dashboard.kpis) -%>
+            <% @widgets.each do |widget| %>
+                <%= render :partial => 'widget', :locals => {:dashboard => dashboard, :widget => widget} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="container dashboard__secondary">
+  <%-# we need render the dashboard row here, but where are the dashboard rows, are they dataset? -%>
+  <%-# the code logic could be the following commented lines. TO-DO: please implement the following logic -%>
+  <% if false %>
+    <% dashboard.rows.each do |row| %>
+    <div class="row">
+      <% row.each do |widget| %>
+        <%= render :partial => 'widget', :locals => {:dashboard => dashboard, :widget => widget} %>
+        <% end %> // end of widget loop
+     </div>
+     <% end %> // end of the dashboard row loop  
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="widget widget-text clearfix">
+      <div class="widget-text__inner aus-width-seven-twelfths">
+        <div class="widget__title">
+          <h4>Dashboard Information</h4>
+        </div>
+        <div id="dashboard-notes" class="widget__body">
+            <%-# render the dashboard notes here. TO-DO: please implement the following logic -%>
+            <% if false %>
+              if have dashboard notes
+                <p>dashboard notes</p>
+                else
+                <p>dashboard notes</p>
+            <% end %>
+        </div>
+      </div>
+      <div class="widget-text__footer aus-width-five-twelfths">
+           <%-# render the dashboard definition json link here. TO-DO: please implement the following logic -%>
+            <% if false %>
+              if dashboard exists tnen render the json link 
+               <p>Visit<a href="https://start.business.gov.au/" target="_blank">https://start.business.gov.au/
+               <i class="fa fa-external-link"></i></a></p>
+                <p><a href="/api/1/dashboards/3-hobby-or-business-tool-dashboard" 
+                ga-on="click" ga-event-category="Dashboard Show"
+                ga-event-action="Clicked Download Raw Dashboard Data" 
+                ga-event-label="<%= dashboard.name %>">View Raw Dashboard Data</a></p>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>

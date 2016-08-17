@@ -13,8 +13,9 @@ FactoryGirl.define do
         datasets_count 1
       end
 
-      after(:create) do |widget, evaluator|
-        create_list(:dataset_with_datapoints, evaluator.datasets_count, widgets: [widget])
+      after(:create) do |widget, evaluator|        
+        widget.datasets << create_list(:dataset_with_datapoints, evaluator.datasets_count)
+        widget.save!
       end
     end
 

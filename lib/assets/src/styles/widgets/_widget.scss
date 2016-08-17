@@ -414,7 +414,7 @@
 
 @include media($screen-md) {  // TODO remove this hack to fix truncation on hobby charts
   .dashboard__secondary {
-    .aus-width-one-half {
+    .medium {
       .widget__inner.pie {
         .chart {
           width: calc(100% - 200px);

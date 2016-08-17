@@ -1,3 +1,16 @@
-<div>
-  <%= dashboard.name %>
-</div>
+<div class=<%= DashboardHelper.sizeToStyle(widget.size) %>>
+  <div class="widget <%= widget.name.downcase %> has-data-<%= !widget.has_data? %> kpi-sparkline single">
+    <div id="<%= widget.name.downcase %>" class="widget__title">
+      <h4><%= widget.name %></h4>
+      <!--The following line should be populated with some data as shown in the jade lines below-->
+      <!--ga-event-category="#{track.CATEGORY_DASHBOARD_SHOW}", -->
+      <!--ga-event-action="#{track.ACTION_CLICK_HERO_WIDGET_LEGEND_INFO}", ga-event-label="#{widget.name}"-->
+      <a href="#dashboard-notes" title="View KPI <%= widget.name %> definition" class="fa fa-question-circle info"
+        ga-on="click" ga-event-category="Dashboard Show" ga-event-action="Clicked Hero Widget legend info"
+        ga-event-label="<%= widget.name %>"></a>
+      <div class="meta-group"></div>
+      <span class="widget__last-updated"><%= dashboard.updated_at.strftime("%d %b %Y %H:%M:%S") %></span>
+    </div>
+    <div data-data="" aria-hidden="true" class="widget__inner <%= widget.type %> single">
+    </div>
+  </div>

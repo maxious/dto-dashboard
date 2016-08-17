@@ -18,7 +18,7 @@
 		}
 	}
 
-	.aus-width-one-whole {
+	.full {
 		@include span-columns(12);
 		padding-left: 15px;
 		padding-right: 15px;
@@ -28,7 +28,7 @@
 	  margin-bottom: $spacing-unit;
 	}
 
-	.aus-width-one-whole {
+	.full {
 	  @include span-columns(12);
 	  padding-left: 15px;
 	  padding-right: 15px;

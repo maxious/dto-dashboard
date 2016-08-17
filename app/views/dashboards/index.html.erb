@@ -1,8 +1,36 @@
+<div class="container">
+  <section>
+    <div class="dashboards-intro">
+      <h1 class="sr-only">Dashboards</h1>
+      <p>The Performance Dashboard makes data open and accessible by measuring the performance of Australian government
+        services
+        against the Digital Service Standard.</p>
+      <p>This promotes government transparency and helps drive the ongoing improvement of government services – for all
+        Australians.
+      </p>
+    </div>
+  </section>
 
-<ul>
-  <% @dashboards.each do |dashboard| %>
-    <li>
-      <%= render :partial => 'widget', :locals => {:dashboard => dashboard} %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-unstyled clearfix">
+    <% dashboards.each do |dashboard| %>
+      <li class="item--australian-citizenship-appointment-booking-service-dashboard card row">
+        <div class="card__left">
+          <div>
+            <h2 class="card-title"><%= dashboard.name %></h2>
+            <div class="updated-at">
+              <p>Updated at <%= dashboard.published_at.strftime("%d %b %Y %H:%M:%S") %></p>
+            </div>
+          </div>
+          <%= link_to dashboard.name, dashboard_path(dashboard), :class => "card__link__visible" %>
+        </div>
+        <div class="card__right dashboard__kpis clearfix">
+          <% if dashboard.display_kpis? %>
+            <% dashboard.widgets.kpis.each do |widget| %>
+              <%= render :partial => 'overview_widget', :locals => { :dashboard => dashboard, :widget => widget.decorate } %>
+            <% end %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

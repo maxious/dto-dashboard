@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <title><%= content_for(:title) || "Australian Government Performance Dashboards" %></title>
+<head>
     <meta charset="utf-8">
+    <title><%= content_for(:title) || "Australian Government Performance Dashboards" %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content=""><!-- TODO this should be dynamically generated -->
+    <meta name="description" content=""><!-- TODO: this should be dynamically generated -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="<%= stylesheet_path('index.css') %>" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="<%= stylesheet_path('index.css') %>"/>
 
-    <%  # Google Analytics %>
+    <% # Google Analytics %>
     <script>dataLayer = []</script><!-- TODO this should be dynamically generated -->
-    <script>window.ga = window.ga || function () {
-          (ga.q = ga.q || []).push(arguments)
-        };
-    ga.l = +new Date;
-    ga('create', 'UA-61222473-3', 'auto');
-    // Autotrack plugins
-    ga('require', 'eventTracker');
-    ga('require', 'outboundLinkTracker');
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-61222473-3', 'auto'); // TODO this should be dynamically generated
+        // Autotrack plugins
+        ga('require', 'eventTracker');
+        ga('require', 'outboundLinkTracker');
 
-    ga('send', 'pageview');</script>
-    <script src="https://www.google-analytics.com/analytics.js"></script>
+        ga('send', 'pageview');</script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
     <% # End Google Analytics %>
-  </head>
+</head>
 
-  <body class="#{bodyClass}"><!-- TODO this should be dynamically generated -->
+<body class="#{bodyClass}"><!-- TODO this should be dynamically generated -->
     <!--[if IE 8]>
-    <p>You are using an outdated browser. Please upgrade your browser to improve your
-      experience.</p>
+    <p>You are using an outdated browser. Please upgrade your browser to improve your experience.</p>
     <![endif]-->
 
     <header>
-      <div class="skiptocontent"><a href="#main">Skip to main content</a></div>
-      <div class="prototype-warning">
-        <div class="prototype-warning-text">This is a working alpha and has limited functionality. Service data shown is
-          accurate as at the time it was published.
+        <div class="prototype-warning">
+            <div class="prototype-warning-text">This is a working alpha and has limited functionality. Service data shown is accurate as at the time it was published.</div>
         </div>
-      </div>
-      <div class="logo-primary">
-        <div class="container">
-          <a class="site-title block" href="/">
-            <img src="<%= image_path('gov-performance.svg') %>" alt="Logo of GOV.AU" />
-          </a>
-          <div class="toggle-group">
-            <span class="hidden-on-small">High contrast mode</span><input id="switch-mode" type="checkbox" name="switch-mode"
-                                                                          tabindex="0"><label for="switch-mode"><span class="aural"></span></label>
-            <div class="onoffswitch pull-right" aria-hidden="true">
-              <div class="onoffswitch-label">
-                <div class="onoffswitch-inner"></div>
-                <div class="onoffswitch-switch"></div>
-              </div>
+        <div class="logo-primary">
+            <div class="container">
+                <a href="/" class="site-title block">
+                    <img src="<%= image_path('gov-performance.svg') %>" alt="Logo of GOV.AU"/>
+                </a>
+                <div class="toggle-group">
+                    <span class="hidden-on-small">High contrast mode</span>
+                    <input id="switch-mode" type="checkbox" name="switch-mode" tabindex="0" />
+                    <label for="switch-mode">
+                        <span class="aural"></span>
+                    </label>
+                    <div class="onoffswitch pull-right" aria-hidden="true">
+                        <div class="onoffswitch-label">
+                            <div class="onoffswitch-inner"></div>
+                            <div class="onoffswitch-switch"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </header>
+
     <div id="main">
       <%= yield %>
     </div>
 
     <footer>
-      <section>
-        <img src="<%= image_path('coatofarms.svg') %>" height="76" alt="Logo of Commonwealth Coat of Arms" />
-        <ul>
-          <li><a href="https://www.dto.gov.au/standard/">Digital Service Standard</a></li>
-          <li><a href="https://www.dto.gov.au/standard/11-measure-performance/">About Performance Measurement</a></li>
-          <li><a href="/copyright">Copyright</a></li>
-          <li><a href="https://www.dto.gov.au/blog/">DTO Blog</a></li>
-          <li><a href="https://github.com/AusDTO/d3-charts-dto">Our Code</a></li>
-          <li><a href="/feedback">Please give feedback</a></li>
-        </ul>
-      </section>
+        <section>
+            <img src="<%= image_path('coatofarms.svg') %>" height="76" alt="Logo of Commonwealth Coat of Arms"/>
+            <ul>
+                <li><a href="https://www.dto.gov.au/standard/">Digital Service Standard</a></li>
+                <li><a href="https://www.dto.gov.au/standard/11-measure-performance/">About Performance Measurement</a></li>
+                <li><a href="/copyright">Copyright</a></li>
+                <li><a href="https://www.dto.gov.au/blog/">DTO Blog</a></li>
+                <li><a href="https://github.com/AusDTO/dto-dashboard">Our Code</a></li>
+                <li><a href="/feedback">Please give feedback</a></li>
+            </ul>
+        </section>
     </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-  <script src="<%= javascript_path('index.js') %>"></script>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+    <script src="<%= javascript_path('index.js') %>"></script>
+</body>
 </html>

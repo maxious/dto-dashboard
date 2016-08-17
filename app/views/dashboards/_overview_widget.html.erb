@@ -1,0 +1,9 @@
+<div class=<%= DashboardHelper.sizeToStyle(widget.size) %>>
+  <div class="widget <%= widget.name.downcase %> has-data-<%= !widget.has_data? %> kpi-sparkline single">
+    <div id="<%= widget.name.downcase %>" class="widget__title">
+      <h4><%= widget.name %></h4>
+    </div>
+    <div class="widget__inner" data-data="" aria-hidden="true">
+    </div>
+  </div>
+</div>
