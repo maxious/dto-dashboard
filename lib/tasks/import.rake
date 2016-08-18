@@ -18,7 +18,7 @@ namespace :import do
       data['datasets'].each do |ds|
         if ds['data'] == nil && isKPI(ds['id'], kpiComponents)
             d = Hash.new
-            d['label'] = Time.now.strftime('%Y-%m-')
+            d['label'] = Time.now.strftime('%Y-%m')
             d['value'] =  0
             ds['data'] = [1]
             ds['data'][0] = d
