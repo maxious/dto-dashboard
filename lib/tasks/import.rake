@@ -13,8 +13,38 @@ namespace :import do
       file = File.read("lib/data/#{name}-data.json")
       data = JSON.parse(file)
 
+      # check the data, if KPIs data are not set, we will add some default values in them
+      kpiComponents = %w(user-satisfaction cost-per-transaction digital-take-up completion-rate)
+      data['datasets'].each do |ds|
+        if ds['data'] == nil && isKPI(ds['id'], kpiComponents)
+            d = Hash.new
+            d['label'] = Time.now.strftime('%Y-%m-')
+            d['value'] =  0
+            ds['data'] = [1]
+            ds['data'][0] = d
+        end
+      end
+      # puts "#{data}"
+
       file = File.read("lib/data/#{name}-definition.json")
       definition = JSON.parse(file)
+
+      # check the definition layout section and make sure the KPIs are specified in it
+      layout = definition['layout']
+
+      if (layout[0]<=>["kpis"])==0 && (layout[1]<=>kpiComponents)==0 then
+        # it is the layout what we need
+      else
+        # this layout is not in a correct form
+        layoutKPI=[["kpis"], kpiComponents]
+        for i in 0..layout.length-1
+          if (layout[i] <=> ["kpis"]) != 0 && (layout[i]<=>kpiComponents) != 0 then
+            layoutKPI.push(layout[i])
+          end
+        end
+        definition['layout']=layoutKPI
+      end
+      # puts "#{definition['layout']}"
 
       organisation = Organisation.find_or_create_by!(:name => data['agency'], :url => data['url'])
 
@@ -33,7 +63,6 @@ namespace :import do
         # puts dataset['id']
 
         if dataset['data']
-
           dataset['data'].each do |data|
             ts = DateTime.strptime(data['label'], '%Y-%m')
             dataset_model.datapoints.create!(:ts => ts, :value => data['value'])
@@ -69,4 +98,15 @@ namespace :import do
     end
 
   end
+
+  def isKPI(kpiId, kpiComponents)
+     for k in kpiComponents do
+       if k==kpiId
+         return true
+       end
+     end
+      return false
+
+  end
+
 end
