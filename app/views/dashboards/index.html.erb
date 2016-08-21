@@ -17,7 +17,7 @@
               <p>Updated at <%= dashboard.published_at.strftime("%d %b %Y %H:%M:%S") %></p>
             </div>
           </div>
-          <a href="<% dashboard_path(dashboard) %>" class="card__link__visible">View <% dashboard.name %></a>
+          <a href="<%= dashboard.dashboard_path %>" class="card__link__visible">View <% dashboard.name %></a>
         </div>
         <div class="card__right dashboard__kpis clearfix">
           <% if dashboard.display_kpis? %>
