@@ -59,16 +59,6 @@ rake import:data
 
 ### Run the App
 
-Install npm dependencies for the front end build pipeline, run 
-```
-npm install
-```
-
-Compile the front end assets (later this will be part of rails server)
-```
-npm run build
-```
-
 Start the app on the default port (3000)
 ```
 rails server
@@ -81,6 +71,14 @@ bin/start.sh
 The site can now be viewed at `http://localhost:3000/`
 
 Administration is available at `http://localhost:3000/admin`
+
+
+## Run develop mode on Front end
+
+Open a new Terminal window and run
+```
+npm run start
+```
 
 ## Tests
 
