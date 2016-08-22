@@ -2,7 +2,7 @@
   "version":      "1",
   "updated_at":   "2016-01-01T01:01:01.111Z",
   "name":         "Permit Verification Service",
-  "url":          "",
+  "url":          "imports.url",
   "agency":       "DIBP",
   "service":      "dto.gov.au",
   "description":  "Permit Verification Service Dashboard",
@@ -11,7 +11,7 @@
     {
         "id":           "user-satisfaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "User satisfaction",
         "note":         "We do not have this data at the moment because we are....",
         "data":         null
@@ -19,7 +19,7 @@
     {
         "id":           "cost-per-transaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "$",
         "name":         "Cost per transaction",
         "note":         "We do not have this data at the moment because we are....",
         "data":         null
@@ -27,15 +27,15 @@
     {
         "id":           "completion-rate",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Completion rate",
         "note":         "We do not have this data at the moment because we are...",
-        "data": null
+        "data":         null
     },
     {
         "id":           "digital-take-up",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Digital take-up",
         "note":         "Digital take-up measures the percentage of import permits that are available in the Permit Verification Service.",
         "data": [
@@ -46,7 +46,7 @@
     {
         "id":           "clearing-time",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "secs",
+        "units":        "i",
         "name":         "Time to clear",
         "note":         "This shows the average time taken to clear a permit using the Permit Verifcation Service.",
         "data": [

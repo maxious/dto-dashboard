@@ -1,3 +1,53 @@
-<div>
-  <%= dashboard.name %>
+<div class=<%= size_to_style(widget.size) %>>
+  <div class="widget <%= widget.name.downcase %> has-data-<%= widget.has_data? %> <%= widget.style %>">
+    <div id="<%= widget.name.downcase %>" class="widget__title">
+      <h4><%= widget.name %></h4>
+      <!--The following line should be populated with some data as shown in the jade lines below-->
+      <!--ga-event-category="#{track.CATEGORY_DASHBOARD_SHOW}", -->
+      <!--ga-event-action="#{track.ACTION_CLICK_HERO_WIDGET_LEGEND_INFO}", ga-event-label="#{widget.name}"-->
+      <a href="#dashboard-notes" title="View KPI <%= widget.name %> definition" class="fa fa-question-circle info"
+        ga-on="click" ga-event-category="Dashboard Show" ga-event-action="Clicked Hero Widget legend info"
+        ga-event-label="<%= widget.name %>"></a>
+      <div class="meta-group">
+        <span class="widget__last-updated"><%= 'Last updated ' + dashboard.updated_at.strftime("%d %b %Y %H:%M:%S") %></span>
+      </div>
+      <div class="meta-group">
+        <% if widget.show_description? %>
+        <div class="widget__definition">
+            <span class="widget__definition--title" aria-describedby="tooltip--<%= widget.element_id %>">
+              What is this?
+            </span>
+            <div class="widget__definition--content" role="tooltip" id="tooltip--<%= widget.element_id %>">
+              <div class="widget__definition--content__inner">
+                <%= widget.description %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div data-data="" aria-hidden="true" class="widget__inner <%= widget.type %> single">
+    </div>
+    <div class="widget__data">
+      <table class="data-table table">
+        <%  widget.datasets.each do |dataset| %>
+          <caption>"<%= widget.name %>"</caption>
+          <tbody>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Value</th>
+            </tr>
+            <% if dataset.datapoints != nil then %>
+              <% dataset.datapoints.each do |datapoint| %>
+              <tr>
+                  <td scope="row"><%= datapoint.label() %></td>
+                  <td scope="row"><%= datapoint.value.round.to_s + " %"  %></td>
+              </tr>
+              <% end %>
+            <%end %>
+          </tbody>
+        <% end %>    
+      </table>
+    </div>
+  </div>
 </div>

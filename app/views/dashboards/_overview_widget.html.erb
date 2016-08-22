@@ -1,0 +1,31 @@
+<div class="<%= size_to_style(widget.size) %>">
+  <div class="widget <%= widget.name.downcase %> has-data-<%= !widget.has_data? %> kpi-sparkline single">
+    <div id="<%= widget.name.downcase %>" class="widget__title">
+      <h4><%= widget.name %></h4>
+    </div>
+    <div class="widget__inner" data-data="" aria-hidden="true">
+    </div>
+    <div class="widget__data">
+      <table class="data-table table">
+        <%  widget.datasets.each do |dataset| %>
+          <caption>"<%= widget.name %>"</caption>
+          <tbody>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Value</th>
+            </tr>
+            <% if dataset.datapoints != nil then %>
+              <% dataset.datapoints.each do |datapoint| %>
+              <tr>
+                  <td scope="row"><%= datapoint.label() %></td>
+                  <td scope="row"><%= datapoint.value.round.to_s + " %"  %></td>
+              </tr>
+              <% end %>
+            <%end %>
+          </tbody>
+        <% end %>    
+      </table>
+    </div>
+
+  </div>
+</div>

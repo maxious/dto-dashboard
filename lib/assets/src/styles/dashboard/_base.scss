@@ -1,10 +1,9 @@
 // todo - scope dashboard pages with parent scopes
-.home {
+.dashboards_index {
   .toggle-group {
     display: none;
   }
 }
-//.dashboard {}
 
 
 .container {
@@ -32,7 +31,7 @@
   padding-right: 15px;
 }
 
-.aus-width-one-half {
+.aus-width-one-half  {
   @include span-columns(6);
 
   @media (max-width: 768px) {
@@ -169,31 +168,6 @@ body {
 
 .block {
   display: block;
-}
-
-/* Skip link styles via webaim.org/techniques/skipnav/ */
-
-.skiptocontent a {
-  padding: 6px;
-  position: absolute;
-  top: -40px;
-  left: 0;
-  color: white;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
-  border-bottom-right-radius: 8px;
-  background: transparent;
-  transition: top 1s ease-out, background 1s linear;
-  z-index: 100;
-}
-
-.skiptocontent a:focus {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #bf1722;
-  outline: 0;
-  transition: top .1s ease-in, background .5s linear;
 }
 
 .no-data {

@@ -20,14 +20,24 @@ RSpec.describe Widget, type: :model do
   it { is_expected.to validate_inclusion_of(:type).in_array(type) }
   it { is_expected.to validate_inclusion_of(:units).in_array(units) }
 
-  # http://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html
-  describe 'json' do
-    let(:widget) { FactoryGirl.create(:widget_with_datasets) }
-
-    it '.data' do
-      expect(widget.data).to include("datasets")
-      expect(widget.data["datasets"].first).to include("datapoints")
-    end
+  context 'with no data' do
+    subject(:widget) { FactoryGirl.create(:widget) }
+    it { is_expected.to_not have_data }
   end
 
+  describe 'kpis' do
+    before {
+      Widget::KPIS.each{ |n| FactoryGirl.create(:widget, :name => n) }
+    }
+    subject { Widget.kpis }
+    it { is_expected.to have(4).widgets }
+  end
+
+  describe 'hero' do
+    before {
+      FactoryGirl.create(:widget, :is_hero => true)
+    }
+    subject { Widget.hero }
+    it { is_expected.to have(1).widget }
+  end
 end

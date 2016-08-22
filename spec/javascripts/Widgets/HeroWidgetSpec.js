@@ -1,4 +1,4 @@
-//import HeroWidget from '../../../lib/javascripts/Widgets/HeroWidget';
+//import HeroWidget from 'Widgets/HeroWidget';
 //import d3 from 'd3';
 
 module.exports = function() {

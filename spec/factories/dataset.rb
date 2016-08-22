@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :dataset do
     organisation
     sequence(:name) { |n| "dataset-#{n}" }
+    units '$'
 
     factory :dataset_with_datapoints do
       transient do

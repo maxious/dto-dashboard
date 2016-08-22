@@ -11,7 +11,7 @@
     {
         "id":           "user-satisfaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "User satisfaction",
         "note":         "This data is currently unavailable due to....",
         "data":         null
@@ -19,7 +19,7 @@
     {
         "id":           "cost-per-transaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "$",
         "name":         "Cost per transaction",
         "note":         "This data is currently unavailable due to....",
         "data":         null
@@ -27,7 +27,7 @@
     {
         "id":           "completion-rate",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Completion rate",
         "note":         "The percentage of visitors to the business.gov.au 'A business or a hobby?' page who go on to use the tool.",
         "data": [
@@ -37,7 +37,7 @@
     {
         "id":           "digital-take-up",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Digital take-up",
         "note":         "The percentage of users who successfully generate a result after starting the tool. This is calculated by dividing the total number of successfully completed transactions by the total number of started transactions.",
         "data": [
@@ -47,7 +47,7 @@
     {
         "id":           "click-through-ablis",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "ABLIS",
         "note":         "",
         "data": [
@@ -57,7 +57,7 @@
     {
         "id":           "click-through-ato",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "ATO",
         "note":         "",
         "data": [
@@ -67,7 +67,7 @@
     {
         "id":           "click-through-bus.gov",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "business.gov.au",
         "note":         "",
         "data": [
@@ -77,7 +77,7 @@
     {
         "id":           "click-through-ip",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "IP Australia",
         "note":         "",
         "data": [
@@ -87,7 +87,7 @@
     {
         "id":           "click-through-other",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Other",
         "note":         "",
         "data": [
@@ -97,7 +97,7 @@
     {
         "id":           "external-referrals-ext",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "External sites",
         "note":         "",
         "data": [
@@ -107,7 +107,7 @@
     {
         "id":           "external-referrals-direct",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Direct",
         "note":         "",
         "data": [
@@ -117,7 +117,7 @@
     {
         "id":           "help-sought-none",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "No help",
         "note":         "",
         "data": [
@@ -127,7 +127,7 @@
     {
         "id":           "help-sought-contact",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Help",
         "note":         "",
         "data": [
@@ -137,7 +137,7 @@
     {
         "id":           "device-usage-desktop",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Desktop",
         "note":         "",
         "data": [
@@ -147,7 +147,7 @@
     {
         "id":           "device-usage-mobile",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Mobile",
         "note":         "",
         "data": [
@@ -157,7 +157,7 @@
     {
         "id":           "device-usage-tablet",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Tablet",
         "note":         "",
         "data": [
@@ -167,7 +167,7 @@
     {
         "id":           "browser-usage-chrome",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Chrome",
         "note":         "",
         "data": [
@@ -177,7 +177,7 @@
     {
         "id":           "browser-usage-safari",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Safari",
         "note":         "",
         "data": [
@@ -187,7 +187,7 @@
     {
         "id":           "browser-usage-ie",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "IE",
         "note":         "",
         "data": [
@@ -197,7 +197,7 @@
     {
         "id":           "browser-usage-firefox",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Firefox",
         "note":         "",
         "data": [
@@ -207,7 +207,7 @@
     {
         "id":           "browser-usage-other",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Other",
         "note":         "",
         "data": [

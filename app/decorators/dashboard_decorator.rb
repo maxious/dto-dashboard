@@ -1,18 +1,23 @@
 class DashboardDecorator < Draper::Decorator
   delegate_all
 
-  def recorded_at
-    # return _.last(_.map(this.data.datasets, (d) => d.recorded_at).sort());
-    # object.datasets.
+  def show_hero?
+    display_hero && display_kpis && widgets.hero.present?
   end
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def show_kpis?
+    display_kpis && widgets.kpis.any?
+  end
 
+  def show_notes?
+    notes.present?
+  end
+
+  def show_url?
+    url.present?
+  end
+
+  def css_class
+    name.parameterize
+  end
 end

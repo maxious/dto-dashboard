@@ -13,7 +13,7 @@ import addStackBarChartNegativeSpec from 'd3-charts-dto/spec/javascripts/Charts/
 import addPieChartSpec from 'd3-charts-dto/spec/javascripts/Charts/PieChartSpec.js';
 
 import addAxisSpec from 'd3-charts-dto/spec/javascripts/Charts/AxisSpec.js';
-//import addXAxisSpec from 'd3-charts-dto/spec/javascripts/Charts/XAxisSpec.js';
+// import addXAxisSpec from 'd3-charts-dto/spec/javascripts/Charts/XAxisSpec.js';
 import addLayerSpec from 'd3-charts-dto/spec/javascripts/Charts/LayerSpec.js';
 import addOverlayLayerSpec from 'd3-charts-dto/spec/javascripts/Charts/OverlayLayerSpec.js';
 

@@ -26,6 +26,7 @@ Otherwise, create a `.env` file in the Rails directory and populate with the rel
 DB_HOST = '127.0.0.1'
 DB_USER_NAME = 'dashboard'
 DB_PWD = 'password'
+GA_UA_CODE = 'UA-61222473-3'
 ```
 
 If you don't have Bundler installed
@@ -71,6 +72,10 @@ npm run build
 Start the app on the default port (3000)
 ```
 rails server
+```
+
+```
+bin/start.sh
 ```
 
 The site can now be viewed at `http://localhost:3000/`
@@ -162,3 +167,7 @@ For advice for writing specs check [betterspecs](http://betterspecs.org/).
  - A review should ideally involve actually checking out and running the code, and sanity checking it before merge.
 
  - Close any related issues​ in Jira
+
+### Coding Standard/s
+
+[https://github.com/bbatsov/ruby-style-guide](Ruby Style Guide)

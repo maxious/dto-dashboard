@@ -7,16 +7,21 @@ FactoryGirl.define do
     units     'n'
     row       0
     pos       0
-
+    is_hero   false
+    
     factory :widget_with_datasets do
       transient do
         datasets_count 1
       end
 
       after(:create) do |widget, evaluator|
-        create_list(:dataset_with_datapoints, evaluator.datasets_count, widgets: [widget])
+        widget.datasets << create_list(:dataset_with_datapoints, evaluator.datasets_count)
+        widget.save!
+      end
+
+      factory :widget_hero do
+        is_hero true
       end
     end
-
   end
 end

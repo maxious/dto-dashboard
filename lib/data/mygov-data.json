@@ -362,7 +362,7 @@
         "id":           "new-accounts",
         "name" : "New accounts",
         "recorded_at":  "2016-05-31T01:01:01.111Z",
-        "units":        "",
+        "units":        "i",
         "note": "note for this dataset",
         "data": [
           { "label": "2015-03", "value": 182284 },
@@ -385,7 +385,7 @@
         "id":           "sign-ins-per-account",
         "name": "Sign in per account",
         "recorded_at":  "2016-04-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "n",
         "note": "note for this dataset",
         "data": [
           { "label": "2015-03", "value": 0.41 },
@@ -409,7 +409,7 @@
         "recorded_at":  "2016-04-30T01:01:01.111Z",
         "name":         "Visits to member services",
         "note":         "The average number of member services a user visits during sign-in",
-        "units":        "",
+        "units":        "n",
         "data": [
           { "label": "2015-03", "value": 1.38 },
           { "label": "2015-04", "value": 1.31 },
@@ -431,7 +431,7 @@
     {
         "id":           "total-accounts",
         "recorded_at":  "2016-04-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "i",
         "name":         "Total accounts",
         "note":         "The total number of myGov accounts held be all users",
         "data": [

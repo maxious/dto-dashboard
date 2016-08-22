@@ -1,4 +1,5 @@
-import SparklineWidget from '../../../lib/javascripts/Widgets/SparklineWidget';
+import SparklineWidget from 'Widgets/SparklineWidget';
+
 import d3 from 'd3';
 module.exports = function() {
   describe('sparkline widget creation', () => {

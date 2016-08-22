@@ -1,4 +1,4 @@
-import converDataForHero from '../../../lib/javascripts/Helpers/convertDataForHero';
+import converDataForHero from 'Helpers/convertDataForHero';
 import d3 from 'd3';
 module.exports = function() {
   describe('convert for hero', () => {

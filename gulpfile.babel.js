@@ -1,5 +1,9 @@
 import gulp from 'gulp';
+
 import path from 'path';
+
+import del from 'del';
+
 import babelify from 'babelify';
 import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
@@ -20,29 +24,52 @@ import autoprefixer from 'gulp-autoprefixer';
 import bourbon from 'bourbon';
 import bourbonNeat from 'bourbon-neat';
 
+var browserSync = require('browser-sync').create();
+
 
 export const ENV = process.env.NODE_ENV || 'development';
 export const DIR_SRC = path.join(__dirname, 'lib/assets/src');
 export const DIR_DIST = path.join(__dirname, 'public');
 export const DIR_NPM = path.join(__dirname, 'node_modules');
-export const DIR_TEST = path.join(__dirname, 'lib/assets/tests');
-export const DIR_TESTDIST = path.join(__dirname, '.tmp');
+
+export const DIR_TESTS = path.join(__dirname, 'lib/assets/tests/');
+export const DIR_TESTS_LEGACY = path.join(__dirname, 'spec/javascripts'); // TODO - deprecate
+export const DIR_DIST_TESTS = path.join(__dirname, 'lib/assets/tests/.tmp');
+export const DIR_DIST_TESTS_LEGACY = path.join(__dirname, './spec/build');   // TODO - deprecate
+
+export const DIR_SRC_STYLES = path.join(DIR_SRC, 'styles');
+export const DIR_SRC_SCRIPTS = path.join(DIR_SRC, 'scripts');
+export const DIR_SRC_IMAGES = path.join(DIR_SRC, 'images');
+export const DIR_DIST_STYLES = path.join(DIR_DIST, 'stylesheets');
+export const DIR_DIST_SCRIPTS = path.join(DIR_DIST, 'javascripts');
+export const DIR_DIST_IMAGES = path.join(DIR_DIST, 'images');
 
 const jsSource = {
     dev: {
         name: 'dev',
-        entry: `${DIR_SRC}/scripts`,
+        entry: DIR_SRC_SCRIPTS,
         build: 'javascripts/index.js',
         dest: DIR_DIST
     },
     test: {
         name: 'test',
-        entry: `${DIR_TEST}/scripts`,
+        entry: DIR_TESTS_LEGACY,
         build: 'index.js',
-        dest: DIR_TESTDIST
+        dest: DIR_DIST_TESTS_LEGACY
     }
 };
 
+const browserSyncConf = {
+	proxy: 'http://localhost:3000',  // local node app address
+	port: 3001,  // use *different* port than above to 'detach' client side
+	notify: true,
+	open: true
+};
+
+
+function reload() {
+	browserSync.reload();
+}
 
 function handleErrors() {
     const args = Array.prototype.slice.call(arguments);
@@ -120,13 +147,38 @@ function watch(env, minify) {
     return rebundle();
 }
 
+function clean(files, done) {
+  return del(files, done);
+}
+
 
 /**
  * Tasks
  */
 
-gulp.task('sass', function () {
-	return gulp.src(`${DIR_SRC}/styles/**/*.scss`)
+gulp.task('clean', (done) => {
+	return clean([
+		DIR_DIST_STYLES + '/**/*',  // don't remove the folder
+		DIR_DIST_SCRIPTS + '/**/*',
+		DIR_DIST_IMAGES + '/**/*',
+	], done);
+});
+
+gulp.task('clean:tests', (done) => {
+  return clean([
+    DIR_DIST_TESTS
+  ], done);
+});
+
+gulp.task('clean:tests:legacy', (done) => {
+	return clean([
+    DIR_DIST_TESTS_LEGACY
+	], done);
+});
+
+
+gulp.task('sass', () => {
+	return gulp.src(`${DIR_SRC_STYLES}/**/*.scss`)
 		.pipe(sassLint({
 			configFile: './.sass-lint.yml'
 		}))
@@ -139,50 +191,50 @@ gulp.task('sass', function () {
 				bourbonNeat.includePaths
 			]
 		}).on('error', sass.logError))
+		.pipe( print( (file) => 'Reading Sass: ' + file) )
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(`${DIR_DIST}/stylesheets`));
-});
-
-gulp.task('sass:watch', function () {
-    gulp.watch(`${DIR_SRC}/styles/**/*.scss`, ['sass']);
+		.pipe(gulp.dest(DIR_DIST_STYLES));
 });
 
 
-gulp.task('scripts', function dev() {
-    return build(jsSource.dev, false);
-});
+gulp.task('scripts', () => build(jsSource.dev, false));
 
-gulp.task('scripts:watch', function() {
-    return watch(jsSource.dev, false);
-});
+gulp.task('scripts_watch', () => watch(jsSource.dev, false));
 
 
-gulp.task('test', function test() {
-    return build(jsSource.test, false);
-});
+gulp.task('test:legacy', () => build(jsSource.test, false));  // TODO - deprecate
 
-gulp.task('test:watch', function watchTest() {
-    return watch(jsSource.test, false);
-});
+gulp.task('test_watch:legacy', () => watch(jsSource.test, false));  // TODO - deprecate
 
 
 gulp.task('images', () => {
-	return gulp.src(`${DIR_SRC}/images/**/*.{jpg,png,gif,svg}`)
-		.pipe( changed(`${DIR_DIST}/images`) )  // ignore unchanged
-		.pipe( print(function(file) {return 'Processing IMAGE: ' + file; }) )
-		.pipe( gulp.dest(`${DIR_DIST}/images`) );
+	return gulp.src(`${DIR_SRC_IMAGES}/**/*.{jpg,png,gif,svg}`)
+		.pipe( changed(DIR_DIST_IMAGES) )                       // ignore unchanged
+		.pipe( print((file) => 'Reading IMAGE: ' + file))
+		.pipe( gulp.dest(`${DIR_DIST_IMAGES}/`) );
 });
 
-gulp.task('images:watch', ['images']);
+
+function watch() {
+	gulp.watch(`${DIR_SRC_STYLES}/**/*.scss`).on('change', gulp.series('sass', reload));
+	gulp.watch(`${DIR_SRC_SCRIPTS}/**/*.js`).on('change', gulp.series('scripts_watch', reload));
+	gulp.watch(`${DIR_SRC_IMAGES}/**/*.{jpg,png,gif,svg}`).on('change', gulp.series('images', reload));
+}
+
+gulp.task('connect', () => {
+	browserSync.init(browserSyncConf);
+});
 
 
 /**
  * Workflows
  */
 
-gulp.task('default', ['build']);
+gulp.task('test', gulp.series('clean:tests:legacy', 'test:legacy'));
 
-gulp.task('build', ['scripts', 'sass', 'images', 'test']);
+gulp.task('build', gulp.series('clean', gulp.parallel('scripts', 'sass', 'images')));
 
-gulp.task('watch', ['build', 'scripts:watch', 'sass:watch', 'images:watch', 'test:watch']);
+gulp.task('watch', gulp.series('build', watch));
+
+gulp.task('serve', gulp.series('build', 'connect', watch));

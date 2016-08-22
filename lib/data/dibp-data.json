@@ -11,9 +11,9 @@
     {
         "id":           "user-satisfaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "User satisfaction",
-        "note":         "",        
+        "note":         "",
         "data": [
           { "label": "2016-03", "value": 99},
           { "label": "2016-04", "value": 95},
@@ -24,17 +24,17 @@
     {
         "id":           "cost-per-transaction",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "$",
         "name":         "Cost per transaction",
-        "note":         "",        
+        "note":         "",
         "data": null
     },
     {
         "id":           "completion-rate",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Completion rate",
-        "note":         "",        
+        "note":         "",
         "data": [
           { "label": "2016-03", "value":  94 },
           { "label": "2016-04", "value":  92 },
@@ -45,9 +45,9 @@
     {
         "id":           "digital-take-up",
         "recorded_at":  "2016-06-30T01:01:01.111Z",
-        "units":        "",
+        "units":        "%",
         "name":         "Digital take-up",
-        "note":         "",        
+        "note":         "",
         "data": [
           { "label": "2016-03", "value":  1.9 },
           { "label": "2016-04", "value":  15 },
@@ -60,7 +60,7 @@
       "id": "device-type-01",
       "name": "Mobile",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  43 },
@@ -73,7 +73,7 @@
       "id": "device-type-02",
       "name": "Tablet",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  6 },
@@ -87,7 +87,7 @@
       "id": "device-type-03",
       "name": "Desktop",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  51 },
@@ -101,7 +101,7 @@
       "id": "browser-usage-chrome",
       "name": "Chrome",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  16 },
@@ -115,7 +115,7 @@
       "id": "browser-usage-safari",
       "name": "Safari",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  34 },
@@ -129,7 +129,7 @@
       "id": "browser-usage-mozilla",
       "name": "Firefox",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  23 },
@@ -143,7 +143,7 @@
       "id": "browser-usage-IE",
       "name": "Internet Explorer",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  16 },
@@ -157,7 +157,7 @@
       "id": "browser-usage-other",
       "name": "Other",
       "recorded_at": "2016-06-30T01:01:01.111Z",
-      "units": "",
+      "units": "i",
       "note": "note for this dataset",
       "data": [
           { "label": "2016-03", "value":  11 },

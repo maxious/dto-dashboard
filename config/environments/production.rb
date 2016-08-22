@@ -83,4 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Build front end
+  # config.after_initialize do
+  #   system 'npm run build'
+  # end
 end

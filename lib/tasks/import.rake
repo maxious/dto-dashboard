@@ -25,12 +25,15 @@ namespace :import do
       datasets = {}
 
       data['datasets'].each do |dataset|
-        dataset_model = Dataset.create!(:name => dataset['name'], :organisation => organisation)
+        units = dataset["units"] || 'n'
+        dataset_model = Dataset.create!(:name => dataset['name'], :organisation => organisation, :units => units)
 
-        # puts dataset['name']
         datasets[dataset['id']] = dataset_model
 
+        # puts dataset['id']
+
         if dataset['data']
+
           dataset['data'].each do |data|
             ts = DateTime.strptime(data['label'], '%Y-%m')
             dataset_model.datapoints.create!(:ts => ts, :value => data['value'])
@@ -44,11 +47,11 @@ namespace :import do
         }.compact.flatten
 
         # puts widget['id']
-
+        description = widget['definition'].present? ? widget['definition'] : widget['description']
         widget_model = Widget.create!(
           :dashboard => dashboard,
           :name => widget['name'],
-          :description => widget['definition'] || widget['description'],
+          :description => description,
           :type => widget['type'],
           :size => widget['size'],
           :units => widget['units'],
