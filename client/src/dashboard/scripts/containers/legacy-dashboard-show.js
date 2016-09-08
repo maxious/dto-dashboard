@@ -21,6 +21,7 @@ class LegacyDashboardShow {
   render(props) {
     let self = this;
     let chartData = null;
+    let sparkline;
     self.props = props;
 
     self.props.widgets.forEach((w) => {
@@ -28,6 +29,38 @@ class LegacyDashboardShow {
       let datasets = getDatasetsByWidgetId(self.props.datasets, w.id);
 
       switch (w.type) {
+
+        case 'line':
+          el.each(function() {
+            chartData = convertDataForLine(datasets);
+            let options = {
+              data: chartData,
+              height: C_HEIGHT,
+              element: el,
+              type: w.type,
+              margin: {top: 20, right: 5, bottom: 20, left: 40},
+              showLegend: true,
+              showNullData: true,
+              showOverlay: true,
+              showXAxis: true,
+              showYAxis: true,
+              prefix: w.prefix,
+              suffix: w.suffix,
+              units: w.units,
+              padding: {
+                left: 20,
+                right: 20,
+                top: 0,
+                bottom: 0
+              },
+              displayRoundedData: w.displayRoundedData,
+              isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
+            };
+
+            let chartWidget = new ChartWidget(options);
+            // self.charts.push(chartWidget);
+          });
+
         case 'bar':
           el.each(function() {
             chartData = convertDataForLine(datasets);
@@ -96,11 +129,12 @@ class LegacyDashboardShow {
           break;
 
         case 'sparkline':
+          chartData = convertData(datasets);
           el.each(function() {
             chartData = convertData(datasets);
             let options = {
               element: el,
-              data: datasets,
+              data: chartData,
               prefix: w.prefix,
               suffix: w.suffix,
               units: w.units,
@@ -108,20 +142,11 @@ class LegacyDashboardShow {
               isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
             };
 
-            let sparkline = new SparklineWidget(options);
+            sparkline = new SparklineWidget(options);
             // self.charts.push(sparkline);
           });
           break;
 
-
-
-        // case 'kpi-sparkline':
-        //   break;
-        //
-
-
-        default:
-          console.error('No chart type for widget type:', w.type);
       }
     });
     return this;

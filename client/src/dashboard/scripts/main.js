@@ -20,12 +20,6 @@ let DashboardShowView = new DashboardShow(store);
 
 domready(() => {
 
-  let patterns = createPatterns();
-  let patternsDark = createPatterns({darken:true});
-  window.patterns = patterns;
-  window.patternsDark = patternsDark;
-  window.testChartWidth = 200;
-
   let _widgetsData = [];
   selectAll('.bar .widget__inner').each(function() {
     _widgetsData.push(JSON.parse(this.getAttribute('data-data')));
@@ -52,6 +46,8 @@ domready(() => {
     // delete w.datasets; // todo - shitty old data transformation code needs this
   });
   store.dispatch(createWidgets(_widgetsData));
+
+
 
   DashboardShowView.render(store.getState());
 

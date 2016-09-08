@@ -1,3 +1,8 @@
+import createPatterns from './../Helpers/createPatterns';
+
+let patterns = createPatterns();
+let patternsDark = createPatterns({darken:true});
+
 import getColors from './getColors.js';
 
 
@@ -21,15 +26,15 @@ function getColor(id, i, data) {
   if (kpiColors[id]) {
     return {
       color: kpiColors[id],
-      altColor: window.patterns[i],
-      altColorDark: window.patternsDark[i],
+      altColor: patterns[i],
+      altColorDark: patternsDark[i],
       altLineStyle: kpiLineStyles[id]
     }
   }
   return {
     color: getColors()[i],
-    altColor: window.patterns[i],
-    altColorDark: window.patternsDark[i],
+    altColor: patterns[i],
+    altColorDark: patternsDark[i],
     altLineStyle: data.length > 1 ? lineStyles[i] : 0
   };
 }
