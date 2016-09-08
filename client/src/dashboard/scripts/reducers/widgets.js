@@ -41,6 +41,3 @@ export default widgetsReducer;
 
 // Helpers
 
-export const getWidgetDatasets = widget_state => {
-  return widget_state.find(() => id === widget_state.id);
-};

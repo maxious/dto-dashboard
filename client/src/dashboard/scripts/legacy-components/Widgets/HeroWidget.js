@@ -2,10 +2,10 @@ import d3 from 'd3';
 import _ from 'lodash';
 
 //import BenchMark from 'Charts/BenchMark.js';
-import LineChart from 'd3-charts-dto/lib/javascripts/Charts/LineChart.js';
-import NullDataLayer from 'd3-charts-dto/lib/javascripts/Charts/NullDataLayer.js';
-import OverlayLayer from 'd3-charts-dto/lib/javascripts/Charts/OverlayLayer.js';
-import getDate from 'd3-charts-dto/lib/javascripts/Helpers/getDate.js';
+import LineChart from './../../_vendor/d3-charts-dto/Charts/LineChart.js';
+import NullDataLayer from './../../_vendor/d3-charts-dto/Charts/NullDataLayer.js';
+import OverlayLayer from './../../_vendor/d3-charts-dto/Charts/OverlayLayer.js';
+import getDate from './../../_vendor/d3-charts-dto/Helpers/getDate.js';
 import debounceD3Event from './../utilities/debounce-d3-event';
 import { handleGaEvent } from './../services/google-analytics';
 var track = require('./../constants/tracking');

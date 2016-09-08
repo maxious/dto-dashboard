@@ -1,14 +1,14 @@
 import d3 from 'd3';
 //import BenchMark from 'Charts/BenchMark.js';
-import Legend from 'd3-charts-dto/lib/javascripts/Charts/Legend.js';
-import LineChart from 'd3-charts-dto/lib/javascripts/Charts/LineChart.js';
-import StackBarChart from 'd3-charts-dto/lib/javascripts/Charts/StackBarChart.js';
-import PieChart from 'd3-charts-dto/lib/javascripts/Charts/PieChart.js';
+import Legend from './../../_vendor/d3-charts-dto/Charts/Legend.js';
+import LineChart from './../../_vendor/d3-charts-dto//Charts/LineChart.js';
+import StackBarChart from './../../_vendor/d3-charts-dto//Charts/StackBarChart.js';
+import PieChart from './../../_vendor/d3-charts-dto//Charts/PieChart.js';
 
-import NullDataLayer from 'd3-charts-dto/lib/javascripts/Charts/NullDataLayer.js';
-import OverlayLayer from 'd3-charts-dto/lib/javascripts/Charts/OverlayLayer.js';
-import XAxis from 'd3-charts-dto/lib/javascripts/Charts/XAxis';
-import YAxis from 'd3-charts-dto/lib/javascripts/Charts/YAxis';
+import NullDataLayer from './../../_vendor/d3-charts-dto//Charts/NullDataLayer.js';
+import OverlayLayer from './../../_vendor/d3-charts-dto//Charts/OverlayLayer.js';
+import XAxis from './../../_vendor/d3-charts-dto//Charts/XAxis';
+import YAxis from './../../_vendor/d3-charts-dto//Charts/YAxis';
 
 import debounceD3Event from './../utilities/debounce-d3-event';
 import { handleGaEvent } from './../services/google-analytics';
@@ -20,7 +20,7 @@ const MIN_ENGAGED_TIME = 2000;
 class ChartWidget {
 
   constructor(options) {
-    this.props = {
+    this._props = {
       trackedClickEngagement: false,
       trackedHoverEngagement: false,
       hoverEngagementTimer: null,
@@ -79,7 +79,7 @@ class ChartWidget {
       }
     }
 
-    this.props.elBounds = this.element[0][0].getBoundingClientRect();  // {top: 199.5625, right: 516, bottom: 349.5625, left: 15, width: 501…}
+    this._props.elBounds = this.element[0][0].getBoundingClientRect();  // {top: 199.5625, right: 516, bottom: 349.5625, left: 15, width: 501…}
 
     this.bindEvents();
     return this;
@@ -93,9 +93,9 @@ class ChartWidget {
   }
 
   onClick() {
-    if (!this.props.trackedClickEngagement) {
+    if (!this._props.trackedClickEngagement) {
       handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
-      this.props.trackedClickEngagement = true;
+      this._props.trackedClickEngagement = true;
     }
   }
 
@@ -105,28 +105,28 @@ class ChartWidget {
       return;
     }
     if (!self.props.hoverEngagementTimer) {
-      self.props.hoverEngagementTimer = setTimeout(function() {
-        if (!self.props.isHoverEngaged) {
+      self._props.hoverEngagementTimer = setTimeout(function() {
+        if (!self._props.isHoverEngaged) {
           handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
-          self.props.isHoverEngaged = true;
+          self._props.isHoverEngaged = true;
         }
       }, MIN_ENGAGED_TIME);
-      this.props.trackedHoverEngagement = true;
+      this._props.trackedHoverEngagement = true;
     }
   }
 
   resetEngagement() {
-    if (!this.props.hoverEngagementTimer && this.props.trackedHoverEngagement) {
+    if (!this._props.hoverEngagementTimer && this._props.trackedHoverEngagement) {
       return;
     }
     let e = d3.event;
     var mousePos = {'x': e.layerX, 'y': e.layerY};
     if (!(  // if i leave the element perim
-        (mousePos.x >= this.props.elBounds.left && mousePos.x <= this.props.elBounds.right) ||
-        (mousePos.y >= this.props.elBounds.top && mousePos.y <= this.props.elBounds.bottom)
+        (mousePos.x >= this._props.elBounds.left && mousePos.x <= this._props.elBounds.right) ||
+        (mousePos.y >= this._props.elBounds.top && mousePos.y <= this._props.elBounds.bottom)
     )) {
-      clearTimeout(this.props.hoverEngagementTimer);
-      this.props.hoverEngagementTimer = null;
+      clearTimeout(this._props.hoverEngagementTimer);
+      this._props.hoverEngagementTimer = null;
     }
   }
 

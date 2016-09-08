@@ -10,6 +10,7 @@ function convertDataForLine(_data, _range) {
   let range = _range || 13;
   if(data && data.length){
     for (let i = 0; i < data.length; i ++) {
+
       if(data[i].data.length > 13) {
         let t = cropData(data[i].data, range);
         data[i].data = t;
@@ -19,4 +20,6 @@ function convertDataForLine(_data, _range) {
   }
   return null;
 }
+
+export default convertDataForLine;
 module.exports = convertDataForLine;

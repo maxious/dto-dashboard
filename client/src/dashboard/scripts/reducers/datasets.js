@@ -40,3 +40,7 @@ export default datasetsReducer;
 
 
 // Helpers
+
+export const getDatasetsByWidgetId = (state, widget_id) => {
+  return state.filter((d) => d.widget_id === widget_id);
+};

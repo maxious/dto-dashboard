@@ -4,8 +4,10 @@ import { select, selectAll } from 'd3-selection';
 
 import configureStore from './store/configureStore';
 import initialState from './store/initialState';
+
 import { createWidgets } from './actions/widgets';
 import { createDatasets } from './actions/datasets';
+import createPatterns from './legacy-components/Helpers/createPatterns';
 import DashboardShow from './containers/legacy-dashboard-show';
 
 
@@ -17,6 +19,12 @@ let DashboardShowView = new DashboardShow(store);
 
 
 domready(() => {
+
+  let patterns = createPatterns();
+  let patternsDark = createPatterns({darken:true});
+  window.patterns = patterns;
+  window.patternsDark = patternsDark;
+  window.testChartWidth = 200;
 
   let _widgetsData = [];
   selectAll('.bar .widget__inner').each(function() {
@@ -41,7 +49,7 @@ domready(() => {
       d.widget_id = w.id;
     });
     store.dispatch(createDatasets(w.datasets));
-    delete w.datasets;
+    // delete w.datasets; // todo - shitty old data transformation code needs this
   });
   store.dispatch(createWidgets(_widgetsData));
 

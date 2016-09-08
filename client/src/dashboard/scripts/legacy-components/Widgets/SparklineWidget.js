@@ -1,8 +1,8 @@
-import formatData from 'd3-charts-dto/lib/javascripts/Helpers/formatData';
-import LineChart from 'd3-charts-dto/lib/javascripts/Charts/LineChart.js';
-import getDate from 'd3-charts-dto/lib/javascripts/Helpers/getDate';
-import NullDataLayer from 'd3-charts-dto/lib/javascripts/Charts/NullDataLayer.js';
-import defined from 'd3-charts-dto/lib/javascripts/Helpers/defined.js';
+import formatData from './../../_vendor/d3-charts-dto/Helpers/formatData';
+import LineChart from './../../_vendor/d3-charts-dto/Charts/LineChart.js';
+import getDate from './../../_vendor/d3-charts-dto/Helpers/getDate';
+import NullDataLayer from './../../_vendor/d3-charts-dto/Charts/NullDataLayer.js';
+import defined from './../../_vendor/d3-charts-dto/Helpers/defined.js';
 
 class SparklineWidget {
   constructor(options) {
