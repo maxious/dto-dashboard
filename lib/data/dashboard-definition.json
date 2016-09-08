@@ -1,0 +1,61 @@
+{
+  "name":         "Performance Dashboard Dashboard",
+  "url":          "https://dashboard.gov.au/",
+  "agency":       "DTO",
+  "notes":        "",
+  "widgets":  [
+    {
+      "id":   "kpis",
+      "updated_at": "2016-11-08T01:01:01.111Z",
+
+      "name": "Kpis",
+      "type": "full",
+      "size": "extra-large",
+      "units": "n",
+      "is_hero": true,
+      "datasets": ["user-satisfaction", "cost-per-transaction", "digital-take-up", "completion-rate"]
+    },
+    {
+      "id":   "user-satisfaction",
+      "updated_at": "2016-11-08T01:01:01.111Z",
+      "name": "User Satisfaction",
+      "type": "kpi-sparkline",
+      "size": "extra-small",
+      "units": "%",
+      "definition": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "datasets": ["user-satisfaction"]
+    },
+    {
+      "id":   "cost-per-transaction",
+      "updated_at": "2016-11-08T01:01:01.111Z",
+      "name": "Cost Per Transaction",
+      "type": "kpi-sparkline",
+      "size": "extra-small",
+      "units": "$",
+      "datasets": ["cost-per-transaction"]
+    },
+    {
+      "id":   "digital-take-up",
+      "updated_at": "2016-11-08T01:01:01.111Z",
+      "name": "Digital Take-up",
+      "type": "kpi-sparkline",
+      "size": "extra-small",
+      "units": "%",
+      "datasets": ["digital-take-up"]
+    },
+    {
+      "id":   "completion-rate",
+      "updated_at": "2016-11-08T01:01:01.111Z",
+      "name": "Completion Rate",
+      "type": "kpi-sparkline",
+      "size": "extra-small",
+      "units": "%",
+      "definition": "Percentage of transactions made using the digital service.",
+      "datasets": ["completion-rate"]
+    }
+  ],
+  "layout": [
+    ["kpis"],
+    ["user-satisfaction", "cost-per-transaction", "digital-take-up", "completion-rate"]
+  ]
+}

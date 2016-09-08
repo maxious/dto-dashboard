@@ -4,12 +4,12 @@ namespace :import do
   desc 'Imports Data'
 
   task update: :environment do
-    orgs = %w(industry)
+    orgs = %w(industry dashboard)
     run(orgs)
   end
 
   task data: :environment do
-    orgs = %w(mygov dibp industry imports medicare-enrolment marketplace)
+    orgs = %w(mygov dibp industry imports medicare-enrolment marketplace dashboard)
     run(orgs)
   end
 
@@ -20,7 +20,8 @@ namespace :import do
       'industry' => 3,
       'imports' => 4,
       'medicare-enrolment' => 6,
-      'marketplace' => 7
+      'marketplace' => 7,
+      'dashboard' => 8
     }
 
     orgs.each do |name|
