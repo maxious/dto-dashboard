@@ -95,11 +95,30 @@ class LegacyDashboardShow {
           });
           break;
 
+        case 'sparkline':
+          el.each(function() {
+            chartData = convertData(datasets);
+            let options = {
+              element: el,
+              data: datasets,
+              prefix: w.prefix,
+              suffix: w.suffix,
+              units: w.units,
+              displayRoundedData: w.displayRoundedData,
+              isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
+            };
+
+            let sparkline = new SparklineWidget(options);
+            // self.charts.push(sparkline);
+          });
+          break;
+
+
+
         // case 'kpi-sparkline':
         //   break;
         //
-        // case 'sparkline':
-        //   break;
+
 
         default:
           console.error('No chart type for widget type:', w.type);
