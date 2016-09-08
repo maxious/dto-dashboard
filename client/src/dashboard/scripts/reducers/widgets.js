@@ -4,8 +4,10 @@ import * as types from './../actions/_types';
 
 const widget = (state = {}, action) => {
   switch (action.type) {
+
     case types.CREATE_WIDGET:
       return action.payload;
+
     default:
       return state;
   }
@@ -13,6 +15,7 @@ const widget = (state = {}, action) => {
 
 const widgetsReducer = (state = initialState.widgets, action) => {
   switch (action.type) {
+
     case types.CREATE_WIDGETS:
       let list = action.payload.map((p) => {
         return widget('', Object.assign({
@@ -27,6 +30,7 @@ const widgetsReducer = (state = initialState.widgets, action) => {
         ...state,
         widget('', action)
       ];
+
     default:
       return state;
   }

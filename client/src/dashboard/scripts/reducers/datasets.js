@@ -4,8 +4,10 @@ import * as types from './../actions/_types';
 
 const dataset = (state = {}, action) => {
   switch (action.type) {
+
     case types.CREATE_DATASET:
       return action.payload;
+
     default:
       return state;
   }
@@ -13,6 +15,7 @@ const dataset = (state = {}, action) => {
 
 const datasetsReducer = (state = initialState.datasets, action) => {
   switch (action.type) {
+
     case types.CREATE_DATASETS:
       let list = action.payload.map((p) => {
         return dataset('', Object.assign({
@@ -27,6 +30,7 @@ const datasetsReducer = (state = initialState.datasets, action) => {
         ...state,
         dataset('', action)
       ];
+
     default:
       return state;
   }
