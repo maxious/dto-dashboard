@@ -7,13 +7,13 @@ import initialState from './store/initialState';
 
 import { createWidgets } from './actions/widgets';
 import { createDatasets } from './actions/datasets';
-import createPatterns from './legacy-components/Helpers/createPatterns';
 import DashboardShow from './containers/legacy-dashboard-show';
 
 
 const bootState = merge(initialState, window.__INITIAL_STATE__);
 
 const store = configureStore(bootState);
+
 
 let DashboardShowView = new DashboardShow(store);
 
@@ -48,11 +48,17 @@ domready(() => {
   store.dispatch(createWidgets(_widgetsData));
 
 
-
-  DashboardShowView.render(store.getState());
+  if (module.hot) {
+    // charts depend on CSS layout, so delay the
+    // async render to allow css to inject first.
+    // this is only an issue on dev-server mode.
+    // todo - better fix
+    setTimeout(() => {
+      DashboardShowView.render(store.getState());
+    }, 4000);
+  } else {
+    DashboardShowView.render(store.getState());
+  }
 
 });
-
-
-
 

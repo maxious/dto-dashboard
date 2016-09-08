@@ -48,7 +48,6 @@ class ChartWidget {
   init(){
     switch (this.options.type) {
     case 'line':
-      debugger;
       this.chart = new LineChart(this.options);
       break;
     case 'bar':
