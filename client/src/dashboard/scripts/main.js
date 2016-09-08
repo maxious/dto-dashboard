@@ -48,17 +48,7 @@ domready(() => {
   store.dispatch(createWidgets(_widgetsData));
 
 
-  if (module.hot) {
-    // charts depend on CSS layout, so delay the
-    // async render to allow css to inject first.
-    // this is only an issue on dev-server mode.
-    // todo - better fix
-    setTimeout(() => {
-      DashboardShowView.render(store.getState());
-    }, 4000);
-  } else {
-    DashboardShowView.render(store.getState());
-  }
+  DashboardShowView.render(store.getState());
 
 });
 
