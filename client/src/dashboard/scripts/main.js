@@ -4,15 +4,16 @@ import { select, selectAll } from 'd3-selection';
 
 import configureStore from './store/configureStore';
 import initialState from './store/initialState';
-import { createWidgets } from './../actions/widgets';
-import { createDatasets } from './../actions/datasets';
-import { createDatapoints } from './../actions/datapoints';
+import { createWidgets } from './actions/widgets';
+import { createDatasets } from './actions/datasets';
 import DashboardShow from './containers/legacy-dashboard-show';
 
 
 const bootState = merge(initialState, window.__INITIAL_STATE__);
 
-const store = configureStore(bootState, true);
+const store = configureStore(bootState);
+
+let DashboardShowView = new DashboardShow(store);
 
 
 domready(() => {
@@ -44,8 +45,7 @@ domready(() => {
   });
   store.dispatch(createWidgets(_widgetsData));
 
-
-  new DashboardShow(store);
+  DashboardShowView.render(store.getState());
 
 });
 

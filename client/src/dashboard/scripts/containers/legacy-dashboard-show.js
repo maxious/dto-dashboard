@@ -6,24 +6,18 @@ import FactWidget from './../legacy-components/Widgets/FactWidget';
 class LegacyDashboardShow {
 
   constructor(store) {
-    let self = this;
-    store.subscribe((oldState, newState) => {
-      if (!oldState) {
-        self.props = newState;
-        self.render();
-      }
-      // no requirement to handle this at this stage
-      // if (newState !== oldState) {}
-    });
   }
 
-  render() {
+  render(props) {
+    this.props = props;
+
     this.props.widgets.forEach((w) => {
+
       let el = select(`[data-id="${w.id}"] .widget__inner`);
 
       switch (w.type) {
-        case 'bar':
-          break;
+        // case 'bar':
+        //   break;
 
         case 'fact':
           new FactWidget({
@@ -32,8 +26,8 @@ class LegacyDashboardShow {
           });
           break;
 
-        case 'pie':
-          break;
+        // case 'pie':
+        //   break;
 
         // case 'kpi-sparkline':
         //   break;

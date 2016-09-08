@@ -11,7 +11,7 @@ let webpackConfig = {
 	name: projectName,
 	bail: true,
 	debug: true,
-	devtool: 'cheap-module-eval-source-map',        // or 'eval', or ...
+	devtool: 'eval',        // or 'eval', or ...
 	context: CONFIG.DIR_SRC,
     entry: {
       ['dashboard']: [`./dashboard`],
@@ -50,7 +50,7 @@ let webpackConfig = {
 			},
 			{
 				test: /\.(jpe?g|gif|png|svg)$/,
-				loader: "file?name=/images/[name].[ext]"
+				loader: "file?name=images/[name].[ext]"
 			},
       // {  // todo - enable if we have fonts - must prefix regex with fonts/ and images with images/
       //   test: /\.(eot|ttf|woff|svg|woff2)$/,

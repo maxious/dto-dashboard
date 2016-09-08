@@ -73,7 +73,7 @@
     # Production mode or webpack-dev-server mode
     #
     if !(Rails.env.development? && ENV['DEV_SERVER'] == 'true') %>
-    <!--<script src="/javascripts/dashboard.js"></script>-->
+    <script src="/javascripts/dashboard.js"></script>
   <% else %>
     <script src="http://localhost:8080/javascripts/dashboard.js"></script>
   <% end %>
