@@ -1,14 +1,13 @@
 import d3 from 'd3';
-//import BenchMark from 'Charts/BenchMark.js';
 import Legend from './../../_vendor/d3-charts-dto/Charts/Legend.js';
-import LineChart from './../../_vendor/d3-charts-dto//Charts/LineChart.js';
-import StackBarChart from './../../_vendor/d3-charts-dto//Charts/StackBarChart.js';
-import PieChart from './../../_vendor/d3-charts-dto//Charts/PieChart.js';
+import LineChart from './../../_vendor/d3-charts-dto/Charts/LineChart.js';
+import StackBarChart from './../../_vendor/d3-charts-dto/Charts/StackBarChart.js';
+import PieChart from './../../_vendor/d3-charts-dto/Charts/PieChart.js';
 
-import NullDataLayer from './../../_vendor/d3-charts-dto//Charts/NullDataLayer.js';
-import OverlayLayer from './../../_vendor/d3-charts-dto//Charts/OverlayLayer.js';
-import XAxis from './../../_vendor/d3-charts-dto//Charts/XAxis';
-import YAxis from './../../_vendor/d3-charts-dto//Charts/YAxis';
+import NullDataLayer from './../../_vendor/d3-charts-dto/Charts/NullDataLayer.js';
+import OverlayLayer from './../../_vendor/d3-charts-dto/Charts/OverlayLayer.js';
+import XAxis from './../../_vendor/d3-charts-dto/Charts/XAxis';
+import YAxis from './../../_vendor/d3-charts-dto/Charts/YAxis';
 
 import debounceD3Event from './../utilities/debounce-d3-event';
 import { handleGaEvent } from './../services/google-analytics';
@@ -49,6 +48,7 @@ class ChartWidget {
   init(){
     switch (this.options.type) {
     case 'line':
+      debugger;
       this.chart = new LineChart(this.options);
       break;
     case 'bar':

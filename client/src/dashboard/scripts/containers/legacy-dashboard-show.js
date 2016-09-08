@@ -4,6 +4,8 @@ import { getDatasetsByWidgetId } from './../reducers/datasets';
 
 import FactWidget from './../legacy-components/Widgets/FactWidget';
 import ChartWidget from './../legacy-components/Widgets/ChartWidget';
+import SparklineWidget from './../legacy-components/Widgets/SparklineWidget';
+import convertData from './../legacy-components/Helpers/convertData'
 import convertDataForPie from './../legacy-components/Helpers/convertDataForPie'
 import convertDataForLine from './../legacy-components/Helpers/convertDataForLine'
 import stackByPercentage from './../legacy-components/Helpers/stackByPercentage';
@@ -29,10 +31,11 @@ class LegacyDashboardShow {
       let datasets = getDatasetsByWidgetId(self.props.datasets, w.id);
 
       switch (w.type) {
-
         case 'line':
+
           el.each(function() {
             chartData = convertDataForLine(datasets);
+
             let options = {
               data: chartData,
               height: C_HEIGHT,
@@ -57,13 +60,17 @@ class LegacyDashboardShow {
               isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
             };
 
-            let chartWidget = new ChartWidget(options);
+            new ChartWidget(options);
+            // let chartWidget = new ChartWidget(options);
             // self.charts.push(chartWidget);
           });
+
+          break;
 
         case 'bar':
           el.each(function() {
             chartData = convertDataForLine(datasets);
+
             let options = {
               data: chartData,
               legendData: chartData,
@@ -87,9 +94,12 @@ class LegacyDashboardShow {
             if(w.stacking && w.stacking === 'percentage'){
               options.chartData = stackByPercentage(chartData);
             }
-            let chartWidget = new ChartWidget(options);
+
+            new ChartWidget(options);
+            // let chartWidget = new ChartWidget(options);
             // self.charts.push(chartWidget);
           });
+
           break;
 
         case 'fact':
@@ -99,39 +109,49 @@ class LegacyDashboardShow {
               element: el
             });
           });
+
           break;
 
         case 'pie':
           el.each(function() {
-            let chartData = convertDataForPie(datasets);
+            chartData = null;
+            chartData = convertDataForPie(datasets);
+
             if (chartData) {
               let options = {
                 data: chartData,
                 height: C_HEIGHT,
                 element: el,
-                type: widget.type,
+                type: w.type,
                 margin: {top: 0, right: 0, bottom: 0, left: 0},
                 showLegend: true,
                 showNullData: false,
                 showOverlay: false,
                 showXAxis: false,
                 showYAxis: false,
-                prefix: widget.prefix,
-                suffix: widget.suffix,
-                units: widget.units,
-                displayRoundedData: widget.displayRoundedData,
+                prefix: w.prefix,
+                suffix: w.suffix,
+                units: w.units,
+                displayRoundedData: w.displayRoundedData,
                 isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
               };
-              let chartWidget = new ChartWidget(options);
+
+              new ChartWidget(options);
+              // let chartWidget = new ChartWidget(options);
               // self.charts.push(chartWidget);
             }
           });
+
           break;
 
         case 'sparkline':
           chartData = convertData(datasets);
           el.each(function() {
-            chartData = convertData(datasets);
+            chartData = null;
+            if (datasets[0].data) {
+              chartData = convertData(datasets);
+            }
+
             let options = {
               element: el,
               data: chartData,
@@ -142,11 +162,12 @@ class LegacyDashboardShow {
               isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
             };
 
-            sparkline = new SparklineWidget(options);
+            new SparklineWidget(options);
+            // sparkline = new SparklineWidget(options);
             // self.charts.push(sparkline);
           });
-          break;
 
+          break;
       }
     });
     return this;
