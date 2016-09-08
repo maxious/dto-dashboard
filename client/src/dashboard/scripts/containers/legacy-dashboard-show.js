@@ -60,35 +60,39 @@ class LegacyDashboardShow {
           break;
 
         case 'fact':
-          new FactWidget({
-            description: w.description,
-            element: el
+          el.each(function() {
+            new FactWidget({
+              description: w.description,
+              element: el
+            });
           });
           break;
 
         case 'pie':
-          let chartData = convertDataForPie(datasets);
-          if (chartData) {
-            let options = {
-              data: chartData,
-              height: C_HEIGHT,
-              element: el,
-              type: widget.type,
-              margin: {top: 0, right: 0, bottom: 0, left: 0},
-              showLegend: true,
-              showNullData: false,
-              showOverlay: false,
-              showXAxis: false,
-              showYAxis: false,
-              prefix: widget.prefix,
-              suffix: widget.suffix,
-              units: widget.units,
-              displayRoundedData: widget.displayRoundedData,
-              isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
-            };
-            let chartWidget = new ChartWidget(options);
-            // self.charts.push(chartWidget);
-          }
+          el.each(function() {
+            let chartData = convertDataForPie(datasets);
+            if (chartData) {
+              let options = {
+                data: chartData,
+                height: C_HEIGHT,
+                element: el,
+                type: widget.type,
+                margin: {top: 0, right: 0, bottom: 0, left: 0},
+                showLegend: true,
+                showNullData: false,
+                showOverlay: false,
+                showXAxis: false,
+                showYAxis: false,
+                prefix: widget.prefix,
+                suffix: widget.suffix,
+                units: widget.units,
+                displayRoundedData: widget.displayRoundedData,
+                isHighContrastMode: window.localStorage.getItem('high_contrast_mode') === 'on'
+              };
+              let chartWidget = new ChartWidget(options);
+              // self.charts.push(chartWidget);
+            }
+          });
           break;
 
         // case 'kpi-sparkline':

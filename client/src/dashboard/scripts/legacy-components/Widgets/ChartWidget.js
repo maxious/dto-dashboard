@@ -79,56 +79,56 @@ class ChartWidget {
       }
     }
 
-    this._props.elBounds = this.element[0][0].getBoundingClientRect();  // {top: 199.5625, right: 516, bottom: 349.5625, left: 15, width: 501…}
+    // this._props.elBounds = this.element[0][0].getBoundingClientRect();  // {top: 199.5625, right: 516, bottom: 349.5625, left: 15, width: 501…}
 
-    this.bindEvents();
+    // this.bindEvents();
     return this;
   }
 
-  bindEvents() {
-    this.element.on('click', debounceD3Event(this.onClick.bind(this)));
-    this.element.on('mouseover', debounceD3Event(this.onHover.bind(this), 200));
-    this.element.on("mouseout", this.resetEngagement.bind(this));
-    return this;
-  }
-
-  onClick() {
-    if (!this._props.trackedClickEngagement) {
-      handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
-      this._props.trackedClickEngagement = true;
-    }
-  }
-
-  onHover() {
-    let self = this;
-    if (this.props.trackedHoverEngagement) {
-      return;
-    }
-    if (!self.props.hoverEngagementTimer) {
-      self._props.hoverEngagementTimer = setTimeout(function() {
-        if (!self._props.isHoverEngaged) {
-          handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
-          self._props.isHoverEngaged = true;
-        }
-      }, MIN_ENGAGED_TIME);
-      this._props.trackedHoverEngagement = true;
-    }
-  }
-
-  resetEngagement() {
-    if (!this._props.hoverEngagementTimer && this._props.trackedHoverEngagement) {
-      return;
-    }
-    let e = d3.event;
-    var mousePos = {'x': e.layerX, 'y': e.layerY};
-    if (!(  // if i leave the element perim
-        (mousePos.x >= this._props.elBounds.left && mousePos.x <= this._props.elBounds.right) ||
-        (mousePos.y >= this._props.elBounds.top && mousePos.y <= this._props.elBounds.bottom)
-    )) {
-      clearTimeout(this._props.hoverEngagementTimer);
-      this._props.hoverEngagementTimer = null;
-    }
-  }
+  // bindEvents() {
+  //   this.element.on('click', debounceD3Event(this.onClick.bind(this)));
+  //   this.element.on('mouseover', debounceD3Event(this.onHover.bind(this), 200));
+  //   this.element.on("mouseout", this.resetEngagement.bind(this));
+  //   return this;
+  // }
+  //
+  // onClick() {
+  //   if (!this._props.trackedClickEngagement) {
+  //     handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
+  //     this._props.trackedClickEngagement = true;
+  //   }
+  // }
+  //
+  // onHover() {
+  //   let self = this;
+  //   if (this.props.trackedHoverEngagement) {
+  //     return;
+  //   }
+  //   if (!self.props.hoverEngagementTimer) {
+  //     self._props.hoverEngagementTimer = setTimeout(function() {
+  //       if (!self._props.isHoverEngaged) {
+  //         handleGaEvent(...track.ENGAGED_WITH_CHART, track.LABEL_BELOW_THE_LINE_CHART);
+  //         self._props.isHoverEngaged = true;
+  //       }
+  //     }, MIN_ENGAGED_TIME);
+  //     this._props.trackedHoverEngagement = true;
+  //   }
+  // }
+  //
+  // resetEngagement() {
+  //   if (!this._props.hoverEngagementTimer && this._props.trackedHoverEngagement) {
+  //     return;
+  //   }
+  //   let e = d3.event;
+  //   var mousePos = {'x': e.layerX, 'y': e.layerY};
+  //   if (!(  // if i leave the element perim
+  //       (mousePos.x >= this._props.elBounds.left && mousePos.x <= this._props.elBounds.right) ||
+  //       (mousePos.y >= this._props.elBounds.top && mousePos.y <= this._props.elBounds.bottom)
+  //   )) {
+  //     clearTimeout(this._props.hoverEngagementTimer);
+  //     this._props.hoverEngagementTimer = null;
+  //   }
+  // }
 
 }
 
