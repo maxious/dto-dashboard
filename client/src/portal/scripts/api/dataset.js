@@ -8,7 +8,7 @@ import { USE_FIXTURES } from './../config';
  * @returns {Promise}
  */
 
-export const update = (id, data) => {
+export const apiUpdate = (id, data) => {
   if (USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

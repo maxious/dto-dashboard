@@ -27,7 +27,7 @@ const submit = (values, dispatch) => {
           reject(data);
         }
         // dispatch(stopLoading());
-        resolve();
+        resolve(data.payload);
       },
       (error) => {
         reject(error);
@@ -43,8 +43,6 @@ const submit = (values, dispatch) => {
 
 
 let UpdateDatapointForm = props => {
-
-  let isTypeCreate = !props.initialValues;
 
   const { error, handleSubmit, pristine, submitting, valid } = props;
 

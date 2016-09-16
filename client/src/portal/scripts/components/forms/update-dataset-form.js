@@ -17,7 +17,7 @@ import {
  * Update Dataset Form
  * @constructor
  */
-let DatasetForm = props => {
+let UpdateDatasetForm = props => {
 
   const { error, handleSubmit, pristine, submitting, valid } = props;
 
@@ -57,7 +57,7 @@ const submit = (values, dispatch) => {
           reject(data);
         }
         // dispatch(stopLoading());
-        resolve();
+        resolve(data.payload);
       },
       (error) => {
         reject(error);
@@ -94,14 +94,14 @@ const validate = (values, props) => {
 
 
 // decorate
-DatasetForm = reduxForm({
-  form: 'datasetForm',
+UpdateDatasetForm = reduxForm({
+  form: 'updateDatasetForm',
   validate
-})(DatasetForm);
+})(UpdateDatasetForm);
 
-// DatasetForm = connect(
+// UpdateDatasetForm = connect(
 //   (state, ownProps) => ({}),
 //   (dispatch) => ({})
-// (DatasetForm);
+// (UpdateDatasetForm);
 
-export default DatasetForm
+export default UpdateDatasetForm

@@ -1,0 +1,69 @@
+button {
+  cursor: pointer;
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.btn--primary {
+  @include button-colours($aqua, darken($aqua, 10%), lighten($aqua, 10%), white, white);
+}
+
+.btn--error {
+  @include button-colours($red, darken($red, 10%), lighten($red, 10%), white, white);
+}
+
+.btn--success {
+  @include button-colours($green, darken($green, 10%), lighten($green, 10%), white, white);
+}
+
+.btn--neutral {
+  @include button-colours(white, darken(white, 10%), lighten(white, 10%), black, black);
+}
+
+.btn--link {
+  padding-left: .2em;
+  padding-right: .2em;
+}
+.btn--link--primary {
+  @extend .btn--link;
+  @include button-colours(transparent, transparent, transparent, $aqua, $aqua);
+  &[disabled] {
+    background-color: transparent !important;
+    color: $light-grey !important;
+  }
+}
+
+.btn--small {
+  height: $base-spacing * 1.5;
+  padding: $small-spacing/2 $base-spacing/2;
+}
+
+form input[type='checkbox'][disabled] + label::before {
+  border-color: $light-grey;
+}
+
+form input[type='checkbox'][disabled]:checked + label::after {
+  background-color: $light-grey;
+}
+
+form input[type='checkbox']:checked + label {
+  font-weight: inherit; // make not bold
+}
+
+form input[type='radio'] + label,
+form input[type='checkbox'] + label {
+  padding-top: 13px;
+}
+
+form input[type='checkbox'] + label::before {
+  left: 10px;
+}
+form input[type='checkbox']:checked + label::after {
+  left: 15px;
+}
+form input[type='radio'] + label,
+form input[type='checkbox'] + label {
+  padding-left: 50px;
+}
+

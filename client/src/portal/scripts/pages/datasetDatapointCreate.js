@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
 
 class DatasetDatapointCreatePage extends Component {
 
-  onSuccess() {
+  onSubmitSuccess() {
+    console.log('called DatasetDatapointCreatePage:onSuccess', this.props.dataset.id);  // todo - remove
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
@@ -26,7 +27,7 @@ class DatasetDatapointCreatePage extends Component {
       <div>
         <h1>Create datapoint</h1>
 
-        <CreateDatapointForm onSuccess={this.onSuccess.bind(this)} />
+        <CreateDatapointForm onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
 
       </div>
     )

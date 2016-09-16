@@ -1,10 +1,10 @@
 import * as types from "./_types";
-import { update } from './../api/dashboard';
+import { apiUpdate } from './../api/dashboard';
 
 
 export function updateDashboard(formData = {}) {
   return (dispatch, getState) => {
-    return update(formData.id, formData).then(
+    return apiUpdate(formData.id, formData).then(
       (resp) => {
         return dispatch({
           type: types.UPDATE_DASHBOARD_SUCCESS,

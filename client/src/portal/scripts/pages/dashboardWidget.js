@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { getWidgetById } from './../reducers/widgets';
 import { getDatasetsByIds } from './../reducers/datasets';
-import WidgetForm from './../components/forms/widget-form';
+import UpdateWidgetForm from './../components/forms/update-widget-form';
 
 
 const mapStateToProps = ({datasets}, ownProps) => {
@@ -18,6 +18,10 @@ const mapDispatchToProps = dispatch => ({});
 
 class Widget extends Component {
 
+  onSubmitSuccess() {
+    console.log('do something with success on dashboardWidget');
+  }
+
   render() {
     let { widget, dashboard, datasets } = this.props;
     return (
@@ -25,7 +29,7 @@ class Widget extends Component {
         <h2>dashboard: {dashboard.name}</h2>
         <h2>widget: {widget.name}</h2>
 
-        <WidgetForm initialValues={widget} />
+        <UpdateWidgetForm initialValues={widget} onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
 
         <div>
           <h3>Datasets</h3>

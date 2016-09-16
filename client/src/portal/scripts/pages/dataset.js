@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import { getDatapointsByDatasetId } from './../reducers/datapoints';
-import UpdateDatasetForm from './../components/forms/dataset-form';
-import CreateDatasetForm from './../components/forms/dataset-form';
+import UpdateDatasetForm from './../components/forms/update-dataset-form';
 
 
 const mapStateToProps = ({datapoints}, ownProps) => {
@@ -17,6 +16,11 @@ const mapStateToProps = ({datapoints}, ownProps) => {
 const mapDispatchToProps = dispatch => ({});
 
 class DatasetIndex extends Component {
+
+  onSubmitSuccess() {
+    console.log('do something with submit success for dataset');
+  }
+
   render() {
     let { dataset, datapoints } = this.props;
     return (
@@ -24,6 +28,8 @@ class DatasetIndex extends Component {
         <h1>Dataset: {dataset.name}</h1>
 
         <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
+
+        <UpdateDatasetForm initialValues={dataset} onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
 
         <div>
           <h3>Datapoints</h3>

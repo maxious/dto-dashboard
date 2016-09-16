@@ -8,7 +8,7 @@ import { USE_FIXTURES } from './../config';
  * @returns {Promise}
  */
 
-export const update = (id, data) => {
+export const apiUpdate = (id, data) => {
   if (USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -28,8 +28,11 @@ export const update = (id, data) => {
 };
 
 
-export const create = (data) => {
+export const apiCreate = (data) => {
   if (USE_FIXTURES) {
+    if (!data.dataset_id) {
+      data.dataset_id = 2;
+    }
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({data, status:'success'});  // success interface

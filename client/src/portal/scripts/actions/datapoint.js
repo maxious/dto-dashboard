@@ -1,10 +1,10 @@
 import * as types from "./_types";
-import { update } from './../api/datapoint';
+import { apiUpdate, apiCreate } from './../api/datapoint';
 
 
 export function updateDatapoint(formData = {}) {
   return (dispatch, getState) => {
-    return update(formData.id, formData).then(
+    return apiUpdate(formData.id, formData).then(
       (resp) => {
         return dispatch({
           type: types.UPDATE_DATAPOINT_SUCCESS,
@@ -24,7 +24,7 @@ export function updateDatapoint(formData = {}) {
 
 export function createDatapoint(formData = {}) {
   return (dispatch, getState) => {
-    return update(formData.id, formData).then(
+    return apiCreate(formData).then(
       (resp) => {
         return dispatch({
           type: types.CREATE_DATAPOINT_SUCCESS,

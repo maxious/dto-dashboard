@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
+import { push } from 'react-router-redux';
 
 import { createDatapoint } from './../../actions/datapoint';
 import * as types from './../../actions/_types';
@@ -16,17 +17,17 @@ import {
  * @returns {Promise} - !important - this function *must* return Promise, until
  * resolve is called, its' submitting prop will be true
  */
-const submit = (values, dispatch) => {
+const submit = (values, dispatch, props) => {
   // dispatch(startLoading());
 
   return new Promise((resolve, reject) => {
     dispatch(createDatapoint(values)).then(
       (data) => {
         if (data.type === types.CREATE_DATAPOINT_FAIL) {  // todo // if (data.status === 202) {}
-          reject(data);
+          reject(data.payload);
         }
         // dispatch(stopLoading());
-        resolve({sayYou:'BOO'});
+        resolve(data);
       },
       (error) => {
         reject(error);
@@ -43,18 +44,12 @@ const submit = (values, dispatch) => {
 
 let CreateDatapointForm = props => {
 
-  if (props.submitSucceeded) {
-    props.onSuccess();
-  }
-
   const { error, handleSubmit, pristine, submitting, valid } = props;
 
   return (
     <form onSubmit={handleSubmit(submit.bind(this))}>
-
       <Field name="label" type="text" component={Input} label="Label" />
       <Field name="value" type="text" component={Input} label="Value" />
-
       <div>
         <button type="submit" disabled={pristine || submitting || !valid}>Create</button>
       </div>
@@ -63,13 +58,8 @@ let CreateDatapointForm = props => {
   )
 };
 
-const validate = (values, props) => {
+const validate = (values, props) => {   // todo - validate
   const errors = {};
-
-  if (!values.name) {
-    errors.name = 'Required';
-  }
-
   return errors;
 };
 
@@ -81,7 +71,7 @@ CreateDatapointForm = reduxForm({
 
 // CreateDatapointForm = connect(
 //   (state, ownProps) => ({}),
-//   (dispatch) => ({})
-// (CreateDatapointForm);
+//   (dispatch, ownProps) => ({}))
+// )(CreateDatapointForm);
 
 export default CreateDatapointForm
