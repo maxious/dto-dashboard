@@ -1,5 +1,5 @@
 import * as types from "./_types";
-import { update } from './../api/widget';
+import { apiUpdate } from './../api/widget';
 
 
 export function updateWidget(formData = {}) {

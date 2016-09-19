@@ -8,10 +8,12 @@ import * as uiActions from './../actions/ui';
 import CreateDatapointForm from './../components/forms/create-datapoint-form';
 
 
-const mapStateToProps = ({ui}, ownProps) => ({
-  ui: ui.pageDatasetDatapointCreate,
-  dataset: ownProps.dataset
-});
+const mapStateToProps = ({ui}, ownProps) => {
+  return {
+    ui: ui.pageDatasetDatapointCreate,
+    dataset: ownProps.dataset
+  }
+};
 const mapDispatchToProps = dispatch => {
   return {
     push: bindActionCreators(push, dispatch),
@@ -22,35 +24,19 @@ const mapDispatchToProps = dispatch => {
 
 class DatasetDatapointCreatePage extends Component {
 
-  enterForm() {
-    this.props.actions.editFormAtDatasetDatapointCreatePage(true);
-  }
-
-  exitForm() {
-    this.props.actions.editFormAtDatasetDatapointCreatePage(false);
-  }
-
   onSubmitSuccess() {
-    this.exitForm();
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   render() {
-    let { dataset } = this.props;
+    let { dataset, ui } = this.props;
     return (
       <div>
         <h1>Create datapoint</h1>
 
-        <button
-          className="btn--primary btn--small"
-          disabled={ui.isEditing}
-          onClick={this.enterForm.bind(this)}>Edit</button>
-
         <CreateDatapointForm
           dataset={dataset}
-          isEditing={ui.isEditing}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-          onCancelSuccess={this.exitForm.bind(this)} />
+          onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
 
       </div>
     )

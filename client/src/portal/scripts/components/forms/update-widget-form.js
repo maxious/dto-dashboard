@@ -24,7 +24,7 @@ let UpdateWidgetForm = props => {
       {/*id: 1,*/}
       {/*row: 0,*/}
       {/*pos: 0,*/}
-      <Field name="name" type="text" component={Input} label="Name"/>
+      <Field name="name" type="text" component={Input} label="Name" disabled={!isEditing} />
 
       <Field name="type" options={[
         { value: 'full', label: 'Full' },
@@ -32,7 +32,7 @@ let UpdateWidgetForm = props => {
         { value: 'bar', label: 'Bar' },
         { value: 'fact', label: 'Fact' },
         { value: 'pie', label: 'Pie' }
-      ]} component={Select} label="Type"  disabled={!isEditing} />
+      ]} component={Select} label="Type" disabled={!isEditing} />
 
       <Field name="size" options={[
         { value: 'extra-small', label: 'Extra Small' },
@@ -40,7 +40,7 @@ let UpdateWidgetForm = props => {
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },
         { value: 'extra-large', label: 'Extra Large' }
-      ]} component={Select} label="Size"  disabled={!isEditing} />
+      ]} component={Select} label="Size" disabled={!isEditing} />
 
       <Field name="units" options={[
         { value: '%', label: 'Percentage' },
@@ -48,10 +48,10 @@ let UpdateWidgetForm = props => {
         { value: 'n', label: 'Number' },
         { value: 'f', label: 'Float' },
         { value: 's', label: 'Seconds' }
-      ]} component={Select} label="Units"  disabled={!isEditing} />
+      ]} component={Select} label="Units" disabled={!isEditing} />
       <Field name="description" component={Textarea} label="Description"  disabled={!isEditing} />
       {/*options: {},*/}
-      <Field name="is_hero" component={Checkbox} label="Is hero?"  disabled={!isEditing}/>
+      <Field name="is_hero" component={Checkbox} label="Is hero?" disabled={!isEditing}/>
       {/*last_updated_at: '2016-09-06 05:28:50.365576',*/}
       {/*created_at: '2016-09-06 05:28:50.356717',*/}
       {/*updated_at: '2016-09-06 05:28:50.366554',*/}
@@ -96,8 +96,9 @@ const submit = (values, dispatch) => {
   }).catch((data) => {
     // dispatch(stopLoading());
 
+    console.log('error happened', data)
     // todo - check error and fail accordingly
-    throw new SubmissionError({ name: 'Name does not exist', _error: 'Submit failed!' });
+    throw new SubmissionError({ name: 'DUMMY ERROR', _error: 'Submit failed!' });
   });
 };
 

@@ -10,13 +10,6 @@ const mapDispatchToProps = dispatch => ({});
 
 class DashboardsIndex extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false
-    }
-  }
-
   render() {
     let { dashboards } = this.props;
     return (
