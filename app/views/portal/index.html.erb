@@ -1,5 +1,5 @@
 <script type="text/javascript">
-//  let map = {
+//  const map = {
 //    currentUser: {id: 1,},
 //    dashboards: [
 //      {id: 1},
@@ -9,19 +9,17 @@
 //      {id: 2, dashboard_id: 1, datasets: []}
 //    ],
 //    datasets: [
-//      {id: 1},
-//      {id: 2}
+//      {id: 1, datapoints: [1,2]},
+//      {id: 2, datapoints: []}
 //    ],
 //    datapoints: [
-//      {id: 1, dataset_id: 1},
-//      {id: 2, dataset_id: 1}
+//      {id: 1},
+//      {id: 2}
 //    ],
 //    organisations: [
 //      {id: 1, name: "DHS", }
 //    ]
 //  };
-
-
 
   window.__INITIAL_STATE__ = {
     currentUser: {
@@ -87,6 +85,7 @@
         name: 'User Satisfaction',
         units: 'n',
         notes: null,
+        datapoints: [1,2],
         published_at: '2016-09-06 05:28:50.365576',
         created_at: '2016-09-06 05:28:50.356717',
         updated_at: '2016-09-06 05:28:50.366554'
@@ -96,6 +95,7 @@
         name: 'Cost per transaction',
         units: '$',
         notes: null,
+        datapoints: [],
         published_at: '2016-09-06 05:28:50.365576',
         created_at: '2016-09-06 05:28:50.356717',
         updated_at: '2016-09-06 05:28:50.366554'
@@ -104,14 +104,12 @@
     datapoints: [
       {
         id: 1,
-        dataset_id: 1,
         value: "96.0",
         label: "2016-07",
         timestamp: '2016-09-06 05:28:50.365576'
       },
       {
         id: 2,
-        dataset_id: 1,
         value: "96.0",
         label: "2016-08",
         timestamp: '2016-09-06 05:28:50.365576'

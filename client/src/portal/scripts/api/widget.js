@@ -8,7 +8,7 @@ import { USE_FIXTURES } from './../config';
  * @returns {Promise}
  */
 
-export const apiUpdate = (id, data) => {
+export const apiUpdate = (data) => {
   if (USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -18,7 +18,7 @@ export const apiUpdate = (id, data) => {
     });
   } else {
     // todo - token etc
-    return fetch(`/api/widgets/${id}`, {
+    return fetch(`/api/widgets/${data.id}`, {
       method: 'POST',
       body: data
     }).then((response) => {

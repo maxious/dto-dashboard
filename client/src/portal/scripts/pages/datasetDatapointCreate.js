@@ -16,6 +16,11 @@ const mapDispatchToProps = dispatch => ({
 
 class DatasetDatapointCreatePage extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
   onSubmitSuccess() {
     console.log('called DatasetDatapointCreatePage:onSuccess', this.props.dataset.id);  // todo - remove
     this.props.push(`/datasets/${this.props.dataset.id}`);
@@ -27,7 +32,7 @@ class DatasetDatapointCreatePage extends Component {
       <div>
         <h1>Create datapoint</h1>
 
-        <CreateDatapointForm onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
+        <CreateDatapointForm dataset={dataset} onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
 
       </div>
     )

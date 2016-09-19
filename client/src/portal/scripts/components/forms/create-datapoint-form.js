@@ -4,6 +4,7 @@ import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { push } from 'react-router-redux';
 
 import { createDatapoint } from './../../actions/datapoint';
+import { updateDataset } from './../../actions/dataset';
 import * as types from './../../actions/_types';
 
 import {
@@ -26,6 +27,12 @@ const submit = (values, dispatch, props) => {
         if (data.type === types.CREATE_DATAPOINT_FAIL) {  // todo // if (data.status === 202) {}
           reject(data.payload);
         }
+
+        // todo - extract
+        let newDatasetState = {...props.dataset};
+        newDatasetState.datapoints.push(data.payload.id);
+        dispatch(updateDataset(newDatasetState));
+
         // dispatch(stopLoading());
         resolve(data);
       },

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { getDatapointsByDatasetId } from './../reducers/datapoints';
+import { getDatapointsById } from './../reducers/datapoints';
 import UpdateDatasetForm from './../components/forms/update-dataset-form';
 
 
@@ -10,12 +10,17 @@ const mapStateToProps = ({datapoints}, ownProps) => {
   let dataset = ownProps.dataset;
   return {
     dataset,
-    datapoints: getDatapointsByDatasetId(datapoints, dataset.id)
+    datapoints: getDatapointsById(datapoints, dataset.datapoints)
   }
 };
 const mapDispatchToProps = dispatch => ({});
 
 class DatasetIndex extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
 
   onSubmitSuccess() {
     console.log('do something with submit success for dataset');
@@ -36,13 +41,13 @@ class DatasetIndex extends Component {
           <table>
             <thead>
             <tr>
-              <td>ID</td><td colSpan="2">Label</td>
+              <td>ID</td><td>Label</td><td colSpan="2">Value</td>
             </tr>
             </thead>
             <tbody>
             {datapoints.map((d, idx) => (
               <tr key={idx}>
-                <td>{d.id}</td><td>{d.label}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`}>Edit</Link></td>
+                <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`}>Edit</Link></td>
               </tr>
             ))}
             </tbody>

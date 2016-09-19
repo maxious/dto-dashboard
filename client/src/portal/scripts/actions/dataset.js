@@ -1,10 +1,10 @@
 import * as types from "./_types";
-import { update } from './../api/dataset';
+import { apiUpdate } from './../api/dataset';
 
 
 export function updateDataset(formData = {}) {
   return (dispatch, getState) => {
-    return apiUpdate(formData.id, formData).then(
+    return apiUpdate(formData).then(
       (resp) => {
         return dispatch({
           type: types.UPDATE_DATASET_SUCCESS,

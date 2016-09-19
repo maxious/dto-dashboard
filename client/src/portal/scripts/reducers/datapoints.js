@@ -44,9 +44,19 @@ export const getDatapointById = (state, id) => {
 
 /**
  * @param state
+ * @param ids {Array}
+ * @returns {Array} - datapoints
+ */
+export const getDatapointsById = (state, ids) => {
+  return state.filter((d) => ids.includes(Number(d.id)));
+};
+
+/**
+ * @param state
  * @param dataset_id
  * @returns {Array} - datapoints
  */
 export const getDatapointsByDatasetId = (state, dataset_id) => {
   return state.filter((w) => Number(dataset_id) === w.dataset_id);
 };
+

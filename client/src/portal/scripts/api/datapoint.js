@@ -1,6 +1,8 @@
 import fetch from 'whatwg-fetch';
 import { USE_FIXTURES } from './../config';
 
+let uuid = 100000;
+
 
 /**
  * @param id
@@ -30,9 +32,7 @@ export const apiUpdate = (id, data) => {
 
 export const apiCreate = (data) => {
   if (USE_FIXTURES) {
-    if (!data.dataset_id) {
-      data.dataset_id = 2;
-    }
+    data.id = uuid++;
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({data, status:'success'});  // success interface

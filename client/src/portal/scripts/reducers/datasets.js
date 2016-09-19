@@ -30,5 +30,5 @@ export const getDatasetById = (state, id) => {
 };
 
 export const getDatasetsByIds = (state, ids) => {
-  return state.filter((d) => ids.includes(d.id));
+  return state.filter((d) => ids.includes(Number(d.id)));
 };
