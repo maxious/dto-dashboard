@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { isURL } from 'validator';
 
-import { updateDashboard } from './../../actions/dashboard';
 import * as types from './../../actions/_types';
+import { updateDashboard } from './../../actions/dashboard';
 
 import {
   Input,

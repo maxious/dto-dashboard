@@ -1,9 +1,36 @@
 import * as types from './_types';
 
 
-export const editDashboardAtDashboardPage = (edit) => {
+export const editFormAtDashboardPage = (edit) => {
   return {
-    type: types.UI_PAGE_DASHBOARD_EDIT_DASHBOARD,
+    type: types.UI_PAGE_DASHBOARD_FORM_EDIT,
+    payload: {
+      isEditing: edit
+    }
+  }
+};
+
+export const editFormAtDashboardWidgetPage = (edit) => {
+  return {
+    type: types.UI_PAGE_DASHBOARDWIDGET_FORM_EDIT,
+    payload: {
+      isEditing: edit
+    }
+  }
+};
+
+export const editFormAtDatasetDatapointPage = (edit) => {
+  return {
+    type: types.UI_PAGE_DATASETDATAPOINT_FORM_EDIT,
+    payload: {
+      isEditing: edit
+    }
+  }
+};
+
+export const editFormAtDatasetDatapointCreatePage = (edit) => {
+  return {
+    type: types.UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT,
     payload: {
       isEditing: edit
     }

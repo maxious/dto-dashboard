@@ -4,7 +4,7 @@ import { apiUpdate, apiCreate } from './../api/datapoint';
 
 export function updateDatapoint(formData = {}) {
   return (dispatch, getState) => {
-    return apiUpdate(formData.id, formData).then(
+    return apiUpdate(formData).then(
       (resp) => {
         return dispatch({
           type: types.UPDATE_DATAPOINT_SUCCESS,

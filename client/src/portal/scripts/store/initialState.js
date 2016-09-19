@@ -2,7 +2,10 @@ export default {
   routing: {},
   app: {},
   ui: {
-    pageDashboard: {}
+    pageDashboard: {},
+    pageDashboardWidget: {},
+    pageDatasetDatapoint: {},
+    pageDatasetDatapointCreate: {}
   },
   currentUser: {},
   dashboards: [],

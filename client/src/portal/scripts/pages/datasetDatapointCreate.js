@@ -1,28 +1,37 @@
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux';
 
+import * as uiActions from './../actions/ui';
 import CreateDatapointForm from './../components/forms/create-datapoint-form';
 
 
-const mapStateToProps = (store, ownProps) => ({
+const mapStateToProps = ({ui}, ownProps) => ({
+  ui: ui.pageDatasetDatapointCreate,
   dataset: ownProps.dataset
 });
-const mapDispatchToProps = dispatch => ({
-  push: bindActionCreators(push, dispatch)
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    push: bindActionCreators(push, dispatch),
+    actions: bindActionCreators(uiActions, dispatch)
+  }
+};
+
 
 class DatasetDatapointCreatePage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {}
+  enterForm() {
+    this.props.actions.editFormAtDatasetDatapointCreatePage(true);
+  }
+
+  exitForm() {
+    this.props.actions.editFormAtDatasetDatapointCreatePage(false);
   }
 
   onSubmitSuccess() {
-    console.log('called DatasetDatapointCreatePage:onSuccess', this.props.dataset.id);  // todo - remove
+    this.exitForm();
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
@@ -32,7 +41,16 @@ class DatasetDatapointCreatePage extends Component {
       <div>
         <h1>Create datapoint</h1>
 
-        <CreateDatapointForm dataset={dataset} onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
+        <button
+          className="btn--primary btn--small"
+          disabled={ui.isEditing}
+          onClick={this.enterForm.bind(this)}>Edit</button>
+
+        <CreateDatapointForm
+          dataset={dataset}
+          isEditing={ui.isEditing}
+          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+          onCancelSuccess={this.exitForm.bind(this)} />
 
       </div>
     )

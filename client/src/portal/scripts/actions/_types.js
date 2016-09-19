@@ -18,4 +18,7 @@ export const UPDATE_DATAPOINT_SUCCESS = 'datapoint/update_success';
 export const UPDATE_DATAPOINT_FAIL = 'datapoint/update_fail';
 
 
-export const UI_PAGE_DASHBOARD_EDIT_DASHBOARD = 'page_dashboard/dashboard/edit';
+export const UI_PAGE_DASHBOARD_FORM_EDIT = 'page_dashboard/form_edit';
+export const UI_PAGE_DASHBOARDWIDGET_FORM_EDIT = 'page_dashboardwidget/form_edit';
+export const UI_PAGE_DATASETDATAPOINT_FORM_EDIT = 'page_datasetdatapoint/form_edit';
+export const UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT = 'page_datasetdatapointcreate_form_edit';

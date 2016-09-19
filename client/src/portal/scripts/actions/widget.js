@@ -4,7 +4,7 @@ import { update } from './../api/widget';
 
 export function updateWidget(formData = {}) {
   return (dispatch, getState) => {
-    return apiUpdate(formData.id, formData).then(
+    return apiUpdate(formData).then(
       (resp) => {
         return dispatch({
           type: types.UPDATE_WIDGET_SUCCESS,

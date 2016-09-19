@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import * as actions from './../actions/ui';
+import * as uiActions from './../actions/ui';
 import UpdateDashboardForm from './../components/forms/update-dashboard-form';
 
 
@@ -14,24 +14,21 @@ const mapStateToProps = (store, ownProps) => ({
 });
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(uiActions, dispatch)
   }
 };
 
 class DashboardIndex extends Component {
 
   enterForm() {
-    console.log('enter form');
-    this.props.actions.editDashboardAtDashboardPage(true);
+    this.props.actions.editFormAtDashboardPage(true);
   }
 
   exitForm() {
-    console.log('exit form');
-    this.props.actions.editDashboardAtDashboardPage(false);
+    this.props.actions.editFormAtDashboardPage(false);
   }
 
   onSubmitSuccess() {
-    console.log('do something with success');
     this.exitForm();
   }
 

@@ -10,7 +10,7 @@ let uuid = 100000;
  * @returns {Promise}
  */
 
-export const apiUpdate = (id, data) => {
+export const apiUpdate = (data) => {
   if (USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -20,7 +20,7 @@ export const apiUpdate = (id, data) => {
     });
   } else {
     // todo - token etc
-    return fetch(`/api/datapoints/${id}`, {
+    return fetch(`/api/datapoints/${data.id}`, {
       method: 'POST',
       body: data
     }).then((response) => {
