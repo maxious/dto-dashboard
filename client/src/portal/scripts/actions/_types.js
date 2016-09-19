@@ -17,4 +17,5 @@ export const UPDATE_DATAPOINT = 'datapoint/update';
 export const UPDATE_DATAPOINT_SUCCESS = 'datapoint/update_success';
 export const UPDATE_DATAPOINT_FAIL = 'datapoint/update_fail';
 
-export const UI_EDIT_DASHBOARD = 'ui/edit_dashboard';
+
+export const UI_PAGE_DASHBOARD_EDIT_DASHBOARD = 'page_dashboard/dashboard/edit';

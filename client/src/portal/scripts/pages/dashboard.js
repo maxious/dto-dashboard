@@ -10,7 +10,7 @@ import UpdateDashboardForm from './../components/forms/update-dashboard-form';
 const mapStateToProps = (store, ownProps) => ({
   dashboard: ownProps.dashboard,
   widgets: ownProps.widgets,
-  ui: store.ui
+  ui: store.ui.pageDashboard
 });
 const mapDispatchToProps = dispatch => {
   return {
@@ -20,18 +20,14 @@ const mapDispatchToProps = dispatch => {
 
 class DashboardIndex extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   enterForm() {
     console.log('enter form');
-    this.props.actions.editDashboard(true, this.props.dashboard.id);
+    this.props.actions.editDashboardAtDashboardPage(true);
   }
 
   exitForm() {
     console.log('exit form');
-    this.props.actions.editDashboard(false);
+    this.props.actions.editDashboardAtDashboardPage(false);
   }
 
   onSubmitSuccess() {
@@ -47,7 +43,7 @@ class DashboardIndex extends Component {
 
         <button
           className="btn--primary btn--small"
-          disabled={ui.isEditing && ui.isEditing.id === dashboard.id}
+          disabled={ui.isEditing}
           onClick={this.enterForm.bind(this)}>Edit</button>
 
         <UpdateDashboardForm

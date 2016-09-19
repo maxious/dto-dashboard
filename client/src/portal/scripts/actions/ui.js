@@ -1,14 +1,11 @@
 import * as types from './_types';
 
 
-export const editDashboard = (edit, id) => {
+export const editDashboardAtDashboardPage = (edit) => {
   return {
-    type: types.UI_EDIT_DASHBOARD,
+    type: types.UI_PAGE_DASHBOARD_EDIT_DASHBOARD,
     payload: {
       isEditing: edit
-    },
-    meta: id ? {
-      id
-    } : null
+    }
   }
 };
