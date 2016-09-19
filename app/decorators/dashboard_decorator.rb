@@ -26,7 +26,7 @@ class DashboardDecorator < Draper::Decorator
   end
 
   def name
-    object.name.gsub(/dashboard/i, '').strip
+    object.name.gsub(/dashboard\z/i, '').strip
   end
 
   def dashboardized_name

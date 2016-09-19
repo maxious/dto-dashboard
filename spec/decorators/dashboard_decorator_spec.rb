@@ -54,6 +54,12 @@ RSpec.describe DashboardDecorator, type: :decorator do
 
       it { is_expected.to eq 'Blah Dashboard' }
     end
+    context 'dashboard dashboard' do
+      let(:opts) { { :name => 'Blah Dashboard Dashboard' } }
+      subject { decorator.dashboardized_name }
+
+      it { is_expected.to eq 'Blah Dashboard' }
+    end
     context 'no dashboard' do
       let(:opts) { { :name => 'Blah' } }
       subject { decorator.dashboardized_name }
