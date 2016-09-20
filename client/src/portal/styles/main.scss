@@ -1,13 +1,32 @@
-@charset 'utf-8';
+@charset "utf-8";
 
-@import './../../_ui-kit/_vendor/gov-au-ui-kit/sass/ui-kit';
-@import './../../_ui-kit/components/buttons';
-@import './../../_ui-kit/components/forms';
+@import '../../_common/styles/variables';
 
-@import './../../_react-ui-kit/components/redux-form-fields/index';
+/**
+ *
+ * Ui-kit and overrides
+ *
+ */
+
+@import '../../_ui-kit/lib/ui-kit';
+@import '../../_ui-kit/overrides/buttons';
+@import '../../_ui-kit/overrides/forms';
 
 
+/**
+ *
+ * Portal
+ *
+ */
+
+// components
+@import '../../_common/styles/forms';
+@import '../../_common/styles/ui-patterns/phase-banner';
+@import '../../_common/styles/ui-patterns/main-header';
+@import '../../_common/styles/ui-patterns/main-footer';
+
+
+// layout
 @import 'layouts/main';
-@import './../../_ui-kit/components/header';
-@import './../../_ui-kit/components/phase-banner';
-@import 'components/footer';
+
+// themes

@@ -4,7 +4,7 @@ UI-Kit version: 1.8.0
 
 */
 
-@import './variables';
+@import 'variables';
 @import '~gov-au-ui-kit/assets/sass/utils/colours';
 @import '~gov-au-ui-kit/assets/sass/utils/functions';
 @import '~gov-au-ui-kit/assets/sass/utils/mixins';
@@ -18,8 +18,9 @@ UI-Kit version: 1.8.0
 @import '~gov-au-ui-kit/assets/sass/utils/grid-settings';
 @import '~gov-au-ui-kit/assets/sass/vendor/neat/neat';
 @import '~gov-au-ui-kit/assets/sass/components/accordions';
-@import './components/buttons';
-@import '~gov-au-ui-kit/assets/sass/components/forms';
+@import '~gov-au-ui-kit/assets/sass/components/buttons';
+@import 'components/buttons';
+@import 'components/forms';
 @import '~gov-au-ui-kit/assets/sass/components/grid-layout';
 @import '~gov-au-ui-kit/assets/sass/components/images';
 @import '~gov-au-ui-kit/assets/sass/components/links';

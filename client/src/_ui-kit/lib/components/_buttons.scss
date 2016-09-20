@@ -48,6 +48,8 @@ Style guide: Buttons.1 Creating buttons
 */
 
 @mixin button-colours($bg-colour, $bg-colour--hover, $bg-colour--active, $text-colour, $text-colour--hover: $text-colour) {
+    @extend %base-button;
+
     background-color: $bg-colour;
     color: $text-colour;
     border: 1px solid $bg-colour--hover;
@@ -74,6 +76,19 @@ Style guide: Buttons.1 Creating buttons
         color: $non-black;
       }
     }
+
+  //&.inverted {
+  //  border: 1px solid $button-inverted-colour;
+  //  background-color: transparent;
+  //
+  //  &:hover,
+  //  &:active,
+  //  &:focus {
+  //    border-color: $button-inverted-colour;
+  //    background-color: $button-inverted-colour;
+  //    color: $button-inverted-text-colour;
+  //  }
+  //}
 }
 
 %base-button {
@@ -92,25 +107,5 @@ Style guide: Buttons.1 Creating buttons
   @include media($tablet) {
     height: $base-spacing * 1.75;
     padding: ($tiny-spacing * 1.25) $medium-spacing;
-  }
-}
-
-button,
-.button,
-[role='button'],
-[type='button'] {
-  @extend %base-button;
-
-  &.inverted {
-    border: 1px solid $button-inverted-colour;
-    background-color: transparent;
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $button-inverted-colour;
-      background-color: $button-inverted-colour;
-      color: $button-inverted-text-colour;
-    }
   }
 }

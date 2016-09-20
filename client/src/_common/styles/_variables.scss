@@ -1,0 +1,13 @@
+$dashboard-variables: (
+
+);
+
+/**
+  * Accessor for Application variables.
+  * @usage:
+    var-get('color_header_bg');
+  *
+ */
+@function get($setting) {
+  @return map-get($dashboard-variables, $setting)
+}
