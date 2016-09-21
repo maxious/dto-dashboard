@@ -12,6 +12,7 @@
 @import '../../_ui-kit/overrides/buttons';
 @import '../../_ui-kit/overrides/forms';
 
+@import '~bootstrap/scss/bootstrap-grid';
 
 /**
  *
@@ -20,7 +21,7 @@
  */
 
 // components
-@import '../../_common/styles/forms';
+@import '../../_common/styles/components/forms';
 @import '../../_common/styles/ui-patterns/phase-banner';
 @import '../../_common/styles/ui-patterns/main-header';
 @import '../../_common/styles/ui-patterns/main-footer';

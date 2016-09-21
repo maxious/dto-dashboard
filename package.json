@@ -19,6 +19,7 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.6",
+    "bootstrap": "git@github.com:twbs/bootstrap.git#v4-npm",
     "bourbon": "git@github.com:thoughtbot/bourbon.git#v5.0.0.beta.6",
     "bourbon-neat": "git@github.com:thoughtbot/neat.git#v1.8.0",
     "d3": "^3.5.17",
