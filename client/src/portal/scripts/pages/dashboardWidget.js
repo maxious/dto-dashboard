@@ -68,7 +68,7 @@ class Widget extends Component {
         <div className="row">
           <div className="col-xs-12">
             <h3>Datasets</h3>
-            <table>
+            <table className="content-table">
               <thead>
               <tr>
                 <td>ID</td><td>Name</td>

@@ -68,7 +68,7 @@ class DatasetIndex extends Component {
             <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
 
 
-            <table>
+            <table className="content-table">
               <thead>
               <tr>
                 <td>ID</td><td>Label</td><td colSpan="2">Value</td>

@@ -23,7 +23,7 @@ class DashboardsIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <table>
+            <table className="content-table">
               <thead>
               <tr>
                 <td>ID</td><td>Name</td>
