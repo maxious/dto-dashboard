@@ -16,11 +16,9 @@ const mapStateToProps = ({datapoints, ui}, ownProps) => {
     ui: ui.pageDataset
   }
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(uiActions, dispatch)
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(uiActions, dispatch)
+});
 
 
 class DatasetIndex extends Component {
@@ -41,40 +39,52 @@ class DatasetIndex extends Component {
     let { dataset, datapoints, ui } = this.props;
     return (
       <div>
-        <h1>Dataset: {dataset.name}</h1>
 
-        <button
-          className="btn--primary btn--small"
-          disabled={ui.isEditing}
-          onClick={this.enterForm.bind(this)}>Edit</button>
+        <div className="row">
+          <div className="col-xs-12">
+            <h1>Dataset: {dataset.name}</h1>
 
-        <UpdateDatasetForm
-          formModel={dataset}
-          isEditing={ui.isEditing}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-          onCancelSuccess={this.exitForm.bind(this)} />
-
-        <div>
-          <h3>Datapoints</h3>
-
-          <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
-
-
-          <table>
-            <thead>
-            <tr>
-              <td>ID</td><td>Label</td><td colSpan="2">Value</td>
-            </tr>
-            </thead>
-            <tbody>
-            {datapoints.map((d, idx) => (
-              <tr key={idx}>
-                <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`}>Edit</Link></td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
+            <button
+              className="btn--primary btn--small"
+              disabled={ui.isEditing}
+              onClick={this.enterForm.bind(this)}>Edit</button>
+          </div>
         </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <UpdateDatasetForm
+              formModel={dataset}
+              isEditing={ui.isEditing}
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+              onCancelSuccess={this.exitForm.bind(this)} />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <h3>Datapoints</h3>
+
+            <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
+
+
+            <table>
+              <thead>
+              <tr>
+                <td>ID</td><td>Label</td><td colSpan="2">Value</td>
+              </tr>
+              </thead>
+              <tbody>
+              {datapoints.map((d, idx) => (
+                <tr key={idx}>
+                  <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`}>Edit</Link></td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     )
   }

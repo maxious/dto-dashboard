@@ -14,12 +14,10 @@ const mapStateToProps = ({ui}, ownProps) => {
     dataset: ownProps.dataset
   }
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    push: bindActionCreators(push, dispatch),
-    actions: bindActionCreators(uiActions, dispatch)
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  push: bindActionCreators(push, dispatch),
+  actions: bindActionCreators(uiActions, dispatch)
+});
 
 
 class DatasetDatapointCreatePage extends Component {
@@ -29,14 +27,23 @@ class DatasetDatapointCreatePage extends Component {
   }
 
   render() {
-    let { dataset, ui } = this.props;
+    let { dataset } = this.props;
     return (
       <div>
-        <h1>Create datapoint</h1>
 
-        <CreateDatapointForm
-          dataset={dataset}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
+        <div className="row">
+          <div className="col-xs-12">
+            <h1>Create datapoint</h1>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <CreateDatapointForm
+              dataset={dataset}
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
+          </div>
+        </div>
 
       </div>
     )

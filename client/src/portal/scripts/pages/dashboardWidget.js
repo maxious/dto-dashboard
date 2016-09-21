@@ -18,11 +18,9 @@ const mapStateToProps = ({datasets, ui}, ownProps) => {
     datasets: getDatasetsByIds(datasets, widget.datasets)
   }
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(uiActions, dispatch)
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(uiActions, dispatch)
+});
 
 
 class Widget extends Component {
@@ -43,37 +41,50 @@ class Widget extends Component {
     let { widget, dashboard, datasets, ui } = this.props;
     return (
       <div>
-        <h2>dashboard: {dashboard.name}</h2>
-        <h2>widget: {widget.name}</h2>
 
-        <button
-          className="btn--primary btn--small"
-          disabled={ui.isEditing}
-          onClick={this.enterForm.bind(this)}>Edit</button>
+        <div className="row">
+          <div className="col-xs-12">
+            <h2>dashboard: {dashboard.name}</h2>
+            <h2>widget: {widget.name}</h2>
 
-        <UpdateWidgetForm
-          formModel={widget}
-          isEditing={ui.isEditing}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-          onCancelSuccess={this.exitForm.bind(this)} />
-
-        <div>
-          <h3>Datasets</h3>
-          <table>
-            <thead>
-            <tr>
-              <td>ID</td><td>Name</td>
-            </tr>
-            </thead>
-            <tbody>
-            {datasets.map((d, idx) => (
-              <tr key={idx}>
-                <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`}>Edit</Link></td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
+            <button
+              className="btn--primary btn--small"
+              disabled={ui.isEditing}
+              onClick={this.enterForm.bind(this)}>Edit</button>
+          </div>
         </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <UpdateWidgetForm
+              formModel={widget}
+              isEditing={ui.isEditing}
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+              onCancelSuccess={this.exitForm.bind(this)} />
+          </div>
+        </div>
+
+
+        <div className="row">
+          <div className="col-xs-12">
+            <h3>Datasets</h3>
+            <table>
+              <thead>
+              <tr>
+                <td>ID</td><td>Name</td>
+              </tr>
+              </thead>
+              <tbody>
+              {datasets.map((d, idx) => (
+                <tr key={idx}>
+                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`}>Edit</Link></td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     )
   }

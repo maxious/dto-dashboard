@@ -16,12 +16,10 @@ const mapStateToProps = ({datapoints, ui}, ownProps) => {
     datapoint: getDatapointById(datapoints, ownProps.params.datapoint_id)
   }
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    push: bindActionCreators(push, dispatch),
-    actions: bindActionCreators(uiActions, dispatch)
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  push: bindActionCreators(push, dispatch),
+  actions: bindActionCreators(uiActions, dispatch)
+});
 
 class DatasetDatapointPage extends Component {
 
@@ -42,18 +40,27 @@ class DatasetDatapointPage extends Component {
     let { datapoint, ui } = this.props;
     return (
       <div>
-        <h1>Dataset Datapoint</h1>
 
-        <button
-          className="btn--primary btn--small"
-          disabled={ui.isEditing}
-          onClick={this.enterForm.bind(this)}>Edit</button>
+        <div className="row">
+          <div className="col-xs-12">
+            <h1>Dataset Datapoint</h1>
 
-        <UpdateDatapointForm
-          formModel={datapoint}
-          isEditing={ui.isEditing}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-          onCancelSuccess={this.exitForm.bind(this)} />
+            <button
+              className="btn--primary btn--small"
+              disabled={ui.isEditing}
+              onClick={this.enterForm.bind(this)}>Edit</button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <UpdateDatapointForm
+              formModel={datapoint}
+              isEditing={ui.isEditing}
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+              onCancelSuccess={this.exitForm.bind(this)} />
+          </div>
+        </div>
 
       </div>
     )

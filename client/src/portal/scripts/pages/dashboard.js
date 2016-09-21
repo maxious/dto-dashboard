@@ -36,36 +36,48 @@ class DashboardIndex extends Component {
     let { dashboard, widgets, ui } = this.props;
     return (
       <div>
-        <h2>Dashboard: {dashboard.name}</h2>
 
-        <button
-          className="btn--primary btn--small"
-          disabled={ui.isEditing}
-          onClick={this.enterForm.bind(this)}>Edit</button>
+        <div className="row">
+          <div className="col-xs-12">
+            <h2>Dashboard: {dashboard.name}</h2>
 
-        <UpdateDashboardForm
-          formModel={dashboard}
-          isEditing={ui.isEditing}
-          onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-          onCancelSuccess={this.exitForm.bind(this)} />
-
-        <div>
-          <h3>Widgets</h3>
-            <table>
-            <thead>
-            <tr>
-              <td>ID</td><td>Name</td>
-            </tr>
-            </thead>
-            <tbody>
-            {widgets.map((w, idx) => (
-              <tr key={idx}>
-                <td>{w.id}</td><td>{w.name}</td><td><Link to={`/dashboards/${dashboard.id}/widgets/${w.id}`}>Edit</Link></td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
+            <button
+              className="btn--primary btn--small"
+              disabled={ui.isEditing}
+              onClick={this.enterForm.bind(this)}>Edit</button>
+          </div>
         </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <UpdateDashboardForm
+              formModel={dashboard}
+              isEditing={ui.isEditing}
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+              onCancelSuccess={this.exitForm.bind(this)} />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <h3>Widgets</h3>
+            <table>
+              <thead>
+              <tr>
+                <td>ID</td><td>Name</td>
+              </tr>
+              </thead>
+              <tbody>
+              {widgets.map((w, idx) => (
+                <tr key={idx}>
+                  <td>{w.id}</td><td>{w.name}</td><td><Link to={`/dashboards/${dashboard.id}/widgets/${w.id}`}>Edit</Link></td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     )
   }

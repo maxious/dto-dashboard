@@ -14,21 +14,32 @@ class DashboardsIndex extends Component {
     let { dashboards } = this.props;
     return (
       <div>
-        <h1>Dashboards</h1>
-        <table>
-          <thead>
-            <tr>
-              <td>ID</td><td>Name</td>
-            </tr>
-          </thead>
-          <tbody>
-            {dashboards.map((d, idx) => (
-              <tr key={idx}>
-                <td>{d.id}</td><td>{d.name}</td><td><Link to={`/dashboards/${d.id}`}>Edit</Link></td>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <h1>Dashboards</h1>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            <table>
+              <thead>
+              <tr>
+                <td>ID</td><td>Name</td>
               </tr>
-            ))}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+              {dashboards.map((d, idx) => (
+                <tr key={idx}>
+                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/dashboards/${d.id}`}>Edit</Link></td>
+                </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     )
   }
