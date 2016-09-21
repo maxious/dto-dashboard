@@ -63,7 +63,7 @@ class DatasetIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h3>Datapoints</h3>
+            <h2 className="h4">Datapoints</h2>
 
             <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
 

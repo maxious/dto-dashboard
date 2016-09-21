@@ -39,7 +39,7 @@ class DashboardIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h2>Dashboard: {dashboard.name}</h2>
+            <h1>Dashboard: {dashboard.name}</h1>
 
             <button
               className="btn--primary btn--small"
@@ -60,7 +60,7 @@ class DashboardIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h3>Widgets</h3>
+            <h2 className="h4">Widgets</h2>
             <table className="content-table">
               <thead>
               <tr>

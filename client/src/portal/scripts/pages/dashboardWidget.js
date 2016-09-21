@@ -44,7 +44,7 @@ class Widget extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h2>dashboard: {dashboard.name}</h2>
+            <h1>dashboard: {dashboard.name}</h1>
             <h2>widget: {widget.name}</h2>
 
             <button
@@ -67,7 +67,7 @@ class Widget extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h3>Datasets</h3>
+            <h2 className="h4">Datasets</h2>
             <table className="content-table">
               <thead>
               <tr>
