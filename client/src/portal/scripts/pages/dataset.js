@@ -52,7 +52,7 @@ class DatasetIndex extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-12">
+          <div className="col-xs-8">
             <UpdateDatasetForm
               formModel={dataset}
               isEditing={ui.isEditing}

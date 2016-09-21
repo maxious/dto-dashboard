@@ -55,7 +55,7 @@ class Widget extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-12">
+          <div className="col-xs-8">
             <UpdateWidgetForm
               formModel={widget}
               isEditing={ui.isEditing}
@@ -63,7 +63,6 @@ class Widget extends Component {
               onCancelSuccess={this.exitForm.bind(this)} />
           </div>
         </div>
-
 
         <div className="row">
           <div className="col-xs-12">
