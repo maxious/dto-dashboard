@@ -1,8 +1,8 @@
 class PortalController < ApplicationController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
-  protected
+  # protected
 
   def index
     render :index

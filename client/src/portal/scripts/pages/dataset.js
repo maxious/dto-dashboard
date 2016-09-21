@@ -45,7 +45,7 @@ class DatasetIndex extends Component {
             <h1>Dataset: {dataset.name}</h1>
 
             <button
-              className="btn--primary btn--small"
+              className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
           </div>
@@ -65,7 +65,7 @@ class DatasetIndex extends Component {
           <div className="col-xs-12">
             <h2 className="h4">Datapoints</h2>
 
-            <Link to={`/datasets/${dataset.id}/datapoints-new`}>Create new</Link>
+            <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
 
 
             <table className="content-table">
@@ -77,7 +77,7 @@ class DatasetIndex extends Component {
               <tbody>
               {datapoints.map((d, idx) => (
                 <tr key={idx}>
-                  <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`}>Edit</Link></td>
+                  <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
                 </tr>
               ))}
               </tbody>

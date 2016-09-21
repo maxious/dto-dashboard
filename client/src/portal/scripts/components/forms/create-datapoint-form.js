@@ -58,7 +58,7 @@ let CreateDatapointForm = props => {
       <Field name="label" type="text" component={Input} label="Label" inputProps={{readOnly:true}} />
       <Field name="value" type="text" component={Input} label="Value" inputProps={{min:0,max:100}} />
       <div>
-        <button type="submit" className='btn--primary' disabled={pristine || submitting || !valid}>Create</button>
+        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid}>Create</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>

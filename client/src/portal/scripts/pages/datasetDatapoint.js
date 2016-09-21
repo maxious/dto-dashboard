@@ -46,7 +46,7 @@ class DatasetDatapointPage extends Component {
             <h1>Dataset Datapoint</h1>
 
             <button
-              className="btn--primary btn--small"
+              className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
           </div>

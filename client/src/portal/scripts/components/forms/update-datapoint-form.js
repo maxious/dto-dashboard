@@ -23,8 +23,8 @@ let UpdateDatapointForm = props => {
       <Field type="number" name="value" label="Value" component={Input} inputProps={{min:0,max:100,disabled:!isEditing}} />
 
       <div>
-        <button type="submit" className='btn--primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
-        <button type="cancel" className='btn--link--primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
+        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <button type="cancel" className='btn link primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>

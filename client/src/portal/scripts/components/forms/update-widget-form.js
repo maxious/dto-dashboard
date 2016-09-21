@@ -57,8 +57,8 @@ let UpdateWidgetForm = props => {
       {/*updated_at: '2016-09-06 05:28:50.366554',*/}
 
       <div>
-        <button type="submit" className='btn--primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
-        <button type="cancel" className='btn--link--primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
+        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <button type="cancel" className='btn link primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>

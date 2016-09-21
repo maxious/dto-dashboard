@@ -42,7 +42,7 @@ class DashboardIndex extends Component {
             <h1>Dashboard: {dashboard.name}</h1>
 
             <button
-              className="btn--primary btn--small"
+              className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
           </div>

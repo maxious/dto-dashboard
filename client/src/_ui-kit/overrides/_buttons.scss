@@ -5,37 +5,43 @@ button {
   }
 }
 
-.btn--primary {
-  @include button-colours($aqua, darken($aqua, 10%), lighten($aqua, 10%), white, white);
-}
+.btn {
+  @extend %base-button;
 
-.btn--error {
-  @include button-colours($red, darken($red, 10%), lighten($red, 10%), white, white);
-}
+  &.primary {
+    @include button-colours($aqua, darken($aqua, 10%), lighten($aqua, 10%), white, white);
+  }
+  &.error {
+    @include button-colours($red, darken($red, 10%), lighten($red, 10%), white, white);
+  }
+  &.success {
+    @include button-colours($green, darken($green, 10%), lighten($green, 10%), white, white);
+  }
+  &.neutral {
+    @include button-colours(white, darken(white, 10%), lighten(white, 10%), black, black);
+  }
+  &.small {
+    height: $base-spacing * 1.5;
+    padding: $small-spacing/2 $base-spacing/2;
+  }
 
-.btn--success {
-  @include button-colours($green, darken($green, 10%), lighten($green, 10%), white, white);
-}
-
-.btn--neutral {
-  @include button-colours(white, darken(white, 10%), lighten(white, 10%), black, black);
-}
-
-.btn--link {
-  padding-left: .2em;
-  padding-right: .2em;
-}
-
-.btn--link--primary {
-  @extend .btn--link;
-  @include button-colours(transparent, transparent, transparent, $aqua, $aqua);
-  &[disabled] {
-    background-color: transparent !important;
-    color: $light-grey !important;
+  &.primary-link {
+    padding-left: .2em;
+    padding-right: .2em;
+    @include button-colours(transparent, transparent, transparent, $aqua, darken($aqua, 10%));
+    &[disabled] {
+      background-color: transparent !important;
+    }
   }
 }
 
-.btn--small {
-  height: $base-spacing * 1.5;
-  padding: $small-spacing/2 $base-spacing/2;
-}
+// todo
+//.link--primary {
+//  @extend .btn--link;
+//  @include button-colours(transparent, transparent, transparent, $aqua, $aqua);
+//  &[disabled] {
+//    background-color: transparent !important;
+//    color: $light-grey !important;
+//  }
+//}
+

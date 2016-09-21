@@ -29,8 +29,8 @@ let UpdateDashboardForm = props => {
       <Field name="display_hero" component={Checkbox} label="Display hero" inputProps={{disabled:!isEditing}} />
       <Field name="display_kpis" component={Checkbox} label="Display kpi" inputProps={{disabled:!isEditing}} />
       <div>
-        <button type="submit" className='btn--primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
-        <button type="cancel" className='btn--link--primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
+        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <button type="cancel" className='btn link primary' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>

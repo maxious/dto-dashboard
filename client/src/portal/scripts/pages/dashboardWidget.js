@@ -48,7 +48,7 @@ class Widget extends Component {
             <h2>widget: {widget.name}</h2>
 
             <button
-              className="btn--primary btn--small"
+              className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
           </div>
@@ -76,7 +76,7 @@ class Widget extends Component {
               <tbody>
               {datasets.map((d, idx) => (
                 <tr key={idx}>
-                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`}>Edit</Link></td>
+                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`} className="a--ui-kit">Edit</Link></td>
                 </tr>
               ))}
               </tbody>
