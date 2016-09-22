@@ -52,7 +52,7 @@ let UpdateDatapointForm = props => {
 /**
  * @param values
  * @param dispatch
- * @returns {Promise} - !important - this function *must* return Promise, until
+ * @returns {Promise} - this function *must* return Promise, until
  * resolve is called, its' submitting prop will be true
  */
 const submit = (values, dispatch) => {

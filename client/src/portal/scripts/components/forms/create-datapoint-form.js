@@ -6,68 +6,91 @@ import { push } from 'react-router-redux';
 import { createDatapoint } from './../../actions/datapoint';
 import { updateDataset } from './../../actions/dataset';
 import * as types from './../../actions/_types';
-
+import { isNumeric } from 'validator';
 import {
   Input
 } from './../../../../_react-ui-kit/components/redux-form-fields';
 
 
 /**
- * @param values
- * @param dispatch
- * @returns {Promise} - !important - this function *must* return Promise, until
- * resolve is called, its' submitting prop will be true
+ * Create Datapoint Form
+ * @param props
+ * @constructor
  */
-const submit = (values, dispatch, props) => {
-  // dispatch(startLoading());
-
-  return new Promise((resolve, reject) => {
-    dispatch(createDatapoint(values)).then(
-      (data) => {
-        if (data.type === types.CREATE_DATAPOINT_FAIL) {  // todo // if (data.status === 202) {}
-          reject(data.payload);
-        }
-
-        // todo - extract
-        let newDatasetState = {...props.dataset};
-        newDatasetState.datapoints.push(data.payload.id);
-        dispatch(updateDataset(newDatasetState));
-
-        // dispatch(stopLoading());
-        resolve(data);
-      },
-      (error) => {
-        reject(error);
-      }
-    );
-  }).catch((data) => {
-    // dispatch(stopLoading());
-
-    // todo - check error and fail accordingly
-    throw new SubmissionError({ name: 'Name does not exist', _error: 'Submit failed!' });
-  });
-};
-
-
 let CreateDatapointForm = props => {
 
-  const { error, handleSubmit, pristine, submitting, valid } = props;
+  const {
+    error, handleSubmit, pristine, submitting, valid,
+    isEditing
+  } = props;
 
   return (
-    <form onSubmit={handleSubmit(submit.bind(this))}>
-      <Field name="label" type="text" component={Input} label="Label" inputProps={{readOnly:true}} />
-      <Field name="value" type="text" component={Input} label="Value" inputProps={{min:0,max:100,autoFocus:true}} />
+    <form onSubmit={(e) => e.preventDefault()}>
+      <Field component={Input} name="label" type="text" label="Label"
+             fieldProps={{readOnly:true}}
+             optionProps={{}} />
+      <Field component={Input} name="value" type="text" label="Value"
+             fieldProps={{autoFocus:true}}
+             optionProps={{}} />
+
       <div>
-        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid}>Create</button>
+        <button type="submit"
+                className='btn primary'
+                disabled={pristine || submitting || !valid}
+                onClick={handleSubmit(submit.bind(this))}>Create</button>
+
+        <button type="cancel"
+                className='btn primary-link'
+                disabled={!isEditing || submitting}
+                onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>
   )
 };
 
+
+/**
+ * @param values
+ * @param dispatch
+ * @returns {Promise} - this function *must* return Promise, until
+ * resolve is called, its' submitting prop will be true
+ */
+const submit = (values, dispatch, props) => {
+  return new Promise((resolve, reject) => {
+    dispatch(createDatapoint(values)).then(
+      (d) => {
+        if (d.type === types.CREATE_DATAPOINT_FAIL) {  // todo // if (d.status === 202) {}
+          reject(d.payload);
+        }
+
+        // todo - extract
+        let newDatasetState = {...props.dataset};
+        newDatasetState.datapoints.push(d.payload.id);
+        dispatch(updateDataset(newDatasetState));
+
+        resolve(d);
+      },
+      (error) => {
+        reject(error);
+      },
+    ).catch((error) => {
+      // todo - check error and fail accordingly
+      console.error(error);
+      throw new SubmissionError({name: 'Name does not exist', _error: 'Submit failed!'});
+    });
+  });
+};
+
+
 const validate = (values, props) => {   // todo - validate
   const errors = {};
   return errors;
+};
+
+const cancel = (props) => {
+  props.reset();
+  props.onCancelSuccess();
 };
 
 // decorate
@@ -76,9 +99,5 @@ CreateDatapointForm = reduxForm({
   validate
 })(CreateDatapointForm);
 
-// CreateDatapointForm = connect(
-//   (state, ownProps) => ({}),
-//   (dispatch, ownProps) => ({}))
-// )(CreateDatapointForm);
 
 export default CreateDatapointForm
