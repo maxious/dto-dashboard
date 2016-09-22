@@ -4,37 +4,48 @@ import { Field, reduxForm, SubmissionError } from 'redux-form';
 
 import * as types from './../../actions/_types';
 import { updateDatapoint } from './../../actions/datapoint';
-import { isURL } from 'validator';
-
+import { isNumeric } from 'validator';
 import {
   Input
 } from './../../../../_react-ui-kit/components/redux-form-fields';
 
 
+/**
+ * Update Datapoint Form
+ * @param props
+ * @constructor
+ */
 let UpdateDatapointForm = props => {
 
-  const { error, handleSubmit, pristine, submitting, valid, isEditing } = props;
+  const {
+    error, handleSubmit, pristine, submitting, valid,
+    isEditing
+  } = props;
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
+      <Field component={Input} type="text" name="label" label="Label"
+             fieldProps={{readOnly:true}}
+             optionProps={{}} />
 
-      <Field type="text" name="label" label="Label" component={Input} inputProps={{readOnly:true}} />
-
-      <Field type="number" name="value" label="Value" component={Input} inputProps={{min:0,max:100,disabled:!isEditing}} />
+      <Field component={Input} type="number" name="value" label="Value"
+             fieldProps={{disabled:!isEditing}}
+             optionProps={{}} />
 
       <div>
-        <button type="submit" className='btn primary' disabled={pristine || submitting || !valid} onClick={handleSubmit(submit.bind(this))}>Save</button>
-        <button type="cancel" className='btn primary-link' disabled={!isEditing || submitting} onClick={cancel.bind({}, props)}>Cancel</button>
+        <button type="submit"
+                className='btn primary'
+                disabled={pristine || submitting || !valid}
+                onClick={handleSubmit(submit.bind(this))}>Save</button>
+
+        <button type="cancel"
+                className='btn primary-link'
+                disabled={!isEditing || submitting}
+                onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
     </form>
   )
-};
-
-
-const cancel = (props) => {
-  props.reset(props.form);
-  props.onCancelSuccess();
 };
 
 
@@ -45,40 +56,44 @@ const cancel = (props) => {
  * resolve is called, its' submitting prop will be true
  */
 const submit = (values, dispatch) => {
-  // dispatch(startLoading());
-
   return new Promise((resolve, reject) => {
     dispatch(updateDatapoint(values)).then(
-      (data) => {
-        if (data.type === types.UPDATE_DATAPOINTS_FAIL) {  // todo // if (data.status === 202) {}
-          reject(data);
+      (d) => {
+        if (d.type === types.UPDATE_DATAPOINTS_FAIL) {  // todo // if (d.status === 202) {}
+          reject(d);
         }
-        // dispatch(stopLoading());
-        resolve(data.payload);
+        resolve(d.payload);
       },
       (error) => {
         reject(error);
-      }
-    );
-  }).catch((data) => {
-    // dispatch(stopLoading());
-
-    // todo - check error and fail accordingly
-    throw new SubmissionError({ name: 'Name does not exist', _error: 'Submit failed!' });
+      },
+    ).catch((error) => {
+      // todo - check error and fail accordingly
+      console.error(error);
+      throw new SubmissionError({name: 'Name does not exist', _error: 'Submit failed!'});
+    });
   });
 };
 
 const validate = (values, props) => {
   const errors = {};
 
-  if (!values.value) {
-    errors.value = 'Required';
+  if (values.number) {
+    if (!isNumeric(values.number)) {
+      errors.number = 'Must be a number.';
+    }
   }
 
   return errors;
 };
 
-// decorate
+
+const cancel = (props) => {
+  props.reset(props.form);
+  props.onCancelSuccess();
+};
+
+
 UpdateDatapointForm = reduxForm({
   form: 'updateDatapointForm',
   validate

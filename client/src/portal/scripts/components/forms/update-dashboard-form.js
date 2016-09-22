@@ -15,6 +15,7 @@ import {
 
 /**
  * Update Dashboard Form
+ * @param props
  * @constructor
  */
 let UpdateDashboardForm = props => {
