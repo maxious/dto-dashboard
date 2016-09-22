@@ -8,7 +8,8 @@ import { updateDataset } from './../../actions/dataset';
 import * as types from './../../actions/_types';
 import { isNumeric } from 'validator';
 import {
-  Input
+  Input,
+  MonthYearDate
 } from './../../../../_react-ui-kit/components/redux-form-fields';
 
 
@@ -26,9 +27,10 @@ let CreateDatapointForm = props => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <Field component={Input} name="label" type="text" label="Label"
-             fieldProps={{readOnly:true}}
+      <Field component={MonthYearDate} name="timestamp" type="text" label="Label"
+             fieldProps={{}}
              optionProps={{}} />
+
       <Field component={Input} name="value" type="text" label="Value"
              fieldProps={{autoFocus:true}}
              optionProps={{}} />
