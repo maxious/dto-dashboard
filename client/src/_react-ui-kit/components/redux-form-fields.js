@@ -94,11 +94,10 @@ export class MonthYearDate extends Component {
 
   onUpdateField() {
     this.setState({
-      day: 1,
       month: this.refs.month.value,
       year: this.refs.year.value,
     });
-    this.emit(this.serialize(this.state.day, this.state.month, this.state.year));
+    this.emit(this.serialize(1, this.state.month, this.state.year));
   }
 
   getMonthOptions() {
@@ -395,6 +394,10 @@ export const Textarea = (props) => {
     optionProps: { isOptional },
     meta: { touched, error }
   } = props;
+
+  if (!fieldProps.rows) {
+    fieldProps.rows = 5;
+  }
 
   return (
     <div className="form-group">

@@ -61,7 +61,7 @@ class Widget extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-12 col-lg-8">
             <UpdateWidgetForm
               formModel={widget}
               isEditing={ui.isEditing}

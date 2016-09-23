@@ -49,7 +49,7 @@ class DashboardIndex extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-12 col-lg-8">
             <UpdateDashboardForm
               formModel={dashboard}
               isEditing={ui.isEditing}

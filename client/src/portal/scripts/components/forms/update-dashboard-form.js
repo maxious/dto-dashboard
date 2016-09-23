@@ -32,11 +32,11 @@ let UpdateDashboardForm = props => {
              optionProps={{}} />
 
       <Field component={Textarea} name='description' label='Description'
-             fieldProps={{disabled:!isEditing, rows:5}}
+             fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
       <Field component={Textarea} name='users' label='Users'
-             fieldProps={{disabled:!isEditing, rows:5}}
+             fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
       <Field component={Input} type='url' name='url' label='Url'
@@ -44,7 +44,7 @@ let UpdateDashboardForm = props => {
              optionProps={{isOptional:true}} />
 
       <Field component={Textarea} name='notes' label='Notes'
-             fieldProps={{disabled:!isEditing, rows:5}}
+             fieldProps={{disabled:!isEditing}}
              optionProps={{isOptional:true}} />
 
       <Field component={InputDate} name='published_at' label='Published at'

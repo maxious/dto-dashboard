@@ -39,7 +39,7 @@ let UpdateDatasetForm = props => {
              optionProps={{options:SELECT_DATASET_LABEL}} />
 
       <Field component={Textarea} name="notes" label="Notes"
-             fieldProps={{disabled:!isEditing, rows:5}}
+             fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
       <div>

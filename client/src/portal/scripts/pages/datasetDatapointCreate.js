@@ -38,7 +38,7 @@ class DatasetDatapointCreatePage extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-12 col-lg-8">
             <CreateDatapointForm
               dataset={dataset}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
