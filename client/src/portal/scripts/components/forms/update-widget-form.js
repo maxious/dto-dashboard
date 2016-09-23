@@ -35,9 +35,9 @@ let UpdateWidgetForm = props => {
 
       <Field component={Textarea} name="description" label="Description"
              fieldProps={{disabled:!isEditing}}
-             optionProps={{isOptional:true}} />
+             optionProps={{}} />
 
-      <Field component={DayMonthYearDate} name='published_at' label='Published at'
+      <Field component={DayMonthYearDate} name='last_updated_at' label='Last updated'
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 

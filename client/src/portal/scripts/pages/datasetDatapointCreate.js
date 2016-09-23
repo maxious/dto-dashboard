@@ -11,12 +11,13 @@ import CreateDatapointForm from './../components/forms/create-datapoint-form';
 const mapStateToProps = ({ui}, ownProps) => {
   return {
     ui: ui.pageDatasetDatapointCreate,
-    dataset: ownProps.dataset
+    dataset: ownProps.dataset,
+    exclusionDates: ownProps.datapoints.map(i => i.ts)
   }
 };
 const mapDispatchToProps = dispatch => ({
   push: bindActionCreators(push, dispatch),
-  actions: bindActionCreators(uiActions, dispatch)
+  actions: bindActionCreators(uiActions, dispatch),
 });
 
 
@@ -26,8 +27,15 @@ class DatasetDatapointCreatePage extends Component {
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
+  exitForm() {
+    console.log('exit form');
+    // todo
+    // this.props.actions.editFormAtDatasetDatapointPage(false);
+  }
+
   render() {
-    let { dataset } = this.props;
+    let { dataset, exclusionDates } = this.props;
+    console.log(exclusionDates);
     return (
       <div>
 
@@ -41,7 +49,9 @@ class DatasetDatapointCreatePage extends Component {
           <div className="col-xs-12 col-lg-8">
             <CreateDatapointForm
               dataset={dataset}
-              onSubmitSuccess={this.onSubmitSuccess.bind(this)} />
+              onSubmitSuccess={this.onSubmitSuccess.bind(this)}
+              onCancelSuccess={this.exitForm.bind(this)}
+              exclusionDates={exclusionDates} />
           </div>
         </div>
 

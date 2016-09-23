@@ -7,6 +7,7 @@ import Layout from './layout';
 import Dashboard from './dashboard';
 import Dashboards from './dashboards';
 import Dataset from './dataset';
+import DatasetDatapoints from './datasetDatapoints';
 
 import DashboardsPage from './../pages/dashboards';
 import DashboardPage from './../pages/dashboard';
@@ -39,7 +40,7 @@ export default class Root extends Component {
              dashboards/1/widgets/1
              datasets/id
              datasets/id/datapoints/1
-             datasets/id/datapoints/new
+             datasets/id/datapoints-new
 
              */
 
@@ -55,8 +56,11 @@ export default class Root extends Component {
 
             <Route path="datasets/:dataset_id" component={Dataset}>
               <IndexRoute component={DatasetPage} />
-              <Route path="datapoints/:datapoint_id" component={DatasetDatapointPage} />
-              <Route path="datapoints-new" component={DatasetDatapointCreatePage} />
+
+              <Route component={DatasetDatapoints}>
+                <Route path="datapoints/:datapoint_id" component={DatasetDatapointPage} />
+                <Route path="datapoints-new" component={DatasetDatapointCreatePage} />
+              </Route>
             </Route>
 
             <Route path="*" component={NoMatch} />

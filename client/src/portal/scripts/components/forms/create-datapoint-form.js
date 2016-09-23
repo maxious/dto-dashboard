@@ -22,14 +22,14 @@ let CreateDatapointForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing
+    exclusionDates
   } = props;
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <Field component={MonthYearDate} name="timestamp" type="text" label="Label"
              fieldProps={{}}
-             optionProps={{}} />
+             optionProps={{exclusionDates:exclusionDates}} />
 
       <Field component={Input} name="value" type="text" label="Value"
              fieldProps={{autoFocus:true}}
@@ -43,7 +43,7 @@ let CreateDatapointForm = props => {
 
         <button type="cancel"
                 className='btn primary-link'
-                disabled={!isEditing || submitting}
+                disabled={submitting}
                 onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       {error && <strong style={{color:'red'}}>{error}</strong>}
