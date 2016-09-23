@@ -28,9 +28,13 @@ class DatasetDatapointCreatePage extends Component {
   }
 
   exitForm() {
-    console.log('exit form');
-    // todo
-    // this.props.actions.editFormAtDatasetDatapointPage(false);
+    this.props.actions.editFormAtDatasetDatapointCreatePage(false);
+  }
+
+  componentWillUnmount() {
+    if (this.props.ui.isEditing) {
+      this.exitForm();
+    }
   }
 
   render() {

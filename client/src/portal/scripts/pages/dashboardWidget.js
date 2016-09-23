@@ -40,6 +40,12 @@ class Widget extends Component {
     this.exitForm();
   }
 
+  componentWillUnmount() {
+    if (this.props.ui.isEditing) {
+      this.exitForm();
+    }
+  }
+
   render() {
     let { widget, dashboard, datasets, ui,
       SELECT_WIDGET_TYPE,

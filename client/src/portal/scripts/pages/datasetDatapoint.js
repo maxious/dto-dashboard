@@ -36,6 +36,12 @@ class DatasetDatapointPage extends Component {
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
+  componentWillUnmount() {
+    if (this.props.ui.isEditing) {
+      this.exitForm();
+    }
+  }
+
   render() {
     let { datapoint, ui } = this.props;
     return (

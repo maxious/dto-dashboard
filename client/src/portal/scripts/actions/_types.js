@@ -28,3 +28,4 @@ export const UI_PAGE_DASHBOARD_FORM_EDIT = 'page_dashboard/form_edit';
 export const UI_PAGE_DASHBOARDWIDGET_FORM_EDIT = 'page_dashboardwidget/form_edit';
 export const UI_PAGE_DATASET_FORM_EDIT = 'page_dataset/form_edit';
 export const UI_PAGE_DATASETDATAPOINT_FORM_EDIT = 'page_datasetdatapoint/form_edit';
+export const UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT = 'page_datasetdatapointcreate/form_edit';

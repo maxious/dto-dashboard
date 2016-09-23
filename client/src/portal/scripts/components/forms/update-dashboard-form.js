@@ -127,7 +127,8 @@ const cancel = (props) => {
 
 UpdateDashboardForm = reduxForm({
   form: 'updateDashboard',
-  validate
+  validate,
+  destroyOnUnmount: true
 })(UpdateDashboardForm);
 
 UpdateDashboardForm = connect(

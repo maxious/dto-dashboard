@@ -95,10 +95,11 @@ const cancel = (props) => {
   props.onCancelSuccess();
 };
 
-// decorate
+
 CreateDatapointForm = reduxForm({
   form: 'createDatapointForm',
-  validate
+  validate,
+  destroyOnUnmount: true
 })(CreateDatapointForm);
 
 

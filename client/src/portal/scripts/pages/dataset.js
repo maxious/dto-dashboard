@@ -36,6 +36,12 @@ class DatasetIndex extends Component {
     this.exitForm();
   }
 
+  componentWillUnmount() {
+    if (this.props.ui.isEditing) {
+      this.exitForm();
+    }
+  }
+
   render() {
     let {
       dataset, datapoints, ui,

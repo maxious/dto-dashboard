@@ -32,6 +32,12 @@ class DashboardIndex extends Component {
     this.exitForm();
   }
 
+  componentWillUnmount() {
+    if (this.props.ui.isEditing) {
+      this.exitForm();
+    }
+  }
+
   render() {
     let { dashboard, widgets, ui } = this.props;
     return (

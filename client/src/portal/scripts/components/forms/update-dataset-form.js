@@ -110,7 +110,8 @@ const cancel = (props) => {
 
 UpdateDatasetForm = reduxForm({
   form: 'updateDatasetForm',
-  validate
+  validate,
+  destroyOnUnmount: true
 })(UpdateDatasetForm);
 
 UpdateDatasetForm = connect(

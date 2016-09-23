@@ -28,3 +28,10 @@ export const editFormAtDatasetDatapointPage = (edit) => ({
     isEditing: edit
   }
 });
+
+export const editFormAtDatasetDatapointCreatePage = (edit) => ({
+  type: types.UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT,
+  payload: {
+    isEditing: edit
+  }
+});

@@ -69,6 +69,13 @@ let pageDatasetDatapoint = (state = initialState.ui.pageDatasetDatapoint, {type,
 
 let pageDatasetDatapointCreate = (state = initialState.ui.pageDatasetDatapointCreate, {type}) => {
   switch (type) {
+    case types.UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT:
+      return {
+        ...state,
+        isEditing: payload.isEditing
+      };
+      break;
+
     default:
       return state;
   }
