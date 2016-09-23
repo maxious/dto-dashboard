@@ -26,6 +26,10 @@ export default class Root extends Component {
     history: PropTypes.object
   };
 
+  onEnter() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     let { store, history } = this.props;
     return (
@@ -47,19 +51,19 @@ export default class Root extends Component {
             <IndexRedirect to="dashboards" />
 
             <Route path="dashboards" component={Dashboards}>
-              <IndexRoute component={DashboardsPage} />
+              <IndexRoute component={DashboardsPage} onEnter={this.onEnter.bind(this)} />
               <Route path=":dashboard_id" component={Dashboard}>
                 <IndexRoute component={DashboardPage} />
-                <Route path="widgets/:widget_id" component={DashboardWidgetPage} />
+                <Route path="widgets/:widget_id" component={DashboardWidgetPage} onEnter={this.onEnter.bind(this)} />
               </Route>
             </Route>
 
             <Route path="datasets/:dataset_id" component={Dataset}>
-              <IndexRoute component={DatasetPage} />
+              <IndexRoute component={DatasetPage} onEnter={this.onEnter.bind(this)} />
 
               <Route component={DatasetDatapoints}>
-                <Route path="datapoints/:datapoint_id" component={DatasetDatapointPage} />
-                <Route path="datapoints-new" component={DatasetDatapointCreatePage} />
+                <Route path="datapoints/:datapoint_id" component={DatasetDatapointPage} onEnter={this.onEnter.bind(this)} />
+                <Route path="datapoints-new" component={DatasetDatapointCreatePage} onEnter={this.onEnter.bind(this)} />
               </Route>
             </Route>
 
