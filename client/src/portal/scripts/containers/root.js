@@ -27,7 +27,7 @@ export default class Root extends Component {
   };
 
   onEnter() {
-    window.scrollTo(0, 0);
+    return () => {};
   }
 
   render() {

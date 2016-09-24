@@ -12,12 +12,12 @@ const mapStateToProps = ({ui}, ownProps) => {
   return {
     ui: ui.pageDatasetDatapointCreate,
     dataset: ownProps.dataset,
-    exclusionDates: ownProps.datapoints.map(i => i.ts)
+    exclusionDates: ownProps.datapoints.map(i => i.ts),
   }
 };
 const mapDispatchToProps = dispatch => ({
   push: bindActionCreators(push, dispatch),
-  actions: bindActionCreators(uiActions, dispatch),
+  editForm: bindActionCreators(uiActions.editFormAtDatasetDatapointCreatePage, dispatch),
 });
 
 
@@ -28,7 +28,8 @@ class DatasetDatapointCreatePage extends Component {
   }
 
   exitForm() {
-    this.props.actions.editFormAtDatasetDatapointCreatePage(false);
+    this.props.editForm(false);
+    this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   componentWillUnmount() {

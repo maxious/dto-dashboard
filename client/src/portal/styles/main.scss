@@ -14,11 +14,18 @@
 
 @import './../../_common/styles/_vendor/bootstrap/bootstrap-grid';
 
+
 /**
  *
  * Portal
  *
  */
+
+@import "variables";
+
+// vendor
+@import 'vendor/animate';
+@import 'vendor/ceaser-easings';
 
 // components
 @import '../../_common/styles/components/flex-grid';
@@ -26,10 +33,12 @@
 @import '../../_common/styles/ui-patterns/phase-banner';
 @import '../../_common/styles/ui-patterns/main-header';
 @import '../../_common/styles/ui-patterns/main-footer';
+@import 'components/page-transitions';
 @import 'components/date-fields';
 
 
 // layout
+@import 'layouts/app-layout';
 @import 'layouts/main';
 
 // themes

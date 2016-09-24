@@ -15,45 +15,39 @@
 </head>
 <body class="portal <%= body_class(yield(:body_class_names)) %>">
 
-  <div class="phase-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
+  <div class="l-top-bar">
+    <div class="phase-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
           <span>This is a working alpha and has limited functionality. Service data shown is
         accurate as at the time it was published.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <header class="main__header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="/portal" title="Go to the GOV.AU Portal's homepage" class="logo">
-            <img src="<%= image_path('gov-performance.svg') %>" alt="Logo of GOV.AU Performance Dashboard" height="30px" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="portal__main">
-    <div class="container">
-      <%= yield %>
-    </div>
-  </div>
-  <footer class="main__footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="logo">
-            <img src="<%= image_path('coatofarms.svg') %>" height="76px" alt="Logo of Commonwealth Coat of Arms"/>
           </div>
         </div>
       </div>
     </div>
-  </footer>
+
+    <header class="main__header">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <a href="/portal" title="Go to the GOV.AU Portal's homepage" class="logo">
+              <img src="<%= image_path('gov-performance.svg') %>" alt="Logo of GOV.AU Performance Dashboard" height="30px" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="l-app">
+    <div class="portal__main">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
   <%
     #
     # Production mode or webpack-dev-server mode

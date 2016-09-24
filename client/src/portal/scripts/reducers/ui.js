@@ -67,7 +67,8 @@ let pageDatasetDatapoint = (state = initialState.ui.pageDatasetDatapoint, {type,
 };
 
 
-let pageDatasetDatapointCreate = (state = initialState.ui.pageDatasetDatapointCreate, {type}) => {
+let pageDatasetDatapointCreate = (state = initialState.ui.pageDatasetDatapointCreate, {type, payload}) => {
+
   switch (type) {
     case types.UI_PAGE_DATASETDATAPOINTCREATE_FORM_EDIT:
       return {
