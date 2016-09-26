@@ -12,7 +12,13 @@ export const updateWidget = formData => ({
     method: 'POST',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
-    successAction: types.SET_WIDGETS,
-    // errorAction: types.UPDATE_WIDGETS_FAIL
+    successActions: [
+      types.SET_WIDGETS,
+      () => setToast(`Widget: ${formData.name} updated`)
+    ],
+    errorActions: [
+      // types.UPDATE_WIDGETS_FAIL
+      () => setToast(`Couldn't update widget: ${formData.name}`, 'error')
+    ]
   }
 });

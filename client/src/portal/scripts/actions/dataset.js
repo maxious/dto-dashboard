@@ -12,7 +12,13 @@ export const updateDataset = formData => ({
     method: 'POST',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
-    successAction: types.SET_DATASETS,
-    errorAction: types.UPDATE_DATASETS_FAIL
+    successActions: [
+      types.SET_DATASETS,
+      () => setToast(`Dataset: ${formData.name} updated`)
+    ],
+    errorActions: [
+      // types.UPDATE_DATASETS_FAIL,
+      () => setToast(`Couldn't update dataset: ${formData.name}`, 'error')
+    ]
   }
 });

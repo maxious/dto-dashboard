@@ -12,8 +12,14 @@ export const updateDatapoint = formData => ({
     method: 'POST',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
-    successAction: types.SET_DASHBOARDS,
-    // errorAction: types.UPDATE_DATAPOINTS_FAIL
+    successActions: [
+      types.SET_DATAPOINTS,
+      () => setToast(`Datapoint: ${formData.label} updated`)
+    ],
+    errorActions: [
+      // types.UPDATE_DATAPOINTS_FAIL,
+      () => setToast(`Couldn't update datapoint: ${formData.label}`, 'error')
+    ]
   }
 });
 
@@ -24,7 +30,13 @@ export const createDatapoint = formData => ({
     method: 'POST',
     data: formData,
     key: getRequestKey(formData.id, 'create'),
-    successAction: types.PUSH_DATAPOINT,
-    // errorAction: types.CREATE_DATAPOINT_FAIL
+    successActions: [
+      types.PUSH_DATAPOINT,
+      () => setToast(`Datapoint created`)
+    ],
+    errorActions: [
+      // types.CREATE_DATAPOINT_FAIL,
+      () => setToast(`Couldn't create datapoint`, 'error')
+    ]
   }
 });
