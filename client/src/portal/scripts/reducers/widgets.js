@@ -23,7 +23,7 @@ const widgetsReducer = (state = initialState.widgets, {type, payload}) => {
 export default widgetsReducer;
 
 
-// Helpers
+// Selectors
 
 /**
  * @param state

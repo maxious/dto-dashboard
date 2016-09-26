@@ -56,23 +56,20 @@ let CreateDatapointForm = props => {
  * @returns {Promise} - this function *must* return Promise, until
  * resolve is called, its' submitting prop will be true
  */
-const submit = (values, dispatch, props) => {
+const submit = (values, dispatch, props) => { // todo
   return new Promise((resolve, reject) => {
     dispatch(createDatapoint(values)).then(
-      (d) => {
-        if (d.type === types.CREATE_DATAPOINT_FAIL) {  // todo // if (d.status === 202) {}
-          reject(d.payload);
+      (success) => {
+        if (success) {
+          // todo - extract
+          let newDatasetState = {...props.dataset};
+          newDatasetState.datapoints.push(d.payload.id);
+          dispatch(updateDataset(newDatasetState)); // todo - handle this fail
         }
-
-        // todo - extract
-        let newDatasetState = {...props.dataset};
-        newDatasetState.datapoints.push(d.payload.id);
-        dispatch(updateDataset(newDatasetState));
-
-        resolve(d);
+        reject({message: 'an error message from server'});
       },
       (error) => {
-        reject(error);
+        reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly

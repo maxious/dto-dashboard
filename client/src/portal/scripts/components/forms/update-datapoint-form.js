@@ -51,19 +51,19 @@ let UpdateDatapointForm = props => {
  * @param values
  * @param dispatch
  * @returns {Promise} - this function *must* return Promise, until
- * resolve is called, its' submitting prop will be true
+ *    resolve is called, its' submitting prop will be true
  */
 const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDatapoint(values)).then(
-      (d) => {
-        if (d.type === types.UPDATE_DATAPOINTS_FAIL) {  // todo // if (d.status === 202) {}
-          reject(d);
+      (success) => {
+        if (success) {
+          resolve();
         }
-        resolve(d.payload);
+        reject({message: 'an error message from server'});
       },
       (error) => {
-        reject(error);
+        reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly

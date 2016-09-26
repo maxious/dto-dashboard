@@ -11,4 +11,4 @@ const currentUserReducer = (state = initialState.currentUser, {type}) => {
 export default currentUserReducer;
 
 
-// Helpers
+// Selectors

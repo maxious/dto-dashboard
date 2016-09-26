@@ -31,7 +31,7 @@ const datapointsReducer = (state = initialState.datapoints, {type, payload}) => 
 export default datapointsReducer;
 
 
-// Helpers
+// Selectors
 
 /**
  * @param state

@@ -1,14 +1,18 @@
 import * as types from "./_types";
 
 
+const getRequestKey = (id, type) => {
+  return `dataset/${type}/${id}`;
+};
+
 export const updateDataset = formData => ({
   type: types.API,
   payload: {
     url: 'datasets',
     method: 'POST',
     data: formData,
-    // pending: types.UPDATE_DATASETS_PENDING,
-    success: types.SET_DATASETS,
-    error: types.UPDATE_DATASETS_FAIL
+    key: getRequestKey(formData.id, 'update'),
+    successAction: types.SET_DATASETS,
+    errorAction: types.UPDATE_DATASETS_FAIL
   }
 });

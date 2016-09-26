@@ -12,6 +12,7 @@ import Textarea from './../fields/textarea';
 
 /**
  * Update Dataset Form
+ * @param props
  * @constructor
  */
 let UpdateDatasetForm = props => {
@@ -24,6 +25,7 @@ let UpdateDatasetForm = props => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
+
       <Field component={Input} name="name" type="text" label="Name"
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
@@ -59,20 +61,20 @@ let UpdateDatasetForm = props => {
 /**
  * @param values
  * @param dispatch
- * @returns {Promise} - !important - this function *must* return Promise, until
- * resolve is called, its' submitting prop will be true
+ * @returns {Promise} - this function *must* return Promise, until
+ *    resolve is called, its' submitting prop will be true
  */
 const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDataset(values)).then(
-      (d) => {
-        if (d.type === types.UPDATE_DATASETS_FAIL) {  // todo // if (d.status === 202) {}
-          reject(d);
+      (success) => {
+        if (success) {
+          resolve();
         }
-        resolve(d.payload);
+        reject({message: 'an error message from server'});
       },
       (error) => {
-        reject(error);
+        reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly

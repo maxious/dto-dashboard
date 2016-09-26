@@ -25,6 +25,7 @@ let UpdateDashboardForm = props => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
+
       <Field component={Input} name='name' type='text' label='Name'
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />

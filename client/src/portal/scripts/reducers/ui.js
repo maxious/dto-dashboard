@@ -96,4 +96,4 @@ const uiReducer = combineReducers({
 export default uiReducer;
 
 
-// Helpers
+// Selectors

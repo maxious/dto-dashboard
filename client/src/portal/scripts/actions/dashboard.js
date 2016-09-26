@@ -1,9 +1,9 @@
 import * as types from "./_types";
 
-export const getRequestId = (id) => {
-  return `dashboard/update/${id}`;
-};
 
+const getRequestKey = (id, type) => {
+  return `dashboard/${type}/${id}`;
+};
 
 export const updateDashboard = formData => {
   return {
@@ -12,8 +12,9 @@ export const updateDashboard = formData => {
       url: 'dashboards',
       method: 'POST',
       data: formData,
-      key: getRequestId(formData.id),
-      successAction: types.SET_DASHBOARDS
+      key: getRequestKey(formData.id, 'update'),
+      successAction: types.SET_DASHBOARDS,
+      // errorAction: types.UPDATE_DASHBOARDS_FAIL
     }
   }
 };

@@ -11,4 +11,4 @@ const appReducer = (state = initialState.app, {type}) => {
 export default appReducer;
 
 
-// Helpers
+// Selectors

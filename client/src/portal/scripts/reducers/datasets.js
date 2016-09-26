@@ -23,7 +23,7 @@ const datasetsReducer = (state = initialState.datasets, {type, payload}) => {
 export default datasetsReducer;
 
 
-// Helpers
+// Selectors
 
 export const getDatasetById = (state, id) => {
   return state.find((d) => Number(id) === d.id);
