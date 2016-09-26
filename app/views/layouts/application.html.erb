@@ -77,6 +77,12 @@
   <% else %>
     <script src="http://localhost:8080/javascripts/dashboard.js"></script>
   <% end %>
-
+  <script>
+    $('.js-accordion-trigger').bind('click', function(e){
+      jQuery(this).parent().find('.submenu').slideToggle('fast');  // apply the toggle to the ul
+      jQuery(this).parent().toggleClass('is-expanded');
+      e.preventDefault();
+    })
+  </script>
 </body>
 </html>

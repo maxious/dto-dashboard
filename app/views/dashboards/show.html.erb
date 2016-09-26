@@ -18,6 +18,41 @@
   </svg>
 </div>
 <div id="dashboard-<%= dashboard.id %>" class="<%= dashboard.name_slug %>">
+  <div class="container">
+    <ul class="accordion">
+      <li>
+        <a href="javascript:void(0)" class="js-accordion-trigger">Dashboard Description</a>
+        <ul class="submenu">
+          <li>
+            <a href="javascript:void(0)">Sub Item 1</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class=" metric-breakdown-view">
+      <% if dashboard.show_kpis? %>
+          <div class="clearfix dashboard__kpis">
+            <div class="container">
+              <div class="row">
+                <% dashboard.first_row.each do |widget| %>
+                  <%= render :partial => 'widget', :locals => {:widget => widget.decorate} %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <ul class="accordion">
+      <li>
+        <a href="javascript:void(0)" class="js-accordion-trigger">What do these Key Performance Indicators mean?</a>
+        <ul class="submenu">
+          <li>
+            <a href="javascript:void(0)">Sub Item 1</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
   <div class="hero-region">
     <div class="container">
       <div class="row dashboard__top">
@@ -38,17 +73,6 @@
   </div>
 
   <div class="container-fluid metric-breakdown-view">
-    <% if dashboard.show_kpis? %>
-        <div class="clearfix dashboard__kpis">
-          <div class="container">
-            <div class="row">
-              <% dashboard.first_row.each do |widget| %>
-                <%= render :partial => 'widget', :locals => {:widget => widget.decorate} %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-    <% end %>
 
     <div class="container dashboard__secondary dashboard__below-the-line">
       <% dashboard.remaining_rows.each do |widgets| %>
