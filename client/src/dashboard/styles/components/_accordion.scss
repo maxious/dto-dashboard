@@ -7,7 +7,7 @@
   $accordion-menu-border-color: $base-border-color;
   $accordion-menu-color: $base-font-color;
   $accordion-menu-border: 1px solid $accordion-menu-border-color;
-  $accordion-menu-background: lighten($accordion-menu-border-color, 10%);
+  $accordion-menu-background: $light-grey;
   $accordion-menu-hover: lighten($accordion-menu-background, 2%);
   $accordion-menu-sub-background: darken($accordion-menu-background, 5%);
   $accordion-menu-sub-inset: darken($accordion-menu-sub-background, 6%);
@@ -15,13 +15,13 @@
   $accordion-menu-list-padding: ($base-spacing / 2) $gutter;
 
   background-color: $accordion-menu-background;
-  border: $accordion-menu-border;
   margin: 0 0 $base-spacing 0;
   padding: 0;
 
   ul {
     margin: 0;
     padding: 0;
+    background-color: $white;
   }
 
   li {
@@ -33,38 +33,33 @@
       display: block;
       padding: $accordion-menu-list-padding;
       text-decoration: none;
+      border-top: solid 1px $secondary-text-colour;
+      border-bottom: solid 1px $secondary-text-colour;
+      font-weight: 700;
     }
 
     &:last-child {
       border: 0;
     }
-
-    &:focus,
-    &:hover {
-      background-color: $accordion-menu-hover;
-    }
   }
 
   ul.submenu {
     display: none;
+  }
 
-    li {
-      background-color: $accordion-menu-sub-background;
-
-      &:first-child {
-        border-top: $accordion-menu-border;
-        box-shadow: inset 0 1px 1px $accordion-menu-sub-inset;
-      }
-
-      &:focus,
-      &:hover {
-        background-color: $accordion-menu-sub-hover;
-      }
+  &.dashboard-description{
+    ul.submenu {
+      display: block;
     }
   }
 
   .is-expanded {
     display: block;
     padding-bottom: 0;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 1rem;
   }
 }
