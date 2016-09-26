@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import Breadcrumbs from './../components/breadcrumbs';
+
 
 const mapStateToProps = (store, ownProps) => ({
   dashboards: ownProps.dashboards
@@ -14,6 +16,12 @@ class DashboardsIndex extends Component {
     let { dashboards } = this.props;
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:'/dashboards', name:'Dashboards'}
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import * as uiActions from './../actions/ui';
 import UpdateDashboardForm from './../components/forms/update-dashboard-form';
+import Breadcrumbs from './../components/breadcrumbs';
 
 
 const mapStateToProps = (store, ownProps) => ({
@@ -42,6 +43,13 @@ class DashboardIndex extends Component {
     let { dashboard, widgets, ui } = this.props;
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:'/dashboards', name:'Dashboards'},
+            {path:`/dashboards/${dashboard.id}`, name:`${dashboard.name}`}
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

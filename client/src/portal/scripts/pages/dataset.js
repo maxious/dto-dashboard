@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointsById } from './../reducers/datapoints';
 import UpdateDatasetForm from './../components/forms/update-dataset-form';
@@ -49,6 +50,12 @@ class DatasetIndex extends Component {
     } = this.props;
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

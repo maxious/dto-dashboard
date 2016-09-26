@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 
+import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointById } from './../reducers/datapoints';
 import UpdateDatapointForm from './../components/forms/update-datapoint-form';
@@ -43,9 +44,16 @@ class DatasetDatapointPage extends Component {
   }
 
   render() {
-    let { datapoint, ui } = this.props;
+    let { datapoint, dataset, ui } = this.props;
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
+            {path:`/datasets/${dataset.id}/datapoints/${datapoint.id}`, name:`${datapoint.label}`},
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

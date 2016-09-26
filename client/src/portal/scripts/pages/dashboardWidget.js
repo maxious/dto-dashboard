@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getWidgetById } from './../reducers/widgets';
 import { getDatasetsByIds } from './../reducers/datasets';
@@ -54,6 +55,14 @@ class Widget extends Component {
     } = this.props;
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:'/dashboards', name:'Dashboards'},
+            {path:`/dashboards/${dashboard.id}`, name:`${dashboard.name}`},
+            {path:`/dashboards/${dashboard.id}/widgets/${widget.id}`, name:`${widget.name}`}
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

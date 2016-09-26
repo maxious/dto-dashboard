@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import Breadcrumbs from './../components/breadcrumbs';
+
 
 export default class NoMatch extends Component {
   render() {

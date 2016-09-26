@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 
+import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import CreateDatapointForm from './../components/forms/create-datapoint-form';
 
@@ -43,6 +44,13 @@ class DatasetDatapointCreatePage extends Component {
 
     return (
       <div>
+
+        <div className="row">
+          <Breadcrumbs paths={[
+            {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
+            {path:`/datasets/${dataset.id}/datapoints-new`, name:`Create new datapoint`},
+          ]} />
+        </div>
 
         <div className="row">
           <div className="col-xs-12">

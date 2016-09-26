@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router';
 
 
-const Breadcrumbs = ({crumbs}) => {
-  const depth = crumbs.length;
+const Breadcrumbs = ({paths}) => {
+  let activePath = paths.pop();
+  console.log(paths);
   return (
-    <ul>
-      {crumbs.map((c, idx) => (
-        <li key={idx}>
-          <Link to={c.path || ''} onlyActiveOnIndex={true} activeClassName="breadcrumb-active" >{c.name}</Link>
-          {(idx + 1) < depth && '\u2192'}
+    <ol className="breadcrumb">
+      {paths.map((c, idx) => (
+        <li key={idx} className="breadcrumb-item">
+          <Link to={c.path || ''} onlyActiveOnIndex={true} activeClassName="active" className="a--ui-kit">{c.name}</Link>
         </li>
       ))}
-    </ul>
+      <li className="breadcrumb-item">{activePath.name}</li>
+    </ol>
   );
 };
 
