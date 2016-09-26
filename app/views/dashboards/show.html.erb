@@ -18,13 +18,35 @@
   </svg>
 </div>
 <div id="dashboard-<%= dashboard.id %>" class="<%= dashboard.name_slug %>">
+
   <div class="container">
+    <div class="row title-links">
+      <h2>Dashboard</h2>
+      <div class="aus-width-one-half">
+        <h1><%= dashboard.name %></h1>
+      </div>
+      <div class="aus-width-one-half">
+        <% if dashboard.show_url? %>
+          <a href="<%= dashboard.url %>" target="_blank"><%= dashboard.url %><i class="fa fa-external-link"></i></a>
+        <% end %>
+        <%= link_to export_dashboard_path(dashboard, :format => 'csv') do %>
+          Download dashboard data as CSV
+        <% end %>
+      </div>
+    </div>
     <ul class="accordion">
       <li>
         <a href="javascript:void(0)" class="js-accordion-trigger">Dashboard Description</a>
         <ul class="submenu">
           <li>
-            <a href="javascript:void(0)">Sub Item 1</a>
+            <div class="aus-width-one-half">
+              <h3></h3>
+              <p></p>
+            </div>
+            <div class="aus-width-one-half">
+              <h3></h3>
+              <p></p>
+            </div>
           </li>
         </ul>
       </li>
@@ -58,7 +80,7 @@
       <div class="row dashboard__top">
         <a href="/" aria-hidden="true" class="back-link">Back to overview</a>
         <div class="dashboard__header">
-          <h1><%= dashboard.name %> </h1>
+
           <div class="badge__holder">
             <span class="badge-default"><%= dashboard.organisation.name %></span>
           </div>
@@ -103,13 +125,6 @@
             <% if dashboard.show_url? %>
               <p>Visit <a href="<%= dashboard.url %>" target="_blank"><%= dashboard.url %><i class="fa fa-external-link"></i></a></p>
             <% end %>
-          </div>
-          <div class="widget-text__footer aus-width-five-twelfths">
-            <p>
-              <%= link_to export_dashboard_path(dashboard, :format => 'csv') do %>
-                Download dashboard data as CSV<i class="fa fa-external-link"></i>
-              <% end %>
-            </p>
           </div>
         </div>
       </div>

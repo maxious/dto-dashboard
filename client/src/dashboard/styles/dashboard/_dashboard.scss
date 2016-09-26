@@ -309,3 +309,35 @@
     }
   }
 }
+
+.title-links {
+  a {
+    display:block;
+    float: right;
+    color: #18788d;
+
+    &.link--external-alt {
+      width: 70%;
+    }
+  }
+
+  h1 {
+    line-height: 1;
+    margin-top: 0;
+
+    @include media($screen-sm) {
+      font-size: 1.875 * $fallback;
+      font-size: 1.875rem;
+    }
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .aus-width-one-half:last-child {
+    text-align: right
+  }
+}
