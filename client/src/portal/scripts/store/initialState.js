@@ -3,6 +3,7 @@ export default {
   app: {},
   requests: {},
   ui: {
+    toast: {},
     pageDashboard: {},
     pageDashboardWidget: {},
     pageDataset: {},
@@ -13,5 +14,5 @@ export default {
   dashboards: [],
   widgets: [],
   datasets: [],
-  datapoints: []
+  datapoints: [],
 };

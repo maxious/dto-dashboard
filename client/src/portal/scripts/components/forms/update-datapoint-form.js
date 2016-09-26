@@ -41,7 +41,9 @@ let UpdateDatapointForm = props => {
                 disabled={!isEditing || submitting}
                 onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
-      {error && <strong style={{color:'red'}}>{error}</strong>}
+      <div className="form__help-block">
+        {error && <strong>{error}</strong>}
+      </div>
     </form>
   )
 };

@@ -83,13 +83,30 @@ let pageDatasetDatapointCreate = (state = initialState.ui.pageDatasetDatapointCr
 };
 
 
+const toastsReducer = (state = {}, {type, payload}) => {
+
+  switch (type) {
+    case types.SET_TOAST:
+      return payload;
+      break;
+
+    case types.CLEAR_TOAST:
+      return null;
+      break;
+
+    default:
+      return state;
+  }
+};
+
 
 const uiReducer = combineReducers({
   pageDashboard,
   pageDashboardWidget,
   pageDataset,
   pageDatasetDatapoint,
-  pageDatasetDatapointCreate
+  pageDatasetDatapointCreate,
+  toast: toastsReducer
 });
 
 

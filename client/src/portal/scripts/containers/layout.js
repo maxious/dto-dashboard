@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+
 import {
   ROUTE_TRANSITION_ENTER,
   ROUTE_TRANSITION_LEAVE,
   ROUTE_TRANSITION_SCROLL_TOP_DELAY
 } from './../config';
+import Toast from './../components/toast';
 
 
 export default class Layout extends Component {
@@ -21,6 +23,8 @@ export default class Layout extends Component {
   render() {
     return (
       <div>
+        <Toast />
+
         <TransitionGroup
           transitionName={{enter: "fadeIn", leave:'fadeOut'}}
           transitionEnterTimeout={ROUTE_TRANSITION_ENTER}

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { isURL } from 'validator';
 
-import * as types from './../../actions/_types';
 import { updateDashboard } from './../../actions/dashboard';
 import { ISO_LONG_DATE } from './../../../../_ui-kit/lib/constants/date-time';
 import Input from './../fields/input';
@@ -60,7 +59,9 @@ let UpdateDashboardForm = props => {
                 disabled={!isEditing || submitting}
                 onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
-      {error && <strong style={{color:'red'}}>{error}</strong>}
+      <div className="form__help-block">
+        {error && <strong>{error}</strong>}
+      </div>
     </form>
   )
 };

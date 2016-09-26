@@ -1,4 +1,5 @@
 import * as types from "./_types";
+import { setToast } from './toast';
 
 
 const getRequestKey = (id, type) => {
@@ -13,8 +14,13 @@ export const updateDashboard = formData => {
       method: 'POST',
       data: formData,
       key: getRequestKey(formData.id, 'update'),
-      successAction: types.SET_DASHBOARDS,
-      // errorAction: types.UPDATE_DASHBOARDS_FAIL
+      successActions: [
+        types.SET_DASHBOARDS,
+        () => setToast(`Dashboard: ${formData.name} updated`)
+      ],
+      errorActions: [
+        () => setToast(`Couldn't update dashboard: ${formData.name}`, 'error')
+      ]
     }
   }
 };

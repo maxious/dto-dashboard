@@ -2,6 +2,7 @@ import * as types from './../actions/_types';
 import initialState from './../store/initialState';
 
 
+// todo - clean up like Stack when state gets larger than x
 const requestsReducer = (state = initialState.requests, {type, meta, payload}) => {
 
   switch (type) {

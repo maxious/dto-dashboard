@@ -1,0 +1,52 @@
+// todo - transition
+
+.toast-container {
+  position: fixed;
+  z-index: 999999;
+  top: 110px;      // .toast-top-right
+  right: 24px;
+  width: 300px;
+}
+
+.toast {
+  @extend .animated;    // animate.css
+  @extend .fadeInRight;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+  position: relative;
+  padding: 13px;
+  border-radius: 5px;
+  margin: 0 0 6px;
+  background-color: #030303;
+  color: #ffffff;
+  font-size: 14px;
+
+  //box-shadow: 0 0 6px grey;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.toast--success {
+  @extend .toast;
+  background-color: #51a351;
+}
+.toast--error {
+  @extend .toast;
+  background-color: #bd362f;
+}
+.toast--info {
+  @extend .toast;
+  //background-color: #2f96b4;
+  color: $non-black;
+  //background-color: $yellow;
+  //background-color: #f5f5f5;
+  border: 1px solid rgba(249, 237, 190, .6);   // #f0c36d
+  background-color: #f9edbe;
+}
+.toast--warning {
+  @extend .toast;
+  background-color: #f89406;
+}

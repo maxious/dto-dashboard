@@ -3,6 +3,8 @@ export const APP_REQUEST_START = 'request/markStart';
 export const APP_REQUEST_SUCCESS = 'request/markSuccess';
 export const APP_REQUEST_FAILED = 'request/markFailed';
 
+export const SET_TOAST = 'app/setToast';
+export const CLEAR_TOAST = 'app/clearToast';
 
 
 export const SET_DASHBOARDS = 'dashboards/set';

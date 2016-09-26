@@ -1,5 +1,4 @@
 import fetch from 'whatwg-fetch';
-import { bindActionCreators } from 'redux';
 import { v1 as makeUuid } from 'uuid';
 
 import * as types from './../actions/_types';
@@ -28,7 +27,7 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
     return next(action);
   }
 
-  const { payload: { method, url, successAction, errorAction, data, key } } = action;
+  const { payload: { method, url, successActions, errorActions, data, key } } = action;
 
 
   dispatch(markRequestStart(key));
@@ -41,13 +40,18 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
         }
         resolve({status:'success', statusCode:200, data});  // success interface
         // reject({status:'failed', statusCode:'301', error:new Error()});  // failure interface
-      }, 8000)
+      }, 2000)
     }).then(
         resp => {
           if (true) { // todo - check status codes
-            next({
-              type: successAction,
-              payload: resp.data
+            successActions.forEach((action) => {
+              if (typeof action === "function") {
+                return dispatch(action());
+              }
+              return next({
+                type: action,
+                payload: resp.data
+              });
             });
             dispatch(markRequestSuccess(key));
             return true;
@@ -59,13 +63,18 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
         }
       )
       .catch(e => {
-        next({
-          type: errorAction,
-          payload: e,
-          error: true,
-          meta: {
-            data
+        errorActions.forEach((action) => {
+          if (typeof action === "function") {
+            return dispatch(action());
           }
+          return next({
+            type: action,
+            payload: e,
+            error: true,
+            meta: {
+              data
+            }
+          });
         });
         dispatch(markRequestFailed(key, e));
       });
