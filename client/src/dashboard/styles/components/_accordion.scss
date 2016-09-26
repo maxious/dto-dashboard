@@ -38,8 +38,6 @@
     border-bottom: $accordion-menu-border;
     list-style: none;
 
-
-
     &:last-child {
       border: 0;
     }
@@ -63,5 +61,32 @@
   h3 {
     font-weight: 700;
     font-size: 1rem;
+  }
+
+  .aus-width-one-fourth {
+    margin-top: 25px;
+  }
+
+  .user-satisfaction {
+    border-bottom: solid 2px $user-satisfaction-colour;
+  }
+
+  .cost-per-transaction {
+    border-bottom: solid 2px $cost-per-transaction-colour;
+  }
+
+  .digital-take-up {
+    border-bottom: solid 2px $digital-take-up-colour;
+  }
+
+  .completion-rate {
+    border-bottom: solid 2px $completion-rate-colour;
+  }
+
+  .subsection {
+    .row{
+      display: flex;
+    }
+
   }
 }
