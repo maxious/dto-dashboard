@@ -24,8 +24,21 @@ export default requestsReducer;
 
 // Selectors
 
+/**
+ *
+ * @param state
+ * @param key
+ * @returns Object - request object or empty object
+ */
 export const getRequest = (state, key) => state.filter(s => s.key === key) || {};
 
+
+/**
+ * Global indicator to know whether *any* request is pending
+ * @param state
+ * @param key
+ * @returns Boolean
+ */
 export const areRequestsPending = (state) => {
   return Object.keys(state)
     .some((key) => state[key].status === 'pending');
