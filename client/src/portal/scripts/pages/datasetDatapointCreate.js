@@ -46,10 +46,12 @@ class DatasetDatapointCreatePage extends Component {
       <div>
 
         <div className="row">
-          <Breadcrumbs paths={[
-            {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
-            {path:`/datasets/${dataset.id}/datapoints-new`, name:`Create new datapoint`},
-          ]} />
+          <div className="col-xs-12">
+            <Breadcrumbs paths={[
+              {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
+              {path:`/datasets/${dataset.id}/datapoints-new`, name:`Create new datapoint`},
+            ]} />
+          </div>
         </div>
 
         <div className="row">

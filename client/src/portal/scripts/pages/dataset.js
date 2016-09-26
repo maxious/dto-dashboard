@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
@@ -19,6 +20,7 @@ const mapStateToProps = ({datapoints, ui, app}, ownProps) => {
   }
 };
 const mapDispatchToProps = dispatch => ({
+  push: bindActionCreators(push, dispatch),
   actions: bindActionCreators(uiActions, dispatch)
 });
 
@@ -37,6 +39,11 @@ class DatasetIndex extends Component {
     this.exitForm();
   }
 
+
+  navToCreate() {
+    this.props.push(`/datasets/${this.props.dataset.id}/datapoints-new`);
+  }
+
   componentWillUnmount() {
     if (this.props.ui.isEditing) {
       this.exitForm();
@@ -52,9 +59,11 @@ class DatasetIndex extends Component {
       <div>
 
         <div className="row">
-          <Breadcrumbs paths={[
-            {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
-          ]} />
+          <div className="col-xs-12">
+            <Breadcrumbs paths={[
+              {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
+            ]} />
+          </div>
         </div>
 
         <div className="row">
@@ -84,7 +93,6 @@ class DatasetIndex extends Component {
             <h2 className="h4">Datapoints</h2>
 
             <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
-
 
             <table className="content-table">
               <thead>
