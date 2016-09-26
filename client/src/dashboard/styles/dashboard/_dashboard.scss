@@ -267,22 +267,6 @@
   }
 }
 
-.dashboard__header {
-  display: flex;
-  margin: 10px auto 30px auto;
-
-  h1 {
-    flex: 1;
-    margin: 0;
-    line-height: 1;
-    color: $primary-text-colour;
-  }
-
-  .badge__holder {
-    align-self: flex-end;
-  }
-}
-
 @media (max-width: 768px){
   .dashboard__kpis{
     .widget {

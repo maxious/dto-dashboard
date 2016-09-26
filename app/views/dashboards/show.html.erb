@@ -81,11 +81,6 @@
   <div class="hero-region">
     <div class="container">
       <div class="row dashboard__top">
-        <div class="dashboard__header">
-          <div class="badge__holder">
-            <span class="badge-default"><%= dashboard.organisation.name %></span>
-          </div>
-        </div>
         <% if dashboard.show_hero? %>
           <div class="clearfix">
             <div class="hero-widget hero" data-data="<%= dashboard.hero.decorate.datasets_to_chart %>"></div>
