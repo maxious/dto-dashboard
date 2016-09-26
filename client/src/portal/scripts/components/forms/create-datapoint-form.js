@@ -10,7 +10,7 @@ import { isNumeric } from 'validator';
 import {
   Input,
   MonthYearDate
-} from './../../../../_react-ui-kit/components/redux-form-fields';
+} from './../redux-form-fields';
 
 
 /**

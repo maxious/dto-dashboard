@@ -10,7 +10,7 @@ import {
   Input,
   InputDate,
   Textarea
-} from './../../../../_react-ui-kit/components/redux-form-fields';
+} from './../redux-form-fields';
 
 
 /**

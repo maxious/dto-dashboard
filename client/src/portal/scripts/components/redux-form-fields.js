@@ -3,12 +3,14 @@ import moment from 'moment';
 
 
 export const Input = (props) => {
-  const {
+  let {
     input, name, type, label,
     fieldProps,
     optionProps: { isOptional },
     meta: { touched, error }
   } = props;
+
+  fieldProps = {autoComplete:'off', ...fieldProps};
 
   if (type === 'checkbox') {
     throw new Error('Use "checkbox" input instead.');
@@ -31,13 +33,14 @@ export const Input = (props) => {
 
 export const InputDate = (props) => {
 
-  const {
+  let {
     input, name, label,
     fieldProps,
     optionProps: { isOptional, format },
     meta: { touched, error }
   } = props;
 
+  fieldProps = {autoComplete:'off', ...fieldProps};
   let computedValue = moment(input.value).format(format);
 
   return (
@@ -148,12 +151,14 @@ export class MonthYearDate extends Component {
   }
 
   render() {
-    const {
+    let {
       input, name, label,
       fieldProps,
       optionProps: { isOptional },
       meta: { touched, error }
     } = this.props;
+
+    fieldProps = {autoComplete:'off', ...fieldProps};
 
     return (
       <div className="form-group">
@@ -298,12 +303,14 @@ export class DayMonthYearDate extends Component {
   }
 
   render() {
-    const {
+    let {
       input, name, label,
       fieldProps,
       optionProps: { isOptional },
       meta: { touched, error }
     } = this.props;
+
+    fieldProps = {autoComplete:'off', ...fieldProps};
 
     return (
       <div className="form-group">
@@ -388,16 +395,14 @@ export const Checkbox = (props) => {
 
 export const Textarea = (props) => {
 
-  const {
+  let {
     input, name, label,
     fieldProps,
     optionProps: { isOptional },
     meta: { touched, error }
   } = props;
 
-  if (!fieldProps.rows) {
-    fieldProps.rows = 5;
-  }
+  fieldProps = {autoComplete:'off',rows:5, ...fieldProps};
 
   return (
     <div className="form-group">

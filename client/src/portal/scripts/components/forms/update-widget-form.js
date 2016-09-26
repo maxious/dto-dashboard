@@ -11,7 +11,7 @@ import {
   DayMonthYearDate,
   Textarea,
   Select
-} from './../../../../_react-ui-kit/components/redux-form-fields';
+} from './../redux-form-fields';
 
 
 let UpdateWidgetForm = props => {
