@@ -34,11 +34,11 @@
         <% end %>
       </div>
     </div>
-    <ul class="accordion dashboard-description">
-      <li class="is-expanded"x>
+    <div class="accordion dashboard-description">
+      <div class="is-expanded">
         <a href="javascript:void(0)" class="js-accordion-trigger">Dashboard Description</a>
-        <ul class="submenu">
-          <li>
+        <div class="subsection">
+          <div class="subsection-inner">
             <div class="row">
               <div class="aus-width-one-half">
                 <h3>What is the Australian Citizenship Appointment Booking Service?</h3>
@@ -49,10 +49,10 @@
                 <p>Department of Immigration and Border Protection.</p>
               </div>
             </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class=" metric-breakdown-view">
       <% if dashboard.show_kpis? %>
           <div class="clearfix dashboard__kpis">
@@ -66,16 +66,27 @@
           </div>
       <% end %>
     </div>
-    <ul class="accordion">
-      <li>
-        <a href="javascript:void(0)" class="js-accordion-trigger">Where is this information from?</a>
-        <ul class="submenu">
-          <li>
-            <p>Department of Immigration and Border Protection.</p>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="accordion kpi-meaning">
+      <div>
+        <a href="javascript:void(0)" class="js-accordion-trigger">What do these Key Performance Indicators mean?</a>
+        <div class="subsection">
+          <div class="row">
+            <div class="aus-width-one-fourth user-satisfaction">
+              <p>User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” with the appointment booking service using the feedback kiosks located in the Department’s citizenship areas.</p>
+            </div>
+            <div class="aus-width-one-fourth cost-per-transaction">
+              <p>Cost Per Transaction measures porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. No data currently available.</p>
+            </div>
+            <div class="aus-width-one-fourth digital-take-up">
+              <p>Digital take-up measures the number of users who had an appointment booked using the new service as a percentage of all appointments that have been made Austradiva-wide.</p>
+            </div>
+            <div class="aus-width-one-fourth completion-rate">
+              <p>Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when reschedudivng their appointment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <h3 class="hero-heading">Performance history</h3>
   </div>
   <div class="hero-region">

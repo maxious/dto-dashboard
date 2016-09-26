@@ -18,37 +18,39 @@
   margin: 0 0 $base-spacing 0;
   padding: 0;
 
-  ul {
+  a {
+    color: $accordion-menu-color;
+    display: block;
+    padding: $accordion-menu-list-padding;
+    text-decoration: none;
+    border-top: solid 1px $secondary-text-colour;
+    border-bottom: solid 1px $secondary-text-colour;
+    font-weight: 700;
+  }
+
+  .subsection {
     margin: 0;
     padding: 0;
     background-color: $white;
   }
 
-  li {
+  .subsection-inner {
     border-bottom: $accordion-menu-border;
     list-style: none;
 
-    > a {
-      color: $accordion-menu-color;
-      display: block;
-      padding: $accordion-menu-list-padding;
-      text-decoration: none;
-      border-top: solid 1px $secondary-text-colour;
-      border-bottom: solid 1px $secondary-text-colour;
-      font-weight: 700;
-    }
+
 
     &:last-child {
       border: 0;
     }
   }
 
-  ul.submenu {
+  div.subsection {
     display: none;
   }
 
   &.dashboard-description{
-    ul.submenu {
+    div.subsection {
       display: block;
     }
   }
