@@ -1,10 +1,11 @@
 .breadcrumb {
-  padding: 8px $breadcrumb-padding-x 2px;
+  padding: 10px $breadcrumb-padding-x 2px;
   margin-bottom: $spacer-y;
   list-style: none;
   background-color: $breadcrumb-bg;
   @include border-radius($border-radius);
   @include clearfix;
+  font-size: $small-font-size;
 }
 
 .breadcrumb-item {
