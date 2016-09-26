@@ -6,11 +6,9 @@ import { isURL } from 'validator';
 import * as types from './../../actions/_types';
 import { updateDashboard } from './../../actions/dashboard';
 import { ISO_LONG_DATE } from './../../../../_ui-kit/lib/constants/date-time';
-import {
-  Input,
-  InputDate,
-  Textarea
-} from './../redux-form-fields';
+import Input from './../fields/input';
+import InputDate from './../fields/inputDate';
+import Textarea from './../fields/textarea';
 
 
 /**

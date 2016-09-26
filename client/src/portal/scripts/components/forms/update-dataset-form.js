@@ -5,11 +5,9 @@ import { isURL } from 'validator';
 
 import * as types from './../../actions/_types';
 import { updateDataset } from './../../actions/dataset';
-import {
-  Input,
-  Textarea,
-  Select
-} from './../redux-form-fields';
+import Input from './../fields/input';
+import Select from './../fields/select';
+import Textarea from './../fields/textarea';
 
 
 /**

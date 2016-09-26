@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 
 const Breadcrumbs = ({paths}) => {
   let activePath = paths.pop();
-  console.log(paths);
   return (
     <ol className="breadcrumb">
       {paths.map((c, idx) => (

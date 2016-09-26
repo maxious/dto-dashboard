@@ -5,13 +5,10 @@ import { Field, reduxForm, SubmissionError } from 'redux-form';
 import * as types from './../../actions/_types';
 import { updateWidget } from './../../actions/widget';
 import { isURL } from 'validator';
-import { ISO_LONG_DATE } from './../../../../_ui-kit/lib/constants/date-time';
-import {
-  Input,
-  DayMonthYearDate,
-  Textarea,
-  Select
-} from './../redux-form-fields';
+import Input from './../fields/input';
+import DayMonthYearDate from './../fields/dayMonthYearDate';
+import Textarea from './../fields/textarea';
+import Select from './../fields/select';
 
 
 let UpdateWidgetForm = props => {

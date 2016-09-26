@@ -7,10 +7,8 @@ import { createDatapoint } from './../../actions/datapoint';
 import { updateDataset } from './../../actions/dataset';
 import * as types from './../../actions/_types';
 import { isNumeric } from 'validator';
-import {
-  Input,
-  MonthYearDate
-} from './../redux-form-fields';
+import Input from './../fields/input';
+import MonthYearDate from './../fields/monthYearDate';
 
 
 /**
