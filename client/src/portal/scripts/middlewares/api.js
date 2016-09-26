@@ -1,36 +1,18 @@
 import fetch from 'whatwg-fetch';
 import { bindActionCreators } from 'redux';
-import uuid from 'uuid';
+import { v1 as makeUuid } from 'uuid';
 
 import * as types from './../actions/_types';
+import {
+  markRequestStart,
+  markRequestSuccess,
+  markRequestFailed,
+} from './../actions/requests';
 import {
   USE_FIXTURES,
   API_BASE_URL
 } from './../config';
 
-
-const handleError = (error, data) => {
-  return {
-    type: types.API_ERROR,
-    payload: error,
-    error: true,
-    meta: {
-      data
-    }
-  }
-};
-
-const apiStart = () => {
-  return {
-    type: types.API_START
-  }
-};
-
-const apiEnd = () => {
-  return {
-    type: types.API_DONE
-  }
-};
 
 
 /**
@@ -46,44 +28,79 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
     return next(action);
   }
 
-  const { payload: { method, url, success, error, data } } = action;
+  const { payload: { method, url, successAction, errorAction, data, key } } = action;
 
 
-  apiStart();
+  dispatch(markRequestStart(key));
 
   if (USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (!data.id) {
-          data.id = uuid.v1();
+          data.id = makeUuid();
         }
-        apiEnd();
-        return resolve(next({ type: success, payload: data }));  // success interface
-        // return reject(next({ type: error, error:{}, meta: { data } }));  // failure interface
-      }, 800);
-    });
+        resolve({status:'success', statusCode:200, data});  // success interface
+        // reject({status:'failed', statusCode:'301', error:new Error()});  // failure interface
+      }, 8000)
+    }).then(
+        resp => {
+          if (true) { // todo - check status codes
+            next({
+              type: successAction,
+              payload: resp.data
+            });
+            dispatch(markRequestSuccess(key));
+            return true;
+          }
+          throw new Error({message:'some server error'});
+        },
+        e => {
+          throw new Error(e);
+        }
+      )
+      .catch(e => {
+        next({
+          type: errorAction,
+          payload: e,
+          error: true,
+          meta: {
+            data
+          }
+        });
+        dispatch(markRequestFailed(key, e));
+      });
   }
 
-  return fetch(`${API_BASE_URL}${url}`, {
-    method,
-    // body, credentials,
-    // headers: {'Content-Type': 'application/json'}
-  })
-    .then(response => {
-      if (response.status >= 300) {
-        throw new Error(response.status);
-      } else {
-        response.json()
-          .then(d => {
-            apiEnd();
-            return next({type: success, payload: d});
-          });
-      }
-    })
-    .catch(error => {
-      apiEnd();
-      return next(handleError(error, data))
-    });
+  // todo
+  // return fetch(`${API_BASE_URL}${url}`, {
+  //   method,
+  //   // body, credentials,
+  //   // headers: {
+  //   //   'Accept': 'application/json',
+  //   //   'Content-Type': 'application/json',
+  //   //   'Authorization': `Token ${data.token}`
+  //   // }
+  // })
+  //   .then(response => {
+  //     if (response.status >= 300) {
+  //       throw new Error(response.status);
+  //     } else {
+  //       response.json()
+  //     }
+  //   })
+  //   .then(apiEnd)
+  //   .then(d => next({
+  //     type: successAction,
+  //     payload: d
+  //   }))
+  //   .catch(e => next({
+  //     type: errorAction,
+  //     payload: e,
+  //     error: true,
+  //     meta: {
+  //       data
+  //     }
+  //   }));
 };
 
 export default apiMiddleware;

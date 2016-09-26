@@ -24,7 +24,7 @@ const dashboardsReducer = (state = initialState.dashboards, {type, payload}) => 
 export default dashboardsReducer;
 
 
-// Helpers
+// Selectors
 
 export const getDashboardById = (state, id) => {
   return state.find((d) => Number(id) === d.id);

@@ -74,14 +74,14 @@ let UpdateDashboardForm = props => {
 const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDashboard(values)).then(
-      (d) => {
-        if (d.type === types.UPDATE_DASHBOARDS_FAIL) {  // todo // if (d.status === 202) {}
-          reject(d);
+      (success) => {
+        if (success) {
+          resolve();
         }
-        resolve(d.payload);
+        reject({message: 'an error message from server'});
       },
       (error) => {
-        reject(error);
+        reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly

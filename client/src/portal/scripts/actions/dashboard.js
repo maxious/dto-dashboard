@@ -1,14 +1,19 @@
 import * as types from "./_types";
 
+export const getRequestId = (id) => {
+  return `dashboard/update/${id}`;
+};
 
-export const updateDashboard = formData => ({
-  type: types.API,
-  payload: {
-    url: 'dashboards',
-    method: 'POST',
-    data: formData,
-    // pending: types.UPDATE_DASHBOARDS_PENDING,
-    success: types.SET_DASHBOARDS,
-    error: types.UPDATE_DASHBOARDS_FAIL
+
+export const updateDashboard = formData => {
+  return {
+    type: types.API,
+    payload: {
+      url: 'dashboards',
+      method: 'POST',
+      data: formData,
+      key: getRequestId(formData.id),
+      successAction: types.SET_DASHBOARDS
+    }
   }
-});
+};
