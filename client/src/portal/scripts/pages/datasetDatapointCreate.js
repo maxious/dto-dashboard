@@ -40,7 +40,7 @@ class DatasetDatapointCreatePage extends Component {
 
   render() {
     let { dataset, exclusionDates } = this.props;
-    console.log(exclusionDates);
+
     return (
       <div>
 

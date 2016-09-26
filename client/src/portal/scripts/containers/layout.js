@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import {
-  ROUTE_TRANSITION_START_IN,
-  // ROUTE_TRANSITION_START_OUT,   // => consumed by CSS props
-  ROUTE_TRANSITION_END
+  ROUTE_TRANSITION_ENTER,
+  ROUTE_TRANSITION_LEAVE,
+  ROUTE_TRANSITION_SCROLL_TOP_DELAY
 } from './../config';
 
 
@@ -14,7 +14,7 @@ export default class Layout extends Component {
     if (appScrollNode && appScrollNode.length) {
       setTimeout(() => {
         appScrollNode[0].scrollTop = 0;
-      }, ROUTE_TRANSITION_START_IN);
+      }, ROUTE_TRANSITION_SCROLL_TOP_DELAY);
     }
   }
 
@@ -22,9 +22,9 @@ export default class Layout extends Component {
     return (
       <div>
         <TransitionGroup
-          transitionName={{enter: "fadeIn", leave: "fadeOut"}}
-          transitionEnterTimeout={ROUTE_TRANSITION_END}
-          transitionLeaveTimeout={0}
+          transitionName={{enter: "fadeIn", leave:'fadeOut'}}
+          transitionEnterTimeout={ROUTE_TRANSITION_ENTER}
+          transitionLeaveTimeout={ROUTE_TRANSITION_LEAVE}
           component="div"
           className="stage--route">
             {React.cloneElement(this.props.children, {
