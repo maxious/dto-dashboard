@@ -1,10 +1,9 @@
 import * as types from "./_types";
 import { setToast } from './toast';
+import getRequestKeyHOC from './../utils/getRequestKey';
 
+export const getRequestKey = getRequestKeyHOC('dataset');
 
-const getRequestKey = (id, type) => {
-  return `dataset/${type}/${id}`;
-};
 
 export const updateDataset = formData => ({
   type: types.API,

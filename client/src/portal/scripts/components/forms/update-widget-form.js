@@ -21,7 +21,7 @@ let UpdateWidgetForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing
+    isEditing, isSubmitting
   } = props;
 
   return (
@@ -51,7 +51,7 @@ let UpdateWidgetForm = props => {
         <SubmitButton type="submit"
                       btnText="Save"
                       submittingBtnText="Saving.."
-                      isSubmitting={false}
+                      isSubmitting={isSubmitting}
                       className='btn primary'
                       disabled={pristine || submitting || !valid}
                       onClick={handleSubmit(submit.bind(this))} />
@@ -114,7 +114,6 @@ const validate = (values, props) => {
   if (!values.last_updated_at) {
     errors.last_updated_at = 'Required';
   }
-  // todo - check date range
 
   return errors;
 };

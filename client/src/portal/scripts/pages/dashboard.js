@@ -6,18 +6,23 @@ import { connect } from 'react-redux';
 import * as uiActions from './../actions/ui';
 import UpdateDashboardForm from './../components/forms/update-dashboard-form';
 import Breadcrumbs from './../components/breadcrumbs';
+import { getRequestKey } from './../actions/dashboard';
+import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = (store, ownProps) => ({
-  dashboard: ownProps.dashboard,
-  widgets: ownProps.widgets,
-  ui: store.ui.pageDashboard
-});
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = ({ui, requests}, ownProps) => {
+  let dashboard = ownProps.dashboard;
+  let requestKey = getRequestKey(dashboard.id, 'update');
   return {
-    actions: bindActionCreators(uiActions, dispatch)
-  }
+    dashboard,
+    widgets: ownProps.widgets,
+    ui: ui.pageDashboard,
+    isPendingRequest: isPendingRequest(requests, requestKey)
+  };
 };
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(uiActions, dispatch)
+});
 
 class DashboardIndex extends Component {
 
@@ -40,7 +45,7 @@ class DashboardIndex extends Component {
   }
 
   render() {
-    let { dashboard, widgets, ui } = this.props;
+    let { dashboard, widgets, ui, isPendingRequest } = this.props;
     return (
       <div>
 
@@ -69,6 +74,7 @@ class DashboardIndex extends Component {
             <UpdateDashboardForm
               formModel={dashboard}
               isEditing={ui.isEditing}
+              isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)} />
           </div>

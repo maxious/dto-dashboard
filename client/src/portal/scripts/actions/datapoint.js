@@ -1,10 +1,9 @@
 import * as types from "./_types";
 import { setToast } from './toast';
+import getRequestKeyHOC from './../utils/getRequestKey';
 
+export const getRequestKey = getRequestKeyHOC('datapoint');
 
-const getRequestKey = (id, type) => {
-  return `datapoint/${type}/${id}`;
-};
 
 export const updateDatapoint = formData => ({
   type: types.API,
@@ -30,7 +29,7 @@ export const createDatapoint = formData => ({
     url: 'datapoints',
     method: 'POST',
     data: formData,
-    key: getRequestKey(formData.id, 'create'),
+    key: getRequestKey(null, 'create'),
     successActions: [
       types.PUSH_DATAPOINT,
       () => setToast(`Datapoint created`)

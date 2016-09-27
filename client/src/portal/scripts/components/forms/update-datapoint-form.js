@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
-import * as types from './../../actions/_types';
 import { updateDatapoint } from './../../actions/datapoint';
 import { isNumeric } from 'validator';
 import Input from './../fields/input';
@@ -18,7 +17,7 @@ let UpdateDatapointForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing
+    isEditing, isSubmitting
   } = props;
 
   return (
@@ -35,7 +34,7 @@ let UpdateDatapointForm = props => {
         <SubmitButton type="submit"
                       btnText="Save"
                       submittingBtnText="Saving.."
-                      isSubmitting={false}
+                      isSubmitting={isSubmitting}
                       className='btn primary'
                       disabled={pristine || submitting || !valid}
                       onClick={handleSubmit(submit.bind(this))} />

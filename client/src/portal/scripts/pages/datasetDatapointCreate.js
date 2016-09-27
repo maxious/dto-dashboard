@@ -7,13 +7,17 @@ import { push } from 'react-router-redux';
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import CreateDatapointForm from './../components/forms/create-datapoint-form';
+import { getRequestKey } from './../actions/datapoint';
+import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = ({ui}, ownProps) => {
+const mapStateToProps = ({ui, requests}, ownProps) => {
+  let requestKey = getRequestKey(null, 'create');
   return {
     ui: ui.pageDatasetDatapointCreate,
     dataset: ownProps.dataset,
     exclusionDates: ownProps.datapoints.map(i => i.ts),
+    isPendingRequest: isPendingRequest(requests, requestKey)
   }
 };
 const mapDispatchToProps = dispatch => ({
@@ -40,7 +44,7 @@ class DatasetDatapointCreatePage extends Component {
   }
 
   render() {
-    let { dataset, exclusionDates } = this.props;
+    let { dataset, exclusionDates, isPendingRequest } = this.props;
 
     return (
       <div>
@@ -64,6 +68,7 @@ class DatasetDatapointCreatePage extends Component {
           <div className="col-xs-12 col-lg-8">
             <CreateDatapointForm
               dataset={dataset}
+              isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)}
               exclusionDates={exclusionDates} />

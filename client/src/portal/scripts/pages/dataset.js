@@ -8,14 +8,18 @@ import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointsById } from './../reducers/datapoints';
 import UpdateDatasetForm from './../components/forms/update-dataset-form';
+import { getRequestKey } from './../actions/dataset';
+import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = ({datapoints, ui, app}, ownProps) => {
+const mapStateToProps = ({datapoints, ui, app, requests}, ownProps) => {
   let dataset = ownProps.dataset;
+  let requestKey = getRequestKey(dataset.id, 'update');
   return {
     dataset,
     datapoints: getDatapointsById(datapoints, dataset.datapoints),
     ui: ui.pageDataset,
+    isPendingRequest: isPendingRequest(requests, requestKey),
     SELECT_DATASET_LABEL: app.SELECT_DATASET_LABEL
   }
 };
@@ -52,7 +56,7 @@ class DatasetIndex extends Component {
 
   render() {
     let {
-      dataset, datapoints, ui,
+      dataset, datapoints, ui, isPendingRequest,
       SELECT_DATASET_LABEL
     } = this.props;
     return (
@@ -82,6 +86,7 @@ class DatasetIndex extends Component {
             <UpdateDatasetForm
               formModel={dataset}
               isEditing={ui.isEditing}
+              isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)}
               SELECT_DATASET_LABEL={SELECT_DATASET_LABEL} />

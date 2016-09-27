@@ -1,10 +1,9 @@
 import * as types from "./_types";
 import { setToast } from './toast';
+import getRequestKeyHOC from './../utils/getRequestKey';
 
+export const getRequestKey = getRequestKeyHOC('widget');
 
-const getRequestKey = (id, type) => {
-  return `widget/${type}/${id}`;
-};
 
 export const updateWidget = formData => ({
   type: types.API,

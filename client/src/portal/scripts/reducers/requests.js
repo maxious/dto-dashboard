@@ -26,12 +26,25 @@ export default requestsReducer;
 // Selectors
 
 /**
- *
  * @param state
  * @param key
  * @returns Object - request object or empty object
  */
-export const getRequest = (state, key) => state.filter(s => s.key === key) || {};
+export const getRequest = (state, key) => {
+  return state[key] || {};
+};
+
+/**
+ * Local indicator to know whether a request is currently being
+ * submitted.
+ * @param state
+ * @param key
+ * @return {boolean}
+ */
+export const isPendingRequest = (state, key) => {
+  console.log(key, getRequest(state, key).status === 'pending');
+  return getRequest(state, key).status === 'pending';
+};
 
 
 /**

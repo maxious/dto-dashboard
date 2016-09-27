@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { isURL } from 'validator';
 
-import * as types from './../../actions/_types';
 import { updateDataset } from './../../actions/dataset';
 import Input from './../fields/input';
 import Select from './../fields/select';
@@ -20,7 +19,7 @@ let UpdateDatasetForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing,
+    isEditing, isSubmitting,
     SELECT_DATASET_LABEL
   } = props;
 
@@ -47,7 +46,7 @@ let UpdateDatasetForm = props => {
         <SubmitButton type="submit"
                       btnText="Save"
                       submittingBtnText="Saving.."
-                      isSubmitting={false}
+                      isSubmitting={isSubmitting}
                       className='btn primary'
                       disabled={pristine || submitting || !valid}
                       onClick={handleSubmit(submit.bind(this))} />

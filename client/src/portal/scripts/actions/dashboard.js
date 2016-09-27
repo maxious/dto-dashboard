@@ -1,10 +1,9 @@
 import * as types from "./_types";
 import { setToast } from './toast';
+import getRequestKeyHOC from './../utils/getRequestKey';
 
+export const getRequestKey = getRequestKeyHOC('dashboard');
 
-const getRequestKey = (id, type) => {
-  return `dashboard/${type}/${id}`;
-};
 
 export const updateDashboard = formData => {
   return {

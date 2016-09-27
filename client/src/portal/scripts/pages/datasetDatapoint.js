@@ -8,13 +8,19 @@ import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointById } from './../reducers/datapoints';
 import UpdateDatapointForm from './../components/forms/update-datapoint-form';
+import { getRequestKey } from './../actions/datapoint';
+import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = ({datapoints, ui}, ownProps) => {
+const mapStateToProps = ({datapoints, ui, requests}, ownProps) => {
+  let dataset = ownProps.dataset;
+  let datapoint = getDatapointById(datapoints, ownProps.params.datapoint_id);
+  let requestKey = getRequestKey(datapoint.id, 'update');
   return {
     ui: ui.pageDatasetDatapoint,
-    dataset: ownProps.dataset,
-    datapoint: getDatapointById(datapoints, ownProps.params.datapoint_id)
+    dataset,
+    datapoint,
+    isPendingRequest: isPendingRequest(requests, requestKey)
   }
 };
 const mapDispatchToProps = dispatch => ({
@@ -44,7 +50,7 @@ class DatasetDatapointPage extends Component {
   }
 
   render() {
-    let { datapoint, dataset, ui } = this.props;
+    let { datapoint, dataset, ui, isPendingRequest } = this.props;
     return (
       <div>
 
@@ -73,6 +79,7 @@ class DatasetDatapointPage extends Component {
             <UpdateDatapointForm
               formModel={datapoint}
               isEditing={ui.isEditing}
+              isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)} />
           </div>

@@ -20,7 +20,7 @@ let UpdateDashboardForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing
+    isEditing, isSubmitting
   } = props;
 
   return (
@@ -54,7 +54,7 @@ let UpdateDashboardForm = props => {
         <SubmitButton type="submit"
                       btnText="Save"
                       submittingBtnText="Saving.."
-                      isSubmitting={false}
+                      isSubmitting={isSubmitting}
                       className='btn primary'
                       disabled={pristine || submitting || !valid}
                       onClick={handleSubmit(submit.bind(this))} />

@@ -8,15 +8,19 @@ import * as uiActions from './../actions/ui';
 import { getWidgetById } from './../reducers/widgets';
 import { getDatasetsByIds } from './../reducers/datasets';
 import UpdateWidgetForm from './../components/forms/update-widget-form';
+import { getRequestKey } from './../actions/widget';
+import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = ({datasets, ui, app}, ownProps) => {
+const mapStateToProps = ({datasets, ui, app, requests}, ownProps) => {
   let widget = getWidgetById(ownProps.widgets, ownProps.params.widget_id);
+  let requestKey = getRequestKey(widget.id, 'update');
   return {
     ui: ui.pageDashboardWidget,
     dashboard: ownProps.dashboard,
     widget,
     datasets: getDatasetsByIds(datasets, widget.datasets),
+    isPendingRequest: isPendingRequest(requests, requestKey),
     SELECT_WIDGET_TYPE: app.SELECT_WIDGET_TYPE,
     SELECT_WIDGET_SIZE: app.SELECT_WIDGET_SIZE,
     SELECT_WIDGET_UNITS: app.SELECT_WIDGET_UNITS
@@ -48,11 +52,12 @@ class Widget extends Component {
   }
 
   render() {
-    let { widget, dashboard, datasets, ui,
+    let { widget, dashboard, datasets, ui, isPendingRequest,
       SELECT_WIDGET_TYPE,
       SELECT_WIDGET_SIZE,
       SELECT_WIDGET_UNITS
     } = this.props;
+    console.log('widget isPendingRequest', isPendingRequest);
     return (
       <div>
 
@@ -82,6 +87,7 @@ class Widget extends Component {
             <UpdateWidgetForm
               formModel={widget}
               isEditing={ui.isEditing}
+              isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)}
               SELECT_WIDGET_TYPE={SELECT_WIDGET_TYPE}
