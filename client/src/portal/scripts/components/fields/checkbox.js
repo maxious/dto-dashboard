@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
 
 const Checkbox = (props) => {
@@ -29,6 +29,16 @@ const Checkbox = (props) => {
       </div>
     </div>
   )
+};
+
+Checkbox.PropTypes = {
+  props: PropTypes.shape({
+    input: React.PropTypes.object.isRequired,
+    name: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string.isRequired,
+    fieldProps: React.PropTypes.object.isRequired,
+    optionProps: React.PropTypes.object.isRequired,
+  })
 };
 
 export default Checkbox;

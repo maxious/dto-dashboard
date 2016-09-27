@@ -1,8 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
 
 
 class MonthYearDate extends Component {
+
+  static propTypes = {
+    props: PropTypes.shape({
+      input: React.PropTypes.object.isRequired,
+      name: React.PropTypes.string.isRequired,
+      label: React.PropTypes.string.isRequired,
+      fieldProps: React.PropTypes.object.isRequired,
+      optionProps: React.PropTypes.object.isRequired,
+    })
+  };
 
   /**
    * Compute to consume

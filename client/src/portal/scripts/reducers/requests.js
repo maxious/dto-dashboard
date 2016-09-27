@@ -45,7 +45,6 @@ export const isPendingRequest = (state, key) => {
   return getRequest(state, key).status === 'pending';
 };
 
-
 /**
  * Global indicator to know whether *any* request is pending
  * @param state

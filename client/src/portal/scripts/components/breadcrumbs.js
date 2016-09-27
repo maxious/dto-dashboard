@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 
@@ -14,6 +14,12 @@ const Breadcrumbs = ({paths}) => {
       <li className="breadcrumb-item">{activePath.name}</li>
     </ol>
   );
+};
+
+Breadcrumbs.propTypes = {
+  props: PropTypes.shape({
+    paths: React.PropTypes.array.isRequired
+  })
 };
 
 export default Breadcrumbs;

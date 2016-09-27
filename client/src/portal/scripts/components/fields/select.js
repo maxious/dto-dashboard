@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
 
 export const Select = (props) => {
@@ -29,6 +29,16 @@ export const Select = (props) => {
       </div>
     </div>
   )
+};
+
+Select.PropTypes = {
+  props: PropTypes.shape({
+    input: React.PropTypes.object.isRequired,
+    name: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string.isRequired,
+    fieldProps: React.PropTypes.object.isRequired,
+    optionProps: React.PropTypes.object.isRequired,
+  })
 };
 
 export default Select;

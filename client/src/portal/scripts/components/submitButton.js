@@ -1,12 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 
-const Button = ({btnText, submittingBtnText, isSubmitting = false, ...attributes}) => {
-  if (!btnText) console.warn('must provide btnText');
-  if (!submittingBtnText) console.warn('must provide submittingBtnText');
+const Button = ({btnText, submittingBtnText, isSubmitting = false, ...attrs}) => {
+  let text = btnText;
+  if (submittingBtnText) {
+    text = isSubmitting ? submittingBtnText : btnText;
+  }
   return (
-    <button {...attributes}>{isSubmitting ? submittingBtnText : btnText}</button>
+    <button {...attrs}>{text}</button>
   )
+};
+
+Button.propTypes = {
+  btnText: PropTypes.string.isRequired,
+  submittingBtnText: PropTypes.string,
+  isSubmitting: PropTypes.bool
 };
 
 export default Button;
