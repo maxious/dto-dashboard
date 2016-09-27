@@ -20,12 +20,26 @@
 
   a {
     color: $accordion-menu-color;
-    display: block;
+    display: flex;
     padding: $accordion-menu-list-padding;
     text-decoration: none;
     border-top: solid 1px $secondary-text-colour;
     border-bottom: solid 1px $secondary-text-colour;
     font-weight: 700;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 1em;
+      right: 2em;
+      height: 1.2em;
+      width: 1.2em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% auto;
+      background-image: url("../client/src/dashboard/images/arrow.svg");
+    }
   }
 
   .subsection {
@@ -84,9 +98,8 @@
   }
 
   .subsection {
-    .row{
+    .row {
       display: flex;
     }
-
   }
 }
