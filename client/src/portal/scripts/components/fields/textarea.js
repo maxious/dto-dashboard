@@ -27,13 +27,13 @@ const Textarea = (props) => {
   )
 };
 
-Textarea.PropTypes = {
+Textarea.propTypes = {
   props: PropTypes.shape({
-    input: React.PropTypes.object.isRequired,
-    name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    fieldProps: React.PropTypes.object.isRequired,
-    optionProps: React.PropTypes.object.isRequired,
+    input: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    fieldProps: PropTypes.object.isRequired,
+    optionProps: PropTypes.object.isRequired,
   })
 };
 

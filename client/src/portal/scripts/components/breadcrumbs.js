@@ -18,7 +18,7 @@ const Breadcrumbs = ({paths}) => {
 
 Breadcrumbs.propTypes = {
   props: PropTypes.shape({
-    paths: React.PropTypes.array.isRequired
+    paths: PropTypes.array.isRequired
   })
 };
 

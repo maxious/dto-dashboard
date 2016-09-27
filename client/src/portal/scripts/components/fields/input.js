@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
 
 const Input = (props) => {
@@ -28,6 +28,16 @@ const Input = (props) => {
       </div>
     </div>
   )
+};
+
+Input.propTypes = {
+  props: PropTypes.shape({
+    input: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    fieldProps: PropTypes.object.isRequired,
+    optionProps: PropTypes.object.isRequired,
+  })
 };
 
 export default Input;
