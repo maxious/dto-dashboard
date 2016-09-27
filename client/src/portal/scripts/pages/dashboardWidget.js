@@ -57,7 +57,7 @@ class Widget extends Component {
       SELECT_WIDGET_SIZE,
       SELECT_WIDGET_UNITS
     } = this.props;
-    console.log('widget isPendingRequest', isPendingRequest);
+
     return (
       <div>
 

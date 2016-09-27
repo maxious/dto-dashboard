@@ -42,7 +42,6 @@ export const getRequest = (state, key) => {
  * @return {boolean}
  */
 export const isPendingRequest = (state, key) => {
-  console.log(key, getRequest(state, key).status === 'pending');
   return getRequest(state, key).status === 'pending';
 };
 
