@@ -9,7 +9,7 @@ import Input from './../fields/input';
 import DayMonthYearDate from './../fields/dayMonthYearDate';
 import Textarea from './../fields/textarea';
 import Select from './../fields/select';
-
+import SubmitButton from './../submitButton';
 
 
 /**
@@ -48,10 +48,13 @@ let UpdateWidgetForm = props => {
              optionProps={{}} />
 
       <div>
-        <button type="submit"
-                className='btn primary'
-                disabled={pristine || submitting || !valid}
-                onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <SubmitButton type="submit"
+                      btnText="Save"
+                      submittingBtnText="Saving.."
+                      isSubmitting={false}
+                      className='btn primary'
+                      disabled={pristine || submitting || !valid}
+                      onClick={handleSubmit(submit.bind(this))} />
         <button type="cancel"
                 className='btn primary-link'
                 disabled={!isEditing || submitting}

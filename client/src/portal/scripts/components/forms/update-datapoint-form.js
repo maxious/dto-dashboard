@@ -6,6 +6,7 @@ import * as types from './../../actions/_types';
 import { updateDatapoint } from './../../actions/datapoint';
 import { isNumeric } from 'validator';
 import Input from './../fields/input';
+import SubmitButton from './../submitButton';
 
 
 /**
@@ -31,10 +32,13 @@ let UpdateDatapointForm = props => {
              optionProps={{}} />
 
       <div>
-        <button type="submit"
-                className='btn primary'
-                disabled={pristine || submitting || !valid}
-                onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <SubmitButton type="submit"
+                      btnText="Save"
+                      submittingBtnText="Saving.."
+                      isSubmitting={false}
+                      className='btn primary'
+                      disabled={pristine || submitting || !valid}
+                      onClick={handleSubmit(submit.bind(this))} />
 
         <button type="cancel"
                 className='btn primary-link'

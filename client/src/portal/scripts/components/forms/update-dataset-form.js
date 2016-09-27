@@ -8,6 +8,7 @@ import { updateDataset } from './../../actions/dataset';
 import Input from './../fields/input';
 import Select from './../fields/select';
 import Textarea from './../fields/textarea';
+import SubmitButton from './../submitButton';
 
 
 /**
@@ -43,10 +44,13 @@ let UpdateDatasetForm = props => {
              optionProps={{isOptional:true}} />
 
       <div>
-        <button type="submit"
-                className='btn primary'
-                disabled={pristine || submitting || !valid}
-                onClick={handleSubmit(submit.bind(this))}>Save</button>
+        <SubmitButton type="submit"
+                      btnText="Save"
+                      submittingBtnText="Saving.."
+                      isSubmitting={false}
+                      className='btn primary'
+                      disabled={pristine || submitting || !valid}
+                      onClick={handleSubmit(submit.bind(this))} />
         <button type="cancel"
                 className='btn primary-link'
                 disabled={!isEditing || submitting}

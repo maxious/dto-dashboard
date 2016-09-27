@@ -9,6 +9,7 @@ import * as types from './../../actions/_types';
 import { isNumeric } from 'validator';
 import Input from './../fields/input';
 import MonthYearDate from './../fields/monthYearDate';
+import SubmitButton from './../submitButton';
 
 
 /**
@@ -34,10 +35,13 @@ let CreateDatapointForm = props => {
              optionProps={{}} />
 
       <div>
-        <button type="submit"
+        <SubmitButton type="submit"
+                btnText="Create"
+                submittingBtnText="Creating.."
+                isSubmitting={false}
                 className='btn primary'
                 disabled={pristine || submitting || !valid}
-                onClick={handleSubmit(submit.bind(this))}>Create</button>
+                onClick={handleSubmit(submit.bind(this))} />
 
         <button type="cancel"
                 className='btn primary-link'
