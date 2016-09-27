@@ -7,11 +7,6 @@ import {
   markRequestSuccess,
   markRequestFailed,
 } from './../actions/requests';
-import {
-  USE_FIXTURES,
-  API_BASE_URL
-} from './../config';
-
 
 
 /**
@@ -21,6 +16,8 @@ import {
  * middleware chain
  */
 const apiMiddleware = ({dispatch, getState}) => next => action => {
+
+  let config = getState().config;
 
   // if not an API call, do not decorate with middleware
   if (action.type !== types.API) {
@@ -32,7 +29,7 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
 
   dispatch(markRequestStart(key));
 
-  if (USE_FIXTURES) {
+  if (config.USE_FIXTURES) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (!data.id) {
@@ -82,13 +79,13 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
   }
 
   // todo
-  // return fetch(`${API_BASE_URL}${url}`, {
+  // return fetch(`${config.API_BASE_URL}${url}`, {
   //   method,
   //   // body, credentials,
   //   // headers: {
   //   //   'Accept': 'application/json',
   //   //   'Content-Type': 'application/json',
-  //   //   'Authorization': `Token ${data.token}`
+  //   //   'Authorization': `Token ${config.SESSION_TOKEN}`
   //   // }
   // })
   //   .then(response => {

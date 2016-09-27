@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import { connect } from 'react-redux';
 
-import {
-  ROUTE_TRANSITION_ENTER,
-  ROUTE_TRANSITION_LEAVE,
-  ROUTE_TRANSITION_SCROLL_TOP_DELAY
-} from './../config';
 import Toast from './../components/toast';
 
 
-export default class Layout extends Component {
+class Layout extends Component {
 
   componentDidUpdate() {
     let appScrollNode = document.getElementsByClassName('l-app');
     if (appScrollNode && appScrollNode.length) {
       setTimeout(() => {
         appScrollNode[0].scrollTop = 0;
-      }, ROUTE_TRANSITION_SCROLL_TOP_DELAY);
+      }, this.props.config.ROUTE_TRANSITION_SCROLL_TOP_DELAY);
     }
   }
 
   render() {
+    let { config } = this.props;
     return (
       <div>
         <Toast />
-
         <TransitionGroup
           transitionName={{enter: "fadeIn", leave:'fadeOut'}}
-          transitionEnterTimeout={ROUTE_TRANSITION_ENTER}
-          transitionLeaveTimeout={ROUTE_TRANSITION_LEAVE}
+          transitionEnterTimeout={config.ROUTE_TRANSITION_ENTER}
+          transitionLeaveTimeout={config.ROUTE_TRANSITION_LEAVE}
           component="div"
           className="stage--route">
             {React.cloneElement(this.props.children, {
@@ -39,3 +35,12 @@ export default class Layout extends Component {
     )
   }
 }
+
+const mapStateToProps = ({config}) => ({
+  config
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Layout);

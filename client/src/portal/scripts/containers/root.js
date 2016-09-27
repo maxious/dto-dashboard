@@ -22,8 +22,8 @@ import NoMatch from './../pages/no-match';
 export default class Root extends Component {
 
   static propTypes = {
-    store: PropTypes.object,
-    history: PropTypes.object
+    store: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   };
 
   onEnter() {

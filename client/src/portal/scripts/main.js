@@ -8,11 +8,14 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import configureStore from './store/configureStore';
 import initialState from './store/initialState';
+import initialConfig from './store/initialConfig';
 import Root from './containers/root';
 
 
-const bootState = merge(initialState, window.__INITIAL_STATE__);
+const config = merge(initialConfig, window.__CONFIG__);
+const bootState = merge(initialState, window.__STATE__, {config});
 const store = configureStore(bootState, hashHistory);
+
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(

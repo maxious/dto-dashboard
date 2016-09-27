@@ -1,4 +1,5 @@
 export default {
+  config: {},
   routing: {},
   app: {},
   requests: {},
