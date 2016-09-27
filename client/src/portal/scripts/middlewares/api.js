@@ -38,12 +38,13 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
         if (!data.id) {
           data.id = makeUuid();
         }
-        resolve({status:'success', statusCode:200, data});  // success interface
-        // reject({status:'failed', statusCode:'301', error:new Error()});  // failure interface
+        resolve({status:200, data});  // success interface
+        // reject({status:301, statusText: 'Server error', error:new Error()});  // failure interface
       }, 2000)
     }).then(
         resp => {
-          if (true) { // todo - check status codes
+          let { status, statusText } = resp;
+          if (status >= 200 && status < 300) {
             successActions.forEach((action) => {
               if (typeof action === "function") {
                 return dispatch(action());
@@ -54,9 +55,9 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
               });
             });
             dispatch(markRequestSuccess(key));
-            return true;
+            return resp.data;
           }
-          throw new Error({message:'some server error'});
+          throw new Error({message:statusText});
         },
         e => {
           throw new Error(e);

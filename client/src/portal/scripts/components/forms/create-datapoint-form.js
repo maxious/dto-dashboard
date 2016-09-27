@@ -61,17 +61,17 @@ let CreateDatapointForm = props => {
 const submit = (values, dispatch, props) => { // todo
   return new Promise((resolve, reject) => {
     dispatch(createDatapoint(values)).then(
-      (success) => {
-        if (success) {
-          // todo - extract
+      (data) => {
+        if (data) { // todo - extract this
           let newDatasetState = {...props.dataset};
-          newDatasetState.datapoints.push(d.payload.id);
+          newDatasetState.datapoints.push(data.payload.id);
           dispatch(updateDataset(newDatasetState)); // todo - handle this fail
+          return resolve();
         }
-        reject({message: 'an error message from server'});
+        return reject({message: 'an error message from server'});
       },
       (error) => {
-        reject({message: `an error message: ${error}`});
+        return reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly

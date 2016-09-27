@@ -1,5 +1,3 @@
-// todo - transition
-
 .toast-container {
   position: fixed;
   z-index: 999999;
@@ -11,7 +9,7 @@
 .toast {
   @extend .animated;    // animate.css
   @extend .fadeInRight;
-  animation-duration: 300ms;
+  animation-duration: 200ms;
   animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
   position: relative;
   padding: 13px;

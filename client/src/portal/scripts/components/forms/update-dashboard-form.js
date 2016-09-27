@@ -76,14 +76,14 @@ let UpdateDashboardForm = props => {
 const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDashboard(values)).then(
-      (success) => {
-        if (success) {
-          resolve();
+      (data) => {
+        if (data) {
+          return resolve();
         }
-        reject({message: 'an error message from server'});
+        return reject({message: 'an error message from server'});
       },
       (error) => {
-        reject({message: `an error message: ${error}`});
+        return reject({message: `an error message: ${error}`});
       },
     ).catch((error) => {
       // todo - check error and fail accordingly
