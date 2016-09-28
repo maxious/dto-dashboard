@@ -27,11 +27,7 @@
       </div>
       <div class="aus-width-one-half">
         <% if dashboard.show_url? %>
-          <a href="<%= dashboard.url %>" target="_blank"><%= dashboard.url %><i class="fa fa-external-link"></i></a>
-        <% end %>
-      </br>
-        <%= link_to export_dashboard_path(dashboard, :format => 'csv') do %>
-          Download dashboard data as CSV
+          <a href="<%= dashboard.url %>" target="_blank">visit <%= dashboard.name.downcase %><i class="fa fa-external-link"></i></a>
         <% end %>
       </div>
     </div>
