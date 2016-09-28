@@ -16,7 +16,9 @@ import {
  */
 const apiMiddleware = ({dispatch, getState}) => next => action => {
 
-  let config = getState().config;
+  const state = getState();
+  let { config, currentUser: {SESSION_TOKEN}} = state;
+
 
   // if not an API call, do not decorate with middleware
   if (action.type !== types.API) {
@@ -84,7 +86,7 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Token ${config.SESSION_TOKEN}`
+        'Authorization': `Token ${SESSION_TOKEN}`
       }
     })
       .then(resp => {

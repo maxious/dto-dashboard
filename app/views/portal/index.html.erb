@@ -1,6 +1,26 @@
 <script type="text/javascript">
   window.__CONFIG__ = {
-    SESSION_TOKEN: '<%= session_token %>'   // todo - realise what to do about this and currentUser.token
+    OPTIONS_WIDGET_TYPE: [
+      { value: 'full', label: 'Full' },
+      { value: 'kpi-sparkline', label: 'Kpi Sparkline' },
+      { value: 'bar', label: 'Bar' },
+      { value: 'fact', label: 'Fact' },
+      { value: 'pie', label: 'Pie' }
+    ],
+    OPTIONS_WIDGET_UNITS: [
+      { value: '%', label: 'Percentage' },
+      { value: '$', label: 'Currency' },
+      { value: 'n', label: 'Number' },
+      { value: 'f', label: 'Float' },
+      { value: 's', label: 'Seconds' }
+    ],
+    OPTIONS_DATASET_LABEL: [
+      { value: 'n', label: 'Percentage' },
+      { value: '$', label: 'Currency' },
+      { value: 'n', label: 'Number' },
+      { value: 'f', label: 'Float' },
+      { value: 's', label: 'Seconds' }
+    ]
   };
 
 //  const map = {
@@ -27,32 +47,9 @@
       id: 1,
       firstName: '',
       lastName: '',
-      canEditDashboard: [1, 2],
-      token: '<%= session_token %>'
+      SESSION_TOKEN: '<%= session_token %>'
     },
-    app: {
-      SELECT_WIDGET_TYPE: [
-        { value: 'full', label: 'Full' },
-        { value: 'kpi-sparkline', label: 'Kpi Sparkline' },
-        { value: 'bar', label: 'Bar' },
-        { value: 'fact', label: 'Fact' },
-        { value: 'pie', label: 'Pie' }
-      ],
-      SELECT_WIDGET_UNITS: [
-        { value: '%', label: 'Percentage' },
-        { value: '$', label: 'Currency' },
-        { value: 'n', label: 'Number' },
-        { value: 'f', label: 'Float' },
-        { value: 's', label: 'Seconds' }
-      ],
-      SELECT_DATASET_LABEL: [
-        { value: 'n', label: 'Percentage' },
-        { value: '$', label: 'Currency' },
-        { value: 'n', label: 'Number' },
-        { value: 'f', label: 'Float' },
-        { value: 's', label: 'Seconds' }
-      ]
-    },
+    app: {},
     dashboards: [
       {
         id: 1,
