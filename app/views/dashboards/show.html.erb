@@ -32,25 +32,28 @@
       </div>
     </div>
     <div class="row">
-      <div class="aus-width-one-half">
-        <section>
-          <h3>What is this section?</h3>
-          <p><%= dashboard.target_users %></p>
-        </section>
-        <section>
-          <h3>What is the <%= dashboard.name %>?</h3>
-          <p><%= dashboard.target_users %></p>
-        </section>
       <div class="gradient-accordion">
+        <div class="aus-width-one-half">
+          <section>
+            <h3>What is this section?</h3>
+            <p><%= dashboard.target_users %></p>
+          </section>
+          <section>
+            <h3>What is the <%= dashboard.name %>?</h3>
+            <p><%= dashboard.target_users %></p>
+          </section>
+        </div>
+        <div class="aus-width-one-half">
+          <section>
+            <h3>Who is the user group for this service?</h3>
+            <p><%= dashboard.target_users %></p>
+          </section>
+          <h3>Where is this information from?</h3>
+          <p><%= dashboard.organisation.name %></p>
         </div>
       </div>
-      <div class="aus-width-one-half">
-        <section>
-          <h3>Who is the user group for this service?</h3>
-          <p><%= dashboard.target_users %></p>
-        </section>
-        <h3>Where is this information from?</h3>
-        <p><%= dashboard.organisation.name %></p>
+      <div class="row show-more">
+        <button class="show-more__button">Show more</button>
       </div>
     </div>
     <div class=" metric-breakdown-view">

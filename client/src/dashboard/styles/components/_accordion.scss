@@ -31,6 +31,19 @@
   }
 }
 
+.show-more {
+  text-align: center;
+
+  .show-more__button {
+    font-weight: bold;
+    color: #0579C7;
+    text-decoration: underline;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+  }
+}
+
 
 @media screen and (min-width: 768px){
   .dashboard__kpis {
