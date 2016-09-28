@@ -53,15 +53,15 @@
     </div>
     <div class=" metric-breakdown-view">
       <% if dashboard.show_kpis? %>
-          <div class="clearfix dashboard__kpis">
-            <div class="container">
-              <div class="row">
-                <% dashboard.first_row.each do |widget| %>
-                  <%= render :partial => 'widget_kpi', :locals => {:widget => widget.decorate} %>
-                <% end %>
-              </div>
+        <div class="clearfix dashboard__kpis">
+          <div class="container">
+            <div class="row">
+              <% dashboard.first_row.each do |widget| %>
+                <%= render :partial => 'widget_kpi', :locals => {:widget => widget.decorate} %>
+              <% end %>
             </div>
           </div>
+        </div>
       <% end %>
     </div>
     <h3 class="hero-heading">Performance history</h3>
