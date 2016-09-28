@@ -332,11 +332,18 @@
 }
 
 .gradient-accordion {
-  max-height:300px;
+  height:210px;
   overflow:hidden;
   text-overflow: ellipsis;
   content: "";
   background: -webkit-linear-gradient($black, $white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  &.is-expanded {
+    height: auto;
+    background: $white;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: $black;
+  }
 }
