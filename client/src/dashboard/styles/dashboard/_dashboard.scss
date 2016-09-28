@@ -330,3 +330,13 @@
   font-size: 1.875rem;
   font-weight: 700;
 }
+
+.gradient-accordion {
+  max-height:300px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  content: "";
+  background: -webkit-linear-gradient($black, $white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
