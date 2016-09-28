@@ -77,6 +77,9 @@ let webpackConfig = {
   },
   // Add functionality typically related to bundles in webpack
   plugins: [
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': DEBUG ? 'production' : JSON.stringify(CONFIG.ENV),
       __DEV__: DEBUG

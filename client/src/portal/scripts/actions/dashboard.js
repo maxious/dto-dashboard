@@ -9,8 +9,8 @@ export const updateDashboard = formData => {
   return {
     type: types.API,
     payload: {
-      url: 'dashboards',
-      method: 'POST',
+      url: `dashboards/${formData.id}`,
+      method: 'PUT',
       data: formData,
       key: getRequestKey(formData.id, 'update'),
       successActions: [

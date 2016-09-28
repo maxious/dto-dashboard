@@ -60,6 +60,9 @@ let webpackConfig = {
 		]
 	},
 	plugins: [
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     // new sassLintPlugin({ // todo
     //   config: './../.sass-lint.yml'
     // }),

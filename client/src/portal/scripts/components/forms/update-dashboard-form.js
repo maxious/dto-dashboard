@@ -34,7 +34,7 @@ let UpdateDashboardForm = props => {
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
-      <Field component={Textarea} name='users' label='Users'
+      <Field component={Textarea} name='target_users' label='Users Text'
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
@@ -81,6 +81,7 @@ const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDashboard(values)).then(
       (data) => {
+        debugger
         if (data) {
           return resolve();
         }

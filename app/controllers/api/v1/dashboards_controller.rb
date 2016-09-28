@@ -5,6 +5,7 @@ class Api::V1::DashboardsController < Api::V1::ApiController
 
   def index
     dashboards = current_user.dashboards.by_name.all
+    render :json => dashboards
     render :json => dashboards.to_json
   end
 
@@ -32,4 +33,5 @@ class Api::V1::DashboardsController < Api::V1::ApiController
   def data
     params.permit(:name, :description, :target_users, :notes, :url, :published_at)
   end
+
 end
