@@ -1,85 +1,5 @@
-.accordion {
-  $base-border-color: gainsboro !default;
-  $base-line-height: 1.5em !default;
-  $base-spacing: 1.5em !default;
-  $dark-gray: #333 !default;
-  $base-font-color: $dark-gray !default;
-  $accordion-menu-border-color: $base-border-color;
-  $accordion-menu-color: $base-font-color;
-  $accordion-menu-border: 1px solid $accordion-menu-border-color;
-  $accordion-menu-background: $light-grey;
-  $accordion-menu-hover: lighten($accordion-menu-background, 2%);
-  $accordion-menu-sub-background: darken($accordion-menu-background, 5%);
-  $accordion-menu-sub-inset: darken($accordion-menu-sub-background, 6%);
-  $accordion-menu-sub-hover: lighten($accordion-menu-sub-background, 2%);
-  $accordion-menu-list-padding: ($base-spacing / 2) $gutter;
-
-  background-color: $accordion-menu-background;
-  margin: 0 0 $base-spacing 0;
-  padding: 0;
-
-  a {
-    color: $accordion-menu-color;
-    display: flex;
-    padding: $accordion-menu-list-padding;
-    text-decoration: none;
-    border-top: solid 1px $secondary-text-colour;
-    border-bottom: solid 1px $secondary-text-colour;
-    font-weight: 700;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 1em;
-      right: 2em;
-      height: 1.2em;
-      width: 1.2em;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% auto;
-      background-image: url("../client/src/dashboard/images/arrow.svg");
-    }
-  }
-
-  .subsection {
-    margin: 0;
-    padding: 0;
-    background-color: $white;
-  }
-
-  .subsection-inner {
-    border-bottom: $accordion-menu-border;
-    list-style: none;
-
-    &:last-child {
-      border: 0;
-    }
-  }
-
-  div.subsection {
-    display: none;
-  }
-
-  &.dashboard-description{
-    div.subsection {
-      display: block;
-    }
-  }
-
-  .is-expanded {
-    display: block;
-    padding-bottom: 0;
-  }
-
-  h3 {
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .aus-width-one-fourth {
-    margin-top: 25px;
-  }
+.kpi-definitions {
+  display: flex;
 
   .user-satisfaction {
     border-bottom: solid 2px $user-satisfaction-colour;
@@ -97,9 +17,38 @@
     border-bottom: solid 2px $completion-rate-colour;
   }
 
-  .subsection {
-    .row {
-      display: flex;
+  p {
+    padding-top: 22px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .aus-width-one-fourth {
+    margin-top: 25px;
+  }
+}
+
+
+@media screen and (min-width: 768px){
+  .dashboard__kpis {
+    .sparkline__inner.no-data{
+      height: 140px;
     }
   }
 }
+
+// @media screen and (min-width: 768px){
+//   .dashboard__kpis {
+//     .widget.has-data-false {
+//         height: auto;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 768px)
+// .dashboard__kpis .widget.has-data-false {
+//     height: 150px;
+// }

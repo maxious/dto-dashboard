@@ -35,23 +35,24 @@
         <% end %>
       </div>
     </div>
-    <div class="accordion dashboard-description">
-      <div class="is-expanded">
-        <a href="javascript:void(0)" class="js-accordion-trigger">Dashboard Description</a>
-        <div class="subsection">
-          <div class="subsection-inner">
-            <div class="row">
-              <div class="aus-width-one-half">
-                <h3>What is the <%= dashboard.name %>?</h3>
-                <p><%= dashboard.target_users %></p>
-              </div>
-              <div class="aus-width-one-half">
-                <h3>Where is this information from?</h3>
-                <p><%= dashboard.organisation.name %></p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="aus-width-one-half">
+        <section>
+          <h3>What is this section?</h3>
+          <p><%= dashboard.target_users %></p>
+        </section>
+        <section>
+          <h3>What is the <%= dashboard.name %>?</h3>
+          <p><%= dashboard.target_users %></p>
+        </section>
+      </div>
+      <div class="aus-width-one-half">
+        <section>
+          <h3>Who is the user group for this service?</h3>
+          <p><%= dashboard.target_users %></p>
+        </section>
+        <h3>Where is this information from?</h3>
+        <p><%= dashboard.organisation.name %></p>
       </div>
     </div>
     <div class=" metric-breakdown-view">
@@ -66,27 +67,6 @@
             </div>
           </div>
       <% end %>
-    </div>
-    <div class="accordion kpi-meaning">
-      <div>
-        <a href="javascript:void(0)" class="js-accordion-trigger">What do these Key Performance Indicators mean?</a>
-        <div class="subsection">
-          <div class="row">
-            <div class="aus-width-one-fourth user-satisfaction">
-              <p>User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” with the appointment booking service using the feedback kiosks located in the Department’s citizenship areas.</p>
-            </div>
-            <div class="aus-width-one-fourth cost-per-transaction">
-              <p>Cost Per Transaction measures porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. No data currently available.</p>
-            </div>
-            <div class="aus-width-one-fourth digital-take-up">
-              <p>Digital take-up measures the number of users who had an appointment booked using the new service as a percentage of all appointments that have been made Austradiva-wide.</p>
-            </div>
-            <div class="aus-width-one-fourth completion-rate">
-              <p>Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when reschedudivng their appointment.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <h3 class="hero-heading">Performance history</h3>
   </div>
