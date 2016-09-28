@@ -194,9 +194,9 @@
     &.has-data-false {
       min-height: 0;
 
-      @include media($screen-sm) {
-        height: 150px;
-      }
+      // @include media($screen-sm) {
+      //   height: 150px;
+      // }
     }
 
     .widget__title {
