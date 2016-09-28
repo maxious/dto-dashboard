@@ -1,0 +1,47 @@
+<div data-id="<%= widget.id %>" class="<%= widget.size_to_style %>">
+  <div class="widget <%= widget.name_slug %> has-data-<%= widget.has_data? %> <%= widget.style %>">
+    <div id="<%= widget.name_slug %>" data-id="<%= widget.id %>" class="widget__title">
+      <h4><%= widget.name %></h4>
+      <div class="meta-group">
+        <span class="widget__last-updated">Last updated <%= widget.last_updated_at %></span>
+      </div>
+      <div class="meta-group">
+        <% if widget.show_description? %>
+          <div class="widget__definition">
+            <div class="widget__definition--content" <%= widget.name_slug %>">
+              <div class="widget__definition--content__inner">
+                <%= widget.description %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div data-data="<%= widget.to_chart %>" aria-hidden="true" class="widget__inner <%= widget.type %> <%= widget.style %>">
+    </div>
+    <div class="kpi-definitions">
+      <div class="<%= widget.name_slug %>">
+        <p>Kogi single-origin coffee kitsch, copper mug food truck crucifix trust fund green juice put a bird on it forage lo-fi brooklyn brunch raw denim. Master cleanse tbh stumptown, mustache venmo pitchfork irony selfies next level etsy hell of twee </p>
+      </div>
+    </div>
+    <div class="widget__data">
+      <table class="data-table table">
+        <% widget.datasets.each do |dataset| %>
+          <caption><%= widget.name || widget.id %> (<%= widget.units_to_s %>)</caption>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Value</th>
+            </tr>
+            <% if dataset.datapoints.any? %>
+              <% dataset.datapoints.each do |datapoint| %>
+              <tr>
+                <td scope="row"><%= datapoint.label %></td>
+                <td scope="row"><%= humanised_value(datapoint.value, widget.prefix, widget.suffix) %></td>
+              </tr>
+              <% end %>
+            <%end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
