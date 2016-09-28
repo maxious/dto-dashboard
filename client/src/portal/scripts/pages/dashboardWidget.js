@@ -12,18 +12,16 @@ import { getRequestKey } from './../actions/widget';
 import { isPendingRequest } from './../reducers/requests';
 
 
-const mapStateToProps = ({datasets, ui, app, requests}, ownProps) => {
+const mapStateToProps = ({datasets, ui, requests, config}, ownProps) => {
   let widget = getWidgetById(ownProps.widgets, ownProps.params.widget_id);
   let requestKey = getRequestKey(widget.id, 'update');
   return {
     ui: ui.pageDashboardWidget,
     dashboard: ownProps.dashboard,
     widget,
+    config,
     datasets: getDatasetsByIds(datasets, widget.datasets),
-    isPendingRequest: isPendingRequest(requests, requestKey),
-    SELECT_WIDGET_TYPE: app.SELECT_WIDGET_TYPE,
-    SELECT_WIDGET_SIZE: app.SELECT_WIDGET_SIZE,
-    SELECT_WIDGET_UNITS: app.SELECT_WIDGET_UNITS
+    isPendingRequest: isPendingRequest(requests, requestKey)
   }
 };
 const mapDispatchToProps = dispatch => ({
@@ -52,10 +50,13 @@ class Widget extends Component {
   }
 
   render() {
-    let { widget, dashboard, datasets, ui, isPendingRequest,
-      SELECT_WIDGET_TYPE,
-      SELECT_WIDGET_SIZE,
-      SELECT_WIDGET_UNITS
+    let {
+      widget,
+      dashboard,
+      datasets,
+      ui,
+      isPendingRequest,
+      config: { OPTIONS_WIDGET_TYPE, OPTIONS_WIDGET_SIZE, OPTIONS_WIDGET_UNITS}
     } = this.props;
 
     return (
@@ -90,9 +91,9 @@ class Widget extends Component {
               isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)}
-              SELECT_WIDGET_TYPE={SELECT_WIDGET_TYPE}
-              SELECT_WIDGET_SIZE={SELECT_WIDGET_SIZE}
-              SELECT_WIDGET_UNITS={SELECT_WIDGET_UNITS}
+              OPTIONS_WIDGET_TYPE={OPTIONS_WIDGET_TYPE}
+              OPTIONS_WIDGET_SIZE={OPTIONS_WIDGET_SIZE}
+              OPTIONS_WIDGET_UNITS={OPTIONS_WIDGET_UNITS}
             />
           </div>
         </div>

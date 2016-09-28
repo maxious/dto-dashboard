@@ -20,7 +20,7 @@ let UpdateDatasetForm = props => {
   const {
     error, handleSubmit, pristine, submitting, valid,
     isEditing, isSubmitting,
-    SELECT_DATASET_LABEL
+    OPTIONS_DATASET_LABEL
   } = props;
 
   return (
@@ -36,7 +36,7 @@ let UpdateDatasetForm = props => {
 
       <Field component={Select} name="units" label="Units"
              fieldProps={{disabled:!isEditing}}
-             optionProps={{options:SELECT_DATASET_LABEL}} />
+             optionProps={{options:OPTIONS_DATASET_LABEL}} />
 
       <Field component={Textarea} name="notes" label="Notes"
              fieldProps={{disabled:!isEditing}}

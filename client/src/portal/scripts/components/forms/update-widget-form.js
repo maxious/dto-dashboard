@@ -21,7 +21,9 @@ let UpdateWidgetForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing, isSubmitting
+    isEditing, isSubmitting,
+    OPTIONS_WIDGET_TYPE,
+    OPTIONS_WIDGET_UNITS
   } = props;
 
   return (
@@ -33,11 +35,11 @@ let UpdateWidgetForm = props => {
 
       <Field component={Select} name="type" label="Type"
              fieldProps={{disabled:!isEditing}}
-             optionProps={{options:props.SELECT_WIDGET_TYPE}} />
+             optionProps={{options:OPTIONS_WIDGET_TYPE}} />
 
       <Field component={Select} name="units" label="Units"
              fieldProps={{disabled:!isEditing}}
-             optionProps={{options:props.SELECT_WIDGET_UNITS}} />
+             optionProps={{options:OPTIONS_WIDGET_UNITS}} />
 
       <Field component={Textarea} name="description" label="Description"
              fieldProps={{disabled:!isEditing}}
@@ -132,10 +134,7 @@ UpdateWidgetForm = reduxForm({
 
 UpdateWidgetForm = connect(
   (state, ownProps) => ({
-    enableReinitialize: true,
-    SELECT_WIDGET_TYPE: ownProps.SELECT_WIDGET_TYPE,
-    SELECT_WIDGET_SIZE: ownProps.SELECT_WIDGET_SIZE,
-    SELECT_WIDGET_UNITS: ownProps.SELECT_WIDGET_UNITS
+    enableReinitialize: true
   }),
   (dispatch, ownProps) => ({
     initialValues: ownProps.formModel

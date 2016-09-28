@@ -112,10 +112,26 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
           return data;
         },
         error => {
+          debugger;
           throw new Error(error);
         }
       ).catch(e => {
         debugger;
+
+        errorActions.forEach((action) => {
+          if (typeof action === "function") {
+            return dispatch(action());
+          }
+          return next({
+            type: action,
+            payload: e,
+            error: true,
+            meta: {
+              error: data
+            }
+          });
+        });
+        dispatch(markRequestFailed(key, e));
       })
   }
 };
