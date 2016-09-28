@@ -8,8 +8,8 @@ export const getRequestKey = getRequestKeyHOC('widget');
 export const updateWidget = formData => ({
   type: types.API,
   payload: {
-    url: 'widgets',
-    method: 'POST',
+    url: `widgets/${formData.id}`,
+    method: 'PUT',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
     successActions: [

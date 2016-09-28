@@ -8,8 +8,8 @@ export const getRequestKey = getRequestKeyHOC('dataset');
 export const updateDataset = formData => ({
   type: types.API,
   payload: {
-    url: 'datasets',
-    method: 'POST',
+    url: `datasets/${formData.id}`,
+    method: 'PUT',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
     successActions: [

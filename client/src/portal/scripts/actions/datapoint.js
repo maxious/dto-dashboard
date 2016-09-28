@@ -8,8 +8,8 @@ export const getRequestKey = getRequestKeyHOC('datapoint');
 export const updateDatapoint = formData => ({
   type: types.API,
   payload: {
-    url: 'datapoints',
-    method: 'POST',
+    url: `dashboards/${formData.id}`,
+    method: 'PUT',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
     successActions: [
