@@ -80,9 +80,7 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
 
     return fetch(`${config.API_BASE_URL}${url}`, {
       method,
-      body: JSON.stringify({
-          dashboard: JSON.stringify(data)
-      }),
+      body: JSON.stringify(data),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
