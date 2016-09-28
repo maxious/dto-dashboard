@@ -182,6 +182,11 @@ Remember to NOT commit this as it will mean the test suite no longer runs all th
 For advice for writing specs check [betterspecs](http://betterspecs.org/).
 
 
+## Api documentation
+
+https://swaggerhub.com/api/dto/dto-dashboard/v1
+
+
 ## High-level Development Process
 
 ## TL;DR​
