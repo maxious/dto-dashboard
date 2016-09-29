@@ -4,7 +4,7 @@
     .metric-data {
       .value {
         text-transform: none;
-        color: $charcoal-grey;
+        color: #224A61;
 
         @media (min-width: $screen-sm) {
           font-size: 3rem;
@@ -34,6 +34,7 @@
 
   .metric-unit {
     font-weight: 600;
+    font-size: 2rem;
   }
 
   .metric-meta {
@@ -87,7 +88,7 @@
         @include media($screen-sm) {
           display: block;
         }
-     }
+      }
     }
   }
 
@@ -191,6 +192,20 @@
       @media screen and (min-width: $screen-md) {
         height: auto;
       }
+    }
+  }
+}
+
+.sparkline__inner {
+  .metric-data {
+    .value {
+      color: #224A61;
+      font-weight: 300;
+      font-size: 3.75rem;
+    }
+    .decorator {
+      font-weight: 600;
+      margin-bottom: -10px;
     }
   }
 }
