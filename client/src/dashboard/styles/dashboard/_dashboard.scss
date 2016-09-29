@@ -295,9 +295,6 @@
 }
 
 .title-links {
-  .aus-width-one-half {
-    @include span-columns(6);
-  }
 
   a {
     display:block;
@@ -308,6 +305,7 @@
   h1 {
     line-height: 1;
     margin-top: 0;
+    clear: both;
 
     @include media($screen-sm) {
       font-size: 1.875 * $fallback;
@@ -319,10 +317,18 @@
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 6px;
+    margin-top: 0;
   }
 
-  .aus-width-one-half:last-child {
-    text-align: right
+  .aus-width-one-half {
+    margin-top: 15px;
+    @include omega(2n);
+  }
+
+  .link--external-alt {
+    @media screen and (max-width: 768px){
+      float:left;
+    }
   }
 }
 

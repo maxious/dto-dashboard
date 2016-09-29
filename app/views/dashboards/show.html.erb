@@ -21,15 +21,19 @@
 
   <div class="container">
     <div class="row title-links">
-      <h2>Dashboard</h2>
-      <div class="aus-width-one-half">
-        <h1><%= dashboard.name %></h1>
-      </div>
-      <div class="aus-width-one-half">
-        <% if dashboard.show_url? %>
+      <% if dashboard.show_url? %>
+        <div class="aus-width-one-half">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="aus-width-one-half">
           <a href="<%= dashboard.url %>" target="_blank" class="link--external-alt">visit <%= dashboard.name.downcase %></a>
-        <% end %>
-      </div>
+        </div>
+        <% else %>
+        <div class="aus-width-one-whole">
+          <h2>Dashboard</h2>
+        </div>
+      <% end %>
+      <h1><%= dashboard.name %></h1>
     </div>
     <div class="row">
       <div class="gradient-accordion" aria-expanded="false">
