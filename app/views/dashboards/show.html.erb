@@ -27,7 +27,7 @@
       </div>
       <div class="aus-width-one-half">
         <% if dashboard.show_url? %>
-          <a href="<%= dashboard.url %>" target="_blank">visit <%= dashboard.name.downcase %><i class="fa fa-external-link"></i></a>
+          <a href="<%= dashboard.url %>" target="_blank" class="link--external-alt">visit <%= dashboard.name.downcase %></a>
         <% end %>
       </div>
     </div>
@@ -67,7 +67,9 @@
         </div>
       <% end %>
     </div>
-    <h3 class="hero-heading">Performance history</h3>
+    <% if dashboard.show_hero? %>
+      <h3 class="hero-heading">Performance history</h3>
+    <% end %>
   </div>
   <div class="hero-region">
     <div class="container">
