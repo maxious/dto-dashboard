@@ -115,9 +115,11 @@
             </div>
           </div>
           <div class="widget-text__footer aus-width-five-twelfths">
-            <% if dashboard.show_url? %>
-              <p>Visit <a href="<%= dashboard.url %>" target="_blank"><%= dashboard.url %><i class="fa fa-external-link"></i></a></p>
-            <% end %>
+            <p>
+              <%= link_to export_dashboard_path(dashboard, :format => 'csv') do %>
+                Download dashboard data as CSV<i class="fa fa-external-link"></i>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
