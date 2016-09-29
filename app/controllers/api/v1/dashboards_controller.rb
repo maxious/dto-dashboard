@@ -5,7 +5,6 @@ class Api::V1::DashboardsController < Api::V1::ApiController
 
   def index
     dashboards = current_user.dashboards.by_name.all
-    render :json => dashboards
     render :json => dashboards.to_json
   end
 
