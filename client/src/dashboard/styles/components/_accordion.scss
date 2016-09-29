@@ -57,3 +57,8 @@
   }
 }
 
+.kpis-no-data-true {
+  .sparkline__inner.no-data {
+    height: 50px;
+  }
+}
