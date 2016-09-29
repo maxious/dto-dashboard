@@ -25,6 +25,7 @@ let CreateDatapointForm = props => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
+
       <Field component={MonthYearDate} name="timestamp" type="text" label="Label"
              fieldProps={{}}
              optionProps={{exclusionDates:exclusionDates}} />
@@ -62,6 +63,9 @@ let CreateDatapointForm = props => {
  * resolve is called, its' submitting prop will be true
  */
 const submit = (values, dispatch, props) => { // todo
+
+  values.dataset_id = props.dataset.id;
+
   return new Promise((resolve, reject) => {
     dispatch(createDatapoint(values)).then(
       (data) => {
@@ -103,4 +107,5 @@ CreateDatapointForm = reduxForm({
 })(CreateDatapointForm);
 
 
-export default CreateDatapointForm
+export default CreateDatapointForm;
+

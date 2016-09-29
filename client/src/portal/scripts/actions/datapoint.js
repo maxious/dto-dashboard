@@ -8,7 +8,7 @@ export const getRequestKey = getRequestKeyHOC('datapoint');
 export const updateDatapoint = formData => ({
   type: types.API,
   payload: {
-    url: `dashboards/${formData.id}`,
+    url: `datasets/${formData.dataset_id}/datapoints/${formData.id}`,
     method: 'PUT',
     data: formData,
     key: getRequestKey(formData.id, 'update'),
@@ -26,7 +26,7 @@ export const updateDatapoint = formData => ({
 export const createDatapoint = formData => ({
   type: types.API,
   payload: {
-    url: 'datapoints',
+    url: `datasets/${formData.dataset_id}/datapoints`,
     method: 'POST',
     data: formData,
     key: getRequestKey(null, 'create'),
