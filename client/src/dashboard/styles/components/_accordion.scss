@@ -39,6 +39,11 @@
 .show-more {
   text-align: center;
 
+  @media screen and (max-width: 768px){
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
   .show-more__button {
     font-weight: bold;
     color: #0579C7;
