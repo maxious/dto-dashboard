@@ -1,6 +1,11 @@
 .kpi-definitions {
   display: flex;
 
+  @media screen and (max-width: 768px){
+    display: block;
+    clear:both;
+  }
+
   .user-satisfaction {
     border-bottom: solid 2px $user-satisfaction-colour;
   }

@@ -295,6 +295,10 @@
 }
 
 .title-links {
+  .aus-width-one-half {
+    @include span-columns(6);
+  }
+
   a {
     display:block;
     float: right;
