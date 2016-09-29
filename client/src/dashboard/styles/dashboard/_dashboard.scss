@@ -295,6 +295,8 @@
 }
 
 .title-links {
+  margin-right: -15px;
+  margin-left: -15px;
 
   a {
     display:block;
@@ -306,6 +308,7 @@
     line-height: 1;
     margin-top: 0;
     clear: both;
+    padding-top: 46px;
 
     @include media($screen-sm) {
       font-size: 1.875 * $fallback;
@@ -316,7 +319,8 @@
   h2 {
     font-size: 1rem;
     font-weight: 400;
-    margin-bottom: 6px;
+    padding-top: 27px;
+    margin-bottom: 0;
     margin-top: 0;
   }
 
