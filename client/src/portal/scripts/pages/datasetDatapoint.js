@@ -6,7 +6,7 @@ import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
-import { getDatapointById } from './../reducers/datapoints';
+import { getDatapointById, computeLabel } from './../reducers/datapoints';
 import UpdateDatapointForm from './../components/forms/update-datapoint-form';
 import { getRequestKey } from './../actions/datapoint';
 import { isPendingRequest } from './../reducers/requests';
@@ -36,6 +36,7 @@ class DatasetDatapointPage extends Component {
 
   exitForm() {
     this.props.actions.editFormAtDatasetDatapointPage(false);
+    this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   onSubmitSuccess() {
@@ -58,7 +59,7 @@ class DatasetDatapointPage extends Component {
           <div className="col-xs-12">
             <Breadcrumbs paths={[
               {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
-              {path:`/datasets/${dataset.id}/datapoints/${datapoint.id}`, name:`${datapoint.label}`},
+              {path:`/datasets/${dataset.id}/datapoints/${datapoint.id}`, name:`${computeLabel(datapoint.label)}`},
             ]} />
           </div>
         </div>
@@ -66,11 +67,6 @@ class DatasetDatapointPage extends Component {
         <div className="row">
           <div className="col-xs-12">
             <h1>Dataset Datapoint</h1>
-
-            <button
-              className="btn primary small"
-              disabled={ui.isEditing}
-              onClick={this.enterForm.bind(this)}>Edit</button>
           </div>
         </div>
 
@@ -79,7 +75,6 @@ class DatasetDatapointPage extends Component {
             <UpdateDatapointForm
               formModel={datapoint}
               dataset={dataset}
-              isEditing={ui.isEditing}
               isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)} />

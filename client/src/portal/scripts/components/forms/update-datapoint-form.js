@@ -18,7 +18,7 @@ let UpdateDatapointForm = props => {
 
   const {
     error, handleSubmit, pristine, submitting, valid,
-    isEditing, isSubmitting
+    isSubmitting
   } = props;
 
   return (
@@ -29,7 +29,7 @@ let UpdateDatapointForm = props => {
              optionProps={{}} />
 
       <Field component={Input} type="number" name="value" label="Value"
-             fieldProps={{disabled:!isEditing}}
+             fieldProps={{}}
              optionProps={{}} />
 
       <div>
@@ -43,7 +43,7 @@ let UpdateDatapointForm = props => {
 
         <button type="cancel"
                 className='btn primary-link'
-                disabled={!isEditing || submitting}
+                disabled={submitting}
                 onClick={cancel.bind({}, props)}>Cancel</button>
       </div>
       <div className="form__help-block">
@@ -85,10 +85,6 @@ const submit = (values, dispatch, props) => {
 
 const validate = (values, props) => {
   const errors = {};
-
-  console.log(isNumeric(String(values.value)));
-  console.log(isFloat(String(values.value)));
-
 
   if (!values.value) {
     errors.value = 'Required';
