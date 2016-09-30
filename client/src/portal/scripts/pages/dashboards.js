@@ -19,14 +19,6 @@ class DashboardsIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <Breadcrumbs paths={[
-              {path:'/dashboards', name:'Dashboards'}
-            ]} />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xs-12">
             <h1>Dashboards</h1>
           </div>
         </div>

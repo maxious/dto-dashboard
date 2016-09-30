@@ -67,14 +67,6 @@ class DatasetIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <Breadcrumbs paths={[
-              {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
-            ]} />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xs-12">
             <h1>Dataset: {dataset.name}</h1>
 
             <button
