@@ -42,6 +42,7 @@ deployment:
       - cf target -s $CF_SPACE_STAGING &> /dev/null
       - npm run build
       - ./bin/ci-deploy-staging.sh
+      - ./bin/ci-deploy-newrelic.sh
 
   production:
     tag: /release-.*/

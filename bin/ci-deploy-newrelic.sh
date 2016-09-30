@@ -1,5 +1,5 @@
 curl -X POST 'https://api.newrelic.com/v2/applications/25255438/deployments.json' \
-     -H 'X-Api-Key:2b4e245c2d211b661006680c5cbc36d1' -i \
+     -H 'X-Api-Key:$NEW_RELIC_API_KEY' -i \
      -H 'Content-Type: application/json' \
      -d \
 "{
