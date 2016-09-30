@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
 
 class DatasetDatapointPage extends Component {
 
-  enterForm() {
+  componentDidMount() {
     this.props.actions.editFormAtDatasetDatapointPage(true);
   }
 
@@ -51,7 +51,7 @@ class DatasetDatapointPage extends Component {
   }
 
   render() {
-    let { datapoint, dataset, ui, isPendingRequest } = this.props;
+    let { datapoint, dataset, isPendingRequest } = this.props;
     return (
       <div>
 
