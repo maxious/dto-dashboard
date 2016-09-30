@@ -78,6 +78,7 @@ class DatasetDatapointPage extends Component {
           <div className="col-xs-12 col-lg-8">
             <UpdateDatapointForm
               formModel={datapoint}
+              dataset={dataset}
               isEditing={ui.isEditing}
               isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}

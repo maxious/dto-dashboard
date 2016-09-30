@@ -81,7 +81,7 @@ const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {
     dispatch(updateDashboard(values)).then(
       (data) => {
-        debugger
+        // debugger
         if (data) {
           return resolve();
         }

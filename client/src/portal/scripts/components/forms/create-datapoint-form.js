@@ -4,9 +4,7 @@ import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { push } from 'react-router-redux';
 
 import { createDatapoint } from './../../actions/datapoint';
-import { updateDataset } from './../../actions/dataset';
 import { isNumeric } from 'validator';
-import { computeLabel } from './../../reducers/datapoints';
 import Input from './../fields/input';
 import YyyyMmDate from './../fields/yyyyMmDate';
 import SubmitButton from './../submitButton';
@@ -71,7 +69,7 @@ const submit = (values, dispatch, props) => { // todo
   return new Promise((resolve, reject) => {
     dispatch(createDatapoint(values)).then(
       (data) => {
-        debugger
+        // debugger
         if (data) { // todo - extract this
           let newDatasetState = {...props.dataset};
           newDatasetState.datapoints.push(data.id);
@@ -94,6 +92,17 @@ const submit = (values, dispatch, props) => { // todo
 
 const validate = (values, props) => {   // todo - validate
   const errors = {};
+
+  if (!values.ts) {
+    errors.ts = 'Required';
+  }
+
+  if (!values.value) {
+    errors.value = 'Required';
+  } else if (!isNumeric(String(values.value))) {
+    errors.value = 'Must be a number.';
+  }
+
   return errors;
 };
 

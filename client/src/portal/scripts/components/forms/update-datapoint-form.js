@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
 import { updateDatapoint } from './../../actions/datapoint';
-import { isNumeric } from 'validator';
+import { isNumeric, isFloat } from 'validator';
 import Input from './../fields/input';
 import SubmitButton from './../submitButton';
 import YyyyMmDate from './../fields/yyyyMmDate';
@@ -60,7 +60,10 @@ let UpdateDatapointForm = props => {
  * @returns {Promise} - this function *must* return Promise, until
  *    resolve is called, its' submitting prop will be true
  */
-const submit = (values, dispatch) => {
+const submit = (values, dispatch, props) => {
+
+  values.dataset_id = props.dataset.id;
+
   return new Promise((resolve, reject) => {
     dispatch(updateDatapoint(values)).then(
       (data) => {
@@ -83,12 +86,15 @@ const submit = (values, dispatch) => {
 const validate = (values, props) => {
   const errors = {};
 
-  if (values.number) {
-    if (!isNumeric(values.number)) {
-      errors.number = 'Must be a number.';
-    }
-  }
+  console.log(isNumeric(String(values.value)));
+  console.log(isFloat(String(values.value)));
 
+
+  if (!values.value) {
+    errors.value = 'Required';
+  } else if (!isFloat(String(values.value))) {
+    errors.value = 'Must be a number.';
+  }
   return errors;
 };
 
