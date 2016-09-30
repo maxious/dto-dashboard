@@ -1,5 +1,6 @@
 import * as types from './../actions/_types';
 import initialState from './../store/initialState';
+import moment from 'moment';
 
 
 const datapointsReducer = (state = initialState.datapoints, {type, payload}) => {
@@ -62,3 +63,6 @@ export const getDatapointsByDatasetId = (state, dataset_id) => {
   return state.filter((w) => dataset_id == w.dataset_id);
 };
 
+export const computeLabel = (datapoint) => {
+  return moment(datapoint).format('YYYY-MM');
+};

@@ -99,10 +99,10 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
         data => {
           successActions.forEach((action) => {
             if (typeof action === "function") {
-              debugger
+              // debugger
               return dispatch(action());
             }
-            debugger
+            // debugger
             return next({
               type: action,
               payload: data
@@ -112,11 +112,11 @@ const apiMiddleware = ({dispatch, getState}) => next => action => {
           return data;
         },
         error => {
-          debugger;
+          // debugger;
           throw new Error(error);
         }
       ).catch(e => {
-        debugger;
+        // debugger;
 
         errorActions.forEach((action) => {
           if (typeof action === "function") {

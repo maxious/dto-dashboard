@@ -6,7 +6,7 @@ import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
-import { getDatapointsById } from './../reducers/datapoints';
+import { getDatapointsById, computeLabel } from './../reducers/datapoints';
 import UpdateDatasetForm from './../components/forms/update-dataset-form';
 import { getRequestKey } from './../actions/dataset';
 import { isPendingRequest } from './../reducers/requests';
@@ -111,7 +111,7 @@ class DatasetIndex extends Component {
               <tbody>
               {datapoints.map((d, idx) => (
                 <tr key={idx}>
-                  <td>{d.id}</td><td>{d.label}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
+                  <td>{d.id}</td><td>{computeLabel(d.ts)}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
                 </tr>
               ))}
               </tbody>

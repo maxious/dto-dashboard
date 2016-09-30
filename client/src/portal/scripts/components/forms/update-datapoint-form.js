@@ -6,6 +6,7 @@ import { updateDatapoint } from './../../actions/datapoint';
 import { isNumeric } from 'validator';
 import Input from './../fields/input';
 import SubmitButton from './../submitButton';
+import YyyyMmDate from './../fields/yyyyMmDate';
 
 
 /**
@@ -22,8 +23,9 @@ let UpdateDatapointForm = props => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <Field component={Input} type="text" name="label" label="Label"
-             fieldProps={{readOnly:true}}
+
+      <Field component={YyyyMmDate} type="text" name="ts" label="Label"
+             fieldProps={{readOnly:true, disabled:true}}
              optionProps={{}} />
 
       <Field component={Input} type="number" name="value" label="Value"
