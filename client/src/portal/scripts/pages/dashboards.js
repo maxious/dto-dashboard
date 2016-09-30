@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import Breadcrumbs from './../components/breadcrumbs';
-
 
 const mapStateToProps = (store, ownProps) => ({
   dashboards: ownProps.dashboards
