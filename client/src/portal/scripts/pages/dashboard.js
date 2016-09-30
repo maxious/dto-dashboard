@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import * as uiActions from './../actions/ui';
-import UpdateDashboardForm from './../components/forms/update-dashboard-form';
+import UpdateDashboardForm from './../components/forms/updateDashboardForm';
 import Breadcrumbs from './../components/breadcrumbs';
 import { getRequestKey } from './../actions/dashboard';
 import { isPendingRequest } from './../reducers/requests';

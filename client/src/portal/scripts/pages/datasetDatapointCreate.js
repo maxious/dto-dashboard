@@ -6,7 +6,7 @@ import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
-import CreateDatapointForm from './../components/forms/create-datapoint-form';
+import CreateDatapointForm from './../components/forms/createDatapointForm';
 import { getRequestKey } from './../actions/datapoint';
 import { isPendingRequest } from './../reducers/requests';
 

@@ -16,7 +16,7 @@ import DatasetPage from './../pages/dataset';
 import DatasetDatapointPage from './../pages/datasetDatapoint';
 import DatasetDatapointCreatePage from './../pages/datasetDatapointCreate';
 
-import NoMatch from './../pages/no-match';
+import NoMatch from './../pages/noMatch';
 
 
 export default class Root extends Component {

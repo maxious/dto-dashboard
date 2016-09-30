@@ -7,7 +7,7 @@ import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getWidgetById } from './../reducers/widgets';
 import { getDatasetsByIds } from './../reducers/datasets';
-import UpdateWidgetForm from './../components/forms/update-widget-form';
+import UpdateWidgetForm from './../components/forms/updateWidgetForm';
 import { getRequestKey } from './../actions/widget';
 import { isPendingRequest } from './../reducers/requests';
 

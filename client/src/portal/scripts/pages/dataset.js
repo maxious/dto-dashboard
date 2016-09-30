@@ -7,7 +7,7 @@ import { push } from 'react-router-redux';
 import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointsById, computeLabel } from './../reducers/datapoints';
-import UpdateDatasetForm from './../components/forms/update-dataset-form';
+import UpdateDatasetForm from './../components/forms/updateDatasetForm';
 import { getRequestKey } from './../actions/dataset';
 import { isPendingRequest } from './../reducers/requests';
 
