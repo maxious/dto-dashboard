@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 
-class YyyyMmDate extends Component {
+class YyyyMmDdDate extends Component {
 
   static propTypes = {
     props: PropTypes.shape({
@@ -48,24 +48,32 @@ class YyyyMmDate extends Component {
     this.emit();
   }
 
+  getDayOptions() {
+    let res = [];
+    for (var i=1; i <= 31; i++) {
+      res.push({label:String(i), value:i});
+    }
+    return res;
+  }
+
   getMonthOptions() {
     let res = [];
     let months = [
-      '01',
-      '02',
-      '03',
-      '04',
-      '05',
-      '06',
-      '07',
-      '08',
-      '09',
-      '10',
-      '11',
-      '12'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ];
     for (var i=0; i<months.length; i++) {
-      res.push({label:months[i], value:i-1});
+      res.push({label:months[i], value:i});
     }
     return res;
   }
@@ -96,6 +104,12 @@ class YyyyMmDate extends Component {
     }, this.updateField);
   }
 
+  onDayChange(e) {
+    this.setState({
+      'day': e.target.value
+    }, this.updateField);
+  }
+
   render() {
     let {
       input, name, label,
@@ -114,6 +128,7 @@ class YyyyMmDate extends Component {
         <input type="hidden" {...input} name={name} />
 
         <div className="date-fields--ddmmyyy">
+
           <div className="date-fields__field">
             <label htmlFor={`${name}_year`}>Year</label>
             <select id={`${name}_year`} ref="year"
@@ -137,6 +152,19 @@ class YyyyMmDate extends Component {
               })}
             </select>
           </div>
+
+          <div className="date-fields__field">
+            <label htmlFor={`${name}_day`}>Day</label>
+            <select id={`${name}_day`} ref="year"
+                    {...fieldProps}
+                    value={this.state.day}
+                    onChange={this.onDayChange.bind(this)}>
+              {this.getDayOptions().map((o, idx) => {
+                return <option key={idx} value={o.value} disabled={o.disabled}>{o.label}</option>
+              })}
+            </select>
+          </div>
+
         </div>
         {touched && error && <span className="help-block">{error}</span>}
       </div>
@@ -144,4 +172,4 @@ class YyyyMmDate extends Component {
   }
 }
 
-export default YyyyMmDate;
+export default YyyyMmDdDate;

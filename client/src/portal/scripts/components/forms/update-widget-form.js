@@ -2,11 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
-import * as types from './../../actions/_types';
 import { updateWidget } from './../../actions/widget';
 import { isURL } from 'validator';
 import Input from './../fields/input';
-import DayMonthYearDate from './../fields/dayMonthYearDate';
+import YyyyMmDdDate from './../fields/yyyyMmDdDate';
 import Textarea from './../fields/textarea';
 import Select from './../fields/select';
 import SubmitButton from './../submitButton';
@@ -45,7 +44,7 @@ let UpdateWidgetForm = props => {
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
-      <Field component={DayMonthYearDate} name='last_updated_at' label='Last updated'
+      <Field component={YyyyMmDdDate} name='last_updated_at' label='Last updated'
              fieldProps={{disabled:!isEditing}}
              optionProps={{}} />
 
