@@ -1,6 +1,12 @@
 ActiveAdmin.register Dashboard do
   permit_params :name, :url, :notes, :display_hero, :display_kpis, :published_at
 
+  sidebar 'Details', only: [:show, :edit] do
+    ul do
+      li link_to 'Widgets', admin_dashboard_widgets_path(dashboard)
+    end
+  end
+
   index do
     selectable_column
     column :name
