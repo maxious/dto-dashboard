@@ -47,11 +47,32 @@ ActiveAdmin.register Token do
     f.actions
   end
 
-  action_item :expire_token, :only => [:show, :edit], :if => -> { resource.active? }  do
-    link_to('Expire Token', expire_admin_token_path(resource), :method => 'put')
+  show do
+    h3 Token
+    attributes_table_for token do
+      row :id
+      row :user
+      row(:active ) { |t| status_tag t.active? }
+      row(:session) { |t| status_tag t.session? }
+      row :expired_at
+      row :created_at
+      row :updated_at
+    end
   end
 
-  member_action :expire, :method => :put do
+  action_item :expire_token, :only => [:show, :edit], :if => -> { resource.active? }  do
+    link_to('Expire Token', expire_admin_token_path(resource), :method => 'patch')
+  end
+
+  action_item :display_token, :only => [:show, :edit], :if => -> { resource.active? }  do
+    link_to('Display Token', display_admin_token_path(resource), :method => 'get')
+  end
+
+  member_action :display, :method => :get do
+    redirect_to resource_path(resource), notice: resource.to_s
+  end
+
+  member_action :expire, :method => :patch do
     resource.expire! if resource.active?
     redirect_to resource_path, notice: 'Token Expired'
   end
