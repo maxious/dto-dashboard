@@ -17,6 +17,22 @@ class DashboardsIndex extends Component {
       return new Date(b.ts).getTime() - new Date(a.ts).getTime();
     });
 
+    let editDashboardList = (dashboards) => {
+      return (
+        <div className="col-xs-12 col-sm-4">
+          <p>Edit Dashboard content:</p>
+          <ul>
+            {dashboards.map((d, idx) => (
+              <li key={idx}>
+                <Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit {d.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    };
+
+
     return (
       <div>
 
@@ -33,16 +49,7 @@ class DashboardsIndex extends Component {
             </ul>
           </div>
 
-          <div className="col-xs-12 col-sm-4">
-            <p>Edit Dashboard content:</p>
-            <ul>
-              {sortedDashboards.map((d, idx) => (
-                <li key={idx}>
-                  <Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit {d.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {sortedDashboards.length && editDashboardList(sortedDashboards)}
         </div>
 
       </div>
