@@ -6,10 +6,13 @@ import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import { humanisedLongDate } from './../utils/humanisedDates';
+import { getDatapointsCount } from './../reducers/datasets';
 
-const mapStateToProps = ({}, ownProps) => {
+
+const mapStateToProps = ({datapoints}, ownProps) => {
   return {
-    datasets: ownProps.datasets
+    datasets: ownProps.datasets,
+    datapoints
   }
 };
 const mapDispatchToProps = dispatch => ({
@@ -21,7 +24,8 @@ class DatasetsIndex extends Component {
 
   render() {
     let {
-      datasets
+      datasets,
+      datapoints,
     } = this.props;
 
     let sortedDatasets = datasets.sort((a,b) => {
@@ -34,7 +38,7 @@ class DatasetsIndex extends Component {
         <table className="content-table">
           <thead>
           <tr>
-            <td>ID</td><td>Name</td><td>Last updated</td><td colSpan="2"></td>
+            <td>ID</td><td>Name</td><td>Last updated</td><td>No. of datapoints</td><td colSpan="2"></td>
           </tr>
           </thead>
           <tbody>
@@ -43,6 +47,7 @@ class DatasetsIndex extends Component {
               <td>{d.id}</td>
               <td>{d.name}</td>
               <td>{humanisedLongDate(d.updated_at)}</td>
+              <td>{getDatapointsCount(d)}</td>
               <td><Link to={`/datasets/${d.id}`} className="a--ui-kit">Edit</Link></td>
               <td><Link to={`/datasets/${d.id}/datapoints-new`} className="a--ui-kit">Create datapoint</Link></td>
             </tr>
@@ -65,7 +70,7 @@ class DatasetsIndex extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-12 col-lg-8">
+          <div className="col-xs-12">
             <h1>Datasets</h1>
 
             {sortedDatasets.length && viewDatasetsList(sortedDatasets)}
