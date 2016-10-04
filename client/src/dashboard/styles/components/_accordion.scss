@@ -65,14 +65,6 @@
   }
 }
 
-@media screen and (min-width: 768px){
-  .dashboard__kpis {
-    .sparkline__inner.no-data{
-      height: 123px;
-    }
-  }
-}
-
 .kpis-no-data-true {
   .sparkline__inner.no-data {
     height: 50px;
