@@ -41,7 +41,10 @@ class DashboardsIndex extends Component {
 
           <div className="col-xs-12 col-sm-4">
             <p>Create or update data:</p>
-            <Link to="/datasets" className="a--ui-kit">Create or update data</Link>
+            <ul>
+              <li><Link to="/datasets" className="a--ui-kit">Create or update data</Link></li>
+            </ul>
+            <br />
           </div>
 
           <div className="col-xs-12 col-sm-4">
@@ -51,6 +54,7 @@ class DashboardsIndex extends Component {
               editDashboardList(sortedDashboards) :
               <p>No dashboards</p>
             }
+            <br />
           </div>
         </div>
 
