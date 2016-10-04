@@ -1,7 +1,7 @@
 {
   "name":         "Australian Citizenship Appointment Booking Service",
   "agency":       "DIBP",
-  "description":  "Description",
+  "description":  "The Australian Citizenship Appointment Booking Service makes it quicker, easier and more     convenient for users to reschedule a citizenship test appointment. Prior to the introduction of the online service, users were only able to change their appointment by calling the Department. The public beta release of the service is currently available in Melbourne, Victoria. ",
   "target_users": "Users",
   "widgets":  [
     {
@@ -11,7 +11,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "description": "User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” with the appointment booking service using the feedback kiosks located in the Department’s citizenship areas.",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -21,6 +21,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "$",
+      "description": "This data is not available.",
       "datasets": ["cost-per-transaction"]
     },
     {
@@ -30,6 +31,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
+      "description": "Digital take-up measures the number of users who had an appointment booked using the new service as a percentage of all appointments that have been made Australia-wide.",
       "datasets": ["digital-take-up"]
     },
     {
@@ -39,7 +41,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": "Percentage of transactions made using the digital service.",
+      "description": "Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when rescheduling their appointment.",
       "datasets": ["completion-rate"]
     },
     {
@@ -95,7 +97,7 @@
       "datasets": ["user-satisfaction", "cost-per-transaction", "digital-take-up", "completion-rate"]
     }
   ],
-  "notes": "<dl> <dt> Where is this information from? <dd> Department of Immigration and Border Protection. <dt> What is Australian Citizenship Appointment Booking Service? <dd> The Australian Citizenship Appointment Booking Service makes it quicker, easier and more convenient for users to reschedule a citizenship test appointment. Prior to the introduction of the online service, users were only able to change their appointment by calling the Department. The public beta release of the service is currently available in Melbourne, Victoria. <dt> User Satisfaction <dd> User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” with the appointment booking service using the feedback kiosks located in the Department’s citizenship areas. <dt> Cost per Transaction <dd> This data is not available. <dt> Digital Take-up <dd> Digital take-up measures the number of users who had an appointment booked using the new service as a percentage of all appointments that have been made Australia-wide. <dt> Completion Rate <dd> Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when rescheduling their appointment. </dl>",
+  "notes": "",
   "layout":   [
     ["kpis"],
     ["user-satisfaction", "cost-per-transaction", "digital-take-up", "completion-rate"],
