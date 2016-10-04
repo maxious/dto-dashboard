@@ -17,7 +17,7 @@ import YyyyMmDate from './../fields/yyyyMmDate';
 let UpdateDatapointForm = props => {
 
   const {
-    error, handleSubmit, pristine, submitting, valid,
+    error, handleSubmit, submitting, valid,
     isSubmitting
   } = props;
 
@@ -30,7 +30,7 @@ let UpdateDatapointForm = props => {
 
       <Field component={Input} type="number" name="value" label="Value"
              fieldProps={{}}
-             optionProps={{}} />
+             optionProps={{infoText: `To save as "No data" leave blank`}} />
 
       <div>
         <SubmitButton type="submit"
@@ -38,7 +38,7 @@ let UpdateDatapointForm = props => {
                       submittingBtnText="Saving.."
                       isSubmitting={isSubmitting}
                       className='btn primary'
-                      disabled={pristine || submitting || !valid}
+                      disabled={submitting || !valid}
                       onClick={handleSubmit(submit.bind(this))} />
 
         <button type="cancel"
@@ -86,10 +86,8 @@ const submit = (values, dispatch, props) => {
 const validate = (values, props) => {
   const errors = {};
 
-  if (!values.value) {
-    errors.value = 'Required';
-  } else if (!isFloat(String(values.value))) {
-    errors.value = 'Must be a number.';
+  if (values.value && !isFloat(String(values.value))) {
+    errors.value = 'Must be blank or a number.';
   }
   return errors;
 };

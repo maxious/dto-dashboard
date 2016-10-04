@@ -5,7 +5,7 @@ const Input = (props) => {
   let {
     input, name, type, label,
     fieldProps,
-    optionProps: { isOptional },
+    optionProps: { isOptional, infoText },
     meta: { touched, error }
   } = props;
 
@@ -18,6 +18,7 @@ const Input = (props) => {
     <div className="form-group">
       <label htmlFor={name}
              className="control-label">{label}{isOptional && <sup> Optional</sup>}</label>
+      {infoText && <label className="info-block">{infoText}</label>}
       <div>
         <input {...input} {...fieldProps}
           type={type}
@@ -28,6 +29,12 @@ const Input = (props) => {
       </div>
     </div>
   )
+};
+
+Input.defaultProps = {
+  optionProps: {
+    infoText: null
+  }
 };
 
 Input.propTypes = {
