@@ -107,7 +107,7 @@ class DatasetIndex extends Component {
               <tbody>
               {sortedDatapoints.map((d, idx) => (
                 <tr key={idx}>
-                  <td>{d.id}</td><td>{computeLabel(d.ts)}</td><td>{d.value}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
+                  <td>{d.id}</td><td>{computeLabel(d.ts)}</td><td>{d.value || 'No data'}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
                 </tr>
               ))}
               </tbody>
