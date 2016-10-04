@@ -31,4 +31,35 @@ ActiveAdmin.register User do
     f.actions
   end
 
+  show do
+    panel 'User' do
+      attributes_table_for user do
+        row :id
+        row :email
+      end
+    end
+    panel 'Dashboards' do
+      attributes_table_for user do
+        user.dashboards.each do |dashboard|
+          row ' ' do
+            link_to(dashboard.name, admin_dashboard_path(dashboard))
+          end
+        end
+      end
+    end
+    panel 'Details' do
+      attributes_table_for user do
+        row :sign_in_count
+        row :current_sign_in_at
+        row :last_sign_in_at
+        row :last_sign_in_ip
+        row :confirmed_at
+        row :failed_attempts
+        row :locked_at
+        row :created_at
+        row :updated_at
+      end
+    end
+  end
+
 end
