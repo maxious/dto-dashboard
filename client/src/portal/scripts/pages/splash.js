@@ -38,7 +38,7 @@ class DashboardsIndex extends Component {
             <ul>
               {sortedDashboards.map((d, idx) => (
                 <li key={idx}>
-                  <Link to={`/dashboards/${d.id}`} className="a--ui-kit">{d.name}</Link>
+                  <Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit {d.name}</Link>
                 </li>
               ))}
             </ul>
