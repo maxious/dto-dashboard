@@ -59,6 +59,7 @@ class DatasetDatapointPage extends Component {
           <div className="col-xs-12">
             <Breadcrumbs paths={[
               {path:'/', name:'Home'},
+              {path:`/datasets`, name:`Datasets`},
               {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
               {path:`/datasets/${dataset.id}/datapoints/${datapoint.id}`, name:`${computeLabel(datapoint.ts)}`},
             ]} />

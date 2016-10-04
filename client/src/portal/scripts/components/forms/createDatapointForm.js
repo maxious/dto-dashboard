@@ -4,7 +4,7 @@ import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { push } from 'react-router-redux';
 
 import { createDatapoint } from './../../actions/datapoint';
-import { isNumeric } from 'validator';
+import { isFloat } from 'validator';
 import Input from './../fields/input';
 import YyyyMmDate from './../fields/yyyyMmDate';
 import SubmitButton from './../submitButton';
@@ -92,10 +92,6 @@ const submit = (values, dispatch, props) => { // todo
 
 const validate = (values, props) => {   // todo - validate
   const errors = {};
-
-  if (!values.ts) {
-    errors.ts = 'Required';
-  }
 
   if (values.value && !isFloat(String(values.value))) {
     errors.value = 'Must be blank or a number.';

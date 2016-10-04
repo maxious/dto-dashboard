@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 
 import { updateDatapoint } from './../../actions/datapoint';
-import { isNumeric, isFloat } from 'validator';
+import { isFloat } from 'validator';
 import Input from './../fields/input';
 import SubmitButton from './../submitButton';
 import YyyyMmDate from './../fields/yyyyMmDate';

@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { getDatasetById } from './../reducers/datasets';
 
 
-const mapStateToProps = ({}, ownProps) => ({
-  dataset: getDatasetById(ownProps.datasets, ownProps.params.dataset_id),
+const mapStateToProps = ({datasets}, ownProps) => ({
+  datasets
 });
 const mapDispatchToProps = dispatch => ({});
 
@@ -13,7 +12,7 @@ class Dataset extends Component {
     return (
       <div>
         {React.cloneElement(this.props.children, {
-          dataset: this.props.dataset
+          datasets: this.props.datasets
         })}
       </div>
     )

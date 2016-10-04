@@ -29,12 +29,12 @@ const mapDispatchToProps = dispatch => ({
 class DatasetDatapointCreatePage extends Component {
 
   onSubmitSuccess() {
-    this.props.push(`/datasets/${this.props.dataset.id}`);
+    this.props.history.goBack() || this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   exitForm() {
     this.props.editForm(false);
-    this.props.push(`/datasets/${this.props.dataset.id}`);
+    this.props.history.goBack() || this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   componentWillUnmount() {
@@ -53,6 +53,7 @@ class DatasetDatapointCreatePage extends Component {
           <div className="col-xs-12">
             <Breadcrumbs paths={[
               {path:'/', name:'Home'},
+              {path:`/datasets`, name:`Datasets`},
               {path:`/datasets/${dataset.id}`, name:`${dataset.name}`},
               {path:`/datasets/${dataset.id}/datapoints-new`, name:`Create datapoint`},
             ]} />
