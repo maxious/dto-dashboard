@@ -127,7 +127,7 @@ class DatasetIndex extends Component {
 
             <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
 
-            {datapoints.length ?
+            {sortedDatapoints.length ?
               editDatapointsList(sortedDatapoints) :
               <p><em>No datapoints</em></p>
             }
