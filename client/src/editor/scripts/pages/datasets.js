@@ -65,7 +65,7 @@ class DatasetsIndex extends Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-12">
+          <div className="col-xs-12 col-lg-8">
             <h1>Datasets</h1>
 
             {sortedDatasets.length && viewDatasetsList(sortedDatasets)}

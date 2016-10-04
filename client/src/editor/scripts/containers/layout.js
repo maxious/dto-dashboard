@@ -28,7 +28,7 @@ class Layout extends Component {
           component="div"
           className="stage--route">
             {React.cloneElement(this.props.children, {
-              key: this.props.location.pathname             // todo - make breadcrumb from this object
+              key: this.props.location.pathname
             })}
         </TransitionGroup>
       </div>

@@ -48,7 +48,7 @@ body {
   > div {
     @extend .animated;      // needed by animate.css !! don't remove
     animation-timing-function: $easeOutQuart;
-    animation-duration: 800ms;  // must match vals set <TransitionGroup transitionEnterTimeout={ 400 } transitionLeaveTimeout={ 400 } // todo - make this functional css in the component
+    animation-duration: 600ms;  // must match vals set <TransitionGroup transitionEnterTimeout={ 400 } transitionLeaveTimeout={ 400 } // todo - make this functional css in the component
     //animation-delay: 200ms;
     //&.active {
     //animation-delay: 0ms;
@@ -86,5 +86,11 @@ body {
 }
 
 .fadeIn {
-  animation-delay: 300ms;   // config.ROUTE_TRANSITION_ENTER_DELAY
+  //animation-delay: 100ms;   // config.ROUTE_TRANSITION_ENTER_DELAY
+  animation-delay: 0ms;   // config.ROUTE_TRANSITION_ENTER_DELAY
+  animation-duration: 200ms;
+}
+
+.fadeOut {
+  animation-delay: 0ms;
 }
