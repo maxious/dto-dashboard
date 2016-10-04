@@ -1,6 +1,6 @@
 {
   "name":         "Australian Citizenship Appointment Booking Service",
-  "agency":       "DIBP",
+  "agency":       "Department of Imigration and Border Protection",
   "description":  "The Australian Citizenship Appointment Booking Service makes it quicker, easier and more     convenient for users to reschedule a citizenship test appointment. Prior to the introduction of the online service, users were only able to change their appointment by calling the Department. The public beta release of the service is currently available in Melbourne, Victoria. ",
   "target_users": "Users",
   "widgets":  [
