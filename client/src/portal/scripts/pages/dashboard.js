@@ -91,15 +91,24 @@ class DashboardIndex extends Component {
           <div className="col-xs-12">
             <h1>Dashboard: {dashboard.name}</h1>
 
+            <h2 className="h4">Widgets</h2>
+
+            {sortedWidgets.length ?
+              editWidgetsList(sortedWidgets) :
+              <p><em>No widgets</em></p>
+            }
+          </div>
+        </div>
+
+        <br />
+
+        <div className="row">
+          <div className="col-xs-12 col-lg-8">
             <button
               className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-xs-12 col-lg-8">
             <UpdateDashboardForm
               formModel={dashboard}
               isEditing={ui.isEditing}
@@ -109,17 +118,6 @@ class DashboardIndex extends Component {
           </div>
         </div>
 
-
-        <div className="row">
-          <div className="col-xs-12">
-            <h2 className="h4">Widgets</h2>
-
-            {sortedWidgets.length ?
-              editWidgetsList(sortedWidgets) :
-              <p><em>No widgets</em></p>
-            }
-          </div>
-        </div>
       </div>
     )
   }

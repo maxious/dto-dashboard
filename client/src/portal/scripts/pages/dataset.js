@@ -102,15 +102,27 @@ class DatasetIndex extends Component {
           <div className="col-xs-12">
             <h1>Dataset: {dataset.name}</h1>
 
+
+            <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new datapoint</Link>
+
+            <h2 className="h4">Datapoints</h2>
+
+            {sortedDatapoints.length ?
+              editDatapointsList(sortedDatapoints) :
+              <p><em>No datapoints</em></p>
+            }
+          </div>
+        </div>
+
+        <br />
+
+        <div className="row">
+          <div className="col-xs-12 col-lg-8">
             <button
               className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-xs-12 col-lg-8">
             <UpdateDatasetForm
               formModel={dataset}
               isEditing={ui.isEditing}
@@ -118,19 +130,6 @@ class DatasetIndex extends Component {
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
               onCancelSuccess={this.exitForm.bind(this)}
               OPTIONS_DATASET_LABEL={OPTIONS_DATASET_LABEL} />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-xs-12">
-            <h2 className="h4">Datapoints</h2>
-
-            <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
-
-            {sortedDatapoints.length ?
-              editDatapointsList(sortedDatapoints) :
-              <p><em>No datapoints</em></p>
-            }
           </div>
         </div>
 

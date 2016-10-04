@@ -97,17 +97,26 @@ class Widget extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h1>dashboard: {dashboard.name}, widget: {widget.name}</h1>
+            <h1>Dashboard: {dashboard.name}, Widget: {widget.name}</h1>
 
+            <h2 className="h4">Datasets</h2>
+
+            {sortedDatasets.length ?
+              editDatasetsList(sortedDatasets) :
+              <p><em>No datasets</em></p>
+            }
+          </div>
+        </div>
+
+        <br />
+
+        <div className="row">
+          <div className="col-xs-12 col-lg-8">
             <button
               className="btn primary small"
               disabled={ui.isEditing}
               onClick={this.enterForm.bind(this)}>Edit</button>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-xs-12 col-lg-8">
             <UpdateWidgetForm
               formModel={widget}
               isEditing={ui.isEditing}
@@ -121,16 +130,7 @@ class Widget extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-xs-12">
-            <h2 className="h4">Datasets</h2>
 
-            {sortedDatasets.length ?
-              editDatasetsList(sortedDatasets) :
-              <p><em>No datasets</em></p>
-            }
-          </div>
-        </div>
       </div>
     )
   }
