@@ -88,7 +88,7 @@ class Widget extends Component {
         <div className="row">
           <div className="col-xs-12">
             <Breadcrumbs paths={[
-              {path:'/dashboards', name:'Dashboards'},
+              {path:'/', name:'Home'},
               {path:`/dashboards/${dashboard.id}`, name:`${dashboard.name}`},
               {path:`/dashboards/${dashboard.id}/widgets/${widget.id}`, name:`${widget.name}`}
             ]} />

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 
+import Breadcrumbs from './../components/breadcrumbs';
 import * as uiActions from './../actions/ui';
 import { getDatapointsById, computeLabel } from './../reducers/datapoints';
 import UpdateDatasetForm from './../components/forms/updateDatasetForm';
@@ -90,6 +91,15 @@ class DatasetIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
+            <Breadcrumbs paths={[
+              {path:'/', name:'Home'},
+              {path:`/datasets/${dataset.id}`, name:`${dataset.name}`}
+            ]} />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
             <h1>Dataset: {dataset.name}</h1>
 
             <button
@@ -117,7 +127,7 @@ class DatasetIndex extends Component {
 
             <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
 
-            {sortedDatapoints.length ?
+            {datapoints.length ?
               editDatapointsList(sortedDatapoints) :
               <p><em>No datapoints</em></p>
             }
