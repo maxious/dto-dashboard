@@ -39,7 +39,7 @@ export default class Root extends Component {
 
             /*
 
-             dashboards
+             /
              dashboards/1
              dashboards/1/widgets/1
              datasets/id
@@ -48,11 +48,11 @@ export default class Root extends Component {
 
              */
 
-            <IndexRedirect to="dashboards" />
+            {/*<IndexRedirect to="" />*/}
 
-            <Route path="dashboards" component={Dashboards}>
+            <Route path="" component={Dashboards}>
               <IndexRoute component={SplashPage} onEnter={this.onEnter.bind(this)} />
-              <Route path=":dashboard_id" component={Dashboard}>
+              <Route path="dashboards/:dashboard_id" component={Dashboard}>
                 <IndexRoute component={DashboardPage} />
                 <Route path="widgets/:widget_id" component={DashboardWidgetPage} onEnter={this.onEnter.bind(this)} />
               </Route>
