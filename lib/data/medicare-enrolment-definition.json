@@ -1,10 +1,10 @@
 {
   "name":         "Medicare Newborn Enrolment",
   "url":          "https://www.humanservices.gov.au/",
-  "agency":       "DHS",
-  "description":  "Description",
-  "target_users": "Users",
-  "notes": "<dl> <dt> Where is this information from? <dd> The Department of Human Services, the federal government department that administers Medicare. <dt> What is Medicare Newborn Enrolment? <dd> The trial was conducted between 22 April 2016 and 29 July 2016. It shows how sharing of information with consent can be used so people don’t have to provide the same information multiple times. It is designed to significantly reduce paperwork for new parents by using hospital data to enrol their newborns into Medicare. The Department of Human Services will continue to work with the DTO to evaluate the trial and consider options for a future digital enrolment service. <dt> Who is the user group of Medicare Newborn Enrolment? <dd> The trial was conducted with the Gold Coast University Hospital and applies only to mothers of newborns. <dt> Cost per Transaction <dd> We do not have data for this KPI. We are determining the best way to measure cost per transaction. <dt> User Satisfaction <dd> User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” in a survey conducted in July 2016. <dt> Digital Take-up <dd> Digital take-up measures the number of users who opted to take part in the trial as a percentage of all newborns born in the hospital during the trial period. <dt> Completion Rate <dd> Completion rate measures the number of users who were successfully enrolled in Medicare as a percentage of total users who opted-in to the trial. Completion rate dropped in July due to an increase in the number of conditional migrants who are unable to participate in the trial. </dl>",
+  "agency":       "Department of Human Services,",
+  "description":  "The trial was conducted between 22 April 2016 and 29 July 2016. It shows how sharing of information with consent can be used so people don’t have to provide the same information multiple times. It is designed to significantly reduce paperwork for new parents by using hospital data to enrol their newborns into Medicare. The Department of Human Services will continue to work with the DTO to evaluate the trial and consider options for a future digital enrolment service.",
+  "target_users": "The trial was conducted with the Gold Coast University Hospital and applies only to mothers of newborns.",
+  "notes": "",
   "widgets":  [
     {
       "id":   "kpis",
@@ -23,7 +23,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "definition": "User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” in a survey conducted in July 2016.",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -33,6 +33,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "$",
+      "description":"We do not have data for this KPI. We are determining the best way to measure cost per transaction.",
       "datasets": ["cost-per-transaction"]
     },
     {
@@ -42,6 +43,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
+      "description":"Digital take-up measures the number of users who opted to take part in the trial as a percentage of all newborns born in the hospital during the trial period.",
       "datasets": ["digital-take-up"]
     },
     {
@@ -51,7 +53,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Percentage of transactions made using the digital service.",
+      "definition": "Completion rate measures the number of users who were successfully enrolled in Medicare as a percentage of total users who opted-in to the trial. Completion rate dropped in July due to an increase in the number of conditional migrants who are unable to participate in the trial.",
       "datasets": ["completion-rate"]
     },
     {
