@@ -9,7 +9,7 @@ import Dashboards from './dashboards';
 import Dataset from './dataset';
 import DatasetDatapoints from './datasetDatapoints';
 
-import DashboardsPage from './../pages/dashboards';
+import SplashPage from './../pages/splash';
 import DashboardPage from './../pages/dashboard';
 import DashboardWidgetPage from './../pages/dashboardWidget';
 import DatasetPage from './../pages/dataset';
@@ -51,7 +51,7 @@ export default class Root extends Component {
             <IndexRedirect to="dashboards" />
 
             <Route path="dashboards" component={Dashboards}>
-              <IndexRoute component={DashboardsPage} onEnter={this.onEnter.bind(this)} />
+              <IndexRoute component={SplashPage} onEnter={this.onEnter.bind(this)} />
               <Route path=":dashboard_id" component={Dashboard}>
                 <IndexRoute component={DashboardPage} />
                 <Route path="widgets/:widget_id" component={DashboardWidgetPage} onEnter={this.onEnter.bind(this)} />

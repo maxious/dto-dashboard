@@ -22,26 +22,26 @@ class DashboardsIndex extends Component {
 
         <div className="row">
           <div className="col-xs-12">
-            <h1>Dashboards</h1>
+            <h1>Welcome to the dashboard.gov.au Editor</h1>
+            <p><strong>What would you like to do today?</strong></p>
           </div>
-        </div>
 
-        <div className="row">
-          <div className="col-xs-12">
-            <table className="content-table">
-              <thead>
-              <tr>
-                <td>ID</td><td>Name</td>
-              </tr>
-              </thead>
-              <tbody>
+          <div className="col-xs-12 col-sm-4">
+            <p>Create or update data:</p>
+            <ul>
+              <Link to="/datasets" className="a--ui-kit">Create or update data</Link>
+            </ul>
+          </div>
+
+          <div className="col-xs-12 col-sm-4">
+            <p>Edit Dashboard content:</p>
+            <ul>
               {sortedDashboards.map((d, idx) => (
-                <tr key={idx}>
-                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit</Link></td>
-                </tr>
+                <li key={idx}>
+                  <Link to={`/dashboards/${d.id}`} className="a--ui-kit">{d.name}</Link>
+                </li>
               ))}
-              </tbody>
-            </table>
+            </ul>
           </div>
         </div>
 
