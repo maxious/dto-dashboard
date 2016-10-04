@@ -42,6 +42,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
+      "description": "Digital take-up measures the percentage of import declaration lines where a permit number was provided electronically.",
       "datasets": ["digital-take-up"]
     },
     {
