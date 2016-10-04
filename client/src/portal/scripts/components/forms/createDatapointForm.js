@@ -18,7 +18,7 @@ import SubmitButton from './../submitButton';
 let CreateDatapointForm = props => {
 
   const {
-    error, handleSubmit, pristine, submitting, valid,
+    error, handleSubmit, submitting, valid,
     exclusionDates, isSubmitting
   } = props;
 
@@ -30,9 +30,9 @@ let CreateDatapointForm = props => {
              fieldProps={{}}
              optionProps={{exclusionDates:exclusionDates}} />
 
-      <Field component={Input} name="value" type="text" label="Value"
+      <Field component={Input} name="value" type="number" label="Value"
              fieldProps={{autoFocus:true}}
-             optionProps={{}} />
+             optionProps={{infoText: `To save as "No data" leave blank`}} />
 
       <div>
         <SubmitButton type="submit"
@@ -40,7 +40,7 @@ let CreateDatapointForm = props => {
                 submittingBtnText="Creating.."
                 isSubmitting={isSubmitting}
                 className='btn primary'
-                disabled={pristine || submitting || !valid}
+                disabled={submitting || !valid}
                 onClick={handleSubmit(submit.bind(this))} />
 
         <button type="cancel"
@@ -97,10 +97,8 @@ const validate = (values, props) => {   // todo - validate
     errors.ts = 'Required';
   }
 
-  if (!values.value) {
-    errors.value = 'Required';
-  } else if (!isNumeric(String(values.value))) {
-    errors.value = 'Must be a number.';
+  if (values.value && !isFloat(String(values.value))) {
+    errors.value = 'Must be blank or a number.';
   }
 
   return errors;
