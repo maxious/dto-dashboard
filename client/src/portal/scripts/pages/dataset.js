@@ -66,6 +66,25 @@ class DatasetIndex extends Component {
       return new Date(b.ts).getTime() - new Date(a.ts).getTime();
     });
 
+    let editDatapointsList = (datapoints) => {
+      return (
+        <table className="content-table">
+          <thead>
+          <tr>
+            <td>ID</td><td>Label</td><td colSpan="2">Value</td>
+          </tr>
+          </thead>
+          <tbody>
+          {datapoints.map((d, idx) => (
+            <tr key={idx}>
+              <td>{d.id}</td><td>{computeLabel(d.ts)}</td><td>{d.value || 'No data'}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      )
+    };
+
     return (
       <div>
 
@@ -98,20 +117,10 @@ class DatasetIndex extends Component {
 
             <Link to={`/datasets/${dataset.id}/datapoints-new`} className="btn primary ghost">Create new</Link>
 
-            <table className="content-table">
-              <thead>
-              <tr>
-                <td>ID</td><td>Label</td><td colSpan="2">Value</td>
-              </tr>
-              </thead>
-              <tbody>
-              {sortedDatapoints.map((d, idx) => (
-                <tr key={idx}>
-                  <td>{d.id}</td><td>{computeLabel(d.ts)}</td><td>{d.value || 'No data'}</td><td><Link to={`/datasets/${dataset.id}/datapoints/${d.id}`} className="a--ui-kit">Edit</Link></td>
-                </tr>
-              ))}
-              </tbody>
-            </table>
+            {sortedDatapoints.length ?
+              editDatapointsList(sortedDatapoints) :
+              <p><em>No datapoints</em></p>
+            }
           </div>
         </div>
 

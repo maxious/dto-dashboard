@@ -56,6 +56,25 @@ class DashboardIndex extends Component {
       return new Date(b.ts).getTime() - new Date(a.ts).getTime();
     });
 
+    let editWidgetsList = (widgets) => {
+      return (
+        <table className="content-table">
+          <thead>
+          <tr>
+            <td>ID</td><td>Name</td>
+          </tr>
+          </thead>
+          <tbody>
+          {sortedWidgets.map((w, idx) => (
+            <tr key={idx}>
+              <td>{w.id}</td><td>{w.name}</td><td><Link to={`/dashboards/${dashboard.id}/widgets/${w.id}`} className="a--ui-kit">Edit</Link></td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      )
+    };
+
     return (
       <div>
 
@@ -90,26 +109,16 @@ class DashboardIndex extends Component {
           </div>
         </div>
 
+
         <div className="row">
           <div className="col-xs-12">
             <h2 className="h4">Widgets</h2>
-            <table className="content-table">
-              <thead>
-              <tr>
-                <td>ID</td><td>Name</td>
-              </tr>
-              </thead>
-              <tbody>
-              {sortedWidgets.map((w, idx) => (
-                <tr key={idx}>
-                  <td>{w.id}</td><td>{w.name}</td><td><Link to={`/dashboards/${dashboard.id}/widgets/${w.id}`} className="a--ui-kit">Edit</Link></td>
-                </tr>
-              ))}
-              </tbody>
-            </table>
+            {sortedWidgets.length ?
+              editWidgetsList(sortedWidgets) :
+              <p><em>No widgets</em></p>
+            }
           </div>
         </div>
-
       </div>
     )
   }

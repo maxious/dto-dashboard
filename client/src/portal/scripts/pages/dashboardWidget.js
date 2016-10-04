@@ -63,6 +63,25 @@ class Widget extends Component {
       return new Date(b.ts).getTime() - new Date(a.ts).getTime();
     });
 
+    let editDatasetsList = (datasets) => {
+      return (
+        <table className="content-table">
+          <thead>
+          <tr>
+            <td>ID</td><td>Name</td>
+          </tr>
+          </thead>
+          <tbody>
+          {datasets.map((d, idx) => (
+            <tr key={idx}>
+              <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`} className="a--ui-kit">Edit</Link></td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      )
+    };
+
     return (
       <div>
 
@@ -105,23 +124,12 @@ class Widget extends Component {
         <div className="row">
           <div className="col-xs-12">
             <h2 className="h4">Datasets</h2>
-            <table className="content-table">
-              <thead>
-              <tr>
-                <td>ID</td><td>Name</td>
-              </tr>
-              </thead>
-              <tbody>
-              {sortedDatasets.map((d, idx) => (
-                <tr key={idx}>
-                  <td>{d.id}</td><td>{d.name}</td><td><Link to={`/datasets/${d.id}`} className="a--ui-kit">Edit</Link></td>
-                </tr>
-              ))}
-              </tbody>
-            </table>
+            {sortedDatasets.length ?
+              editDatasetsList(sortedDatasets) :
+              <p><em>No datasets</em></p>
+            }
           </div>
         </div>
-
       </div>
     )
   }

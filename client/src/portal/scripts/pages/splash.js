@@ -19,16 +19,13 @@ class DashboardsIndex extends Component {
 
     let editDashboardList = (dashboards) => {
       return (
-        <div className="col-xs-12 col-sm-4">
-          <p>Edit Dashboard content:</p>
-          <ul>
-            {dashboards.map((d, idx) => (
-              <li key={idx}>
-                <Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit {d.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul>
+          {dashboards.map((d, idx) => (
+            <li key={idx}>
+              <Link to={`/dashboards/${d.id}`} className="a--ui-kit">Edit {d.name}</Link>
+            </li>
+          ))}
+        </ul>
       )
     };
 
@@ -44,12 +41,16 @@ class DashboardsIndex extends Component {
 
           <div className="col-xs-12 col-sm-4">
             <p>Create or update data:</p>
-            <ul>
-              <Link to="/datasets" className="a--ui-kit">Create or update data</Link>
-            </ul>
+            <Link to="/datasets" className="a--ui-kit">Create or update data</Link>
           </div>
 
-          {sortedDashboards.length && editDashboardList(sortedDashboards)}
+          <div className="col-xs-12 col-sm-4">
+            <p>Edit Dashboard content:</p>
+            {sortedDashboards.length ?
+              editDashboardList(sortedDashboards) :
+              <p>No dashboards</p>
+            }
+          </div>
         </div>
 
       </div>
