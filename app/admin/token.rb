@@ -48,15 +48,16 @@ ActiveAdmin.register Token do
   end
 
   show do
-    h3 Token
-    attributes_table_for token do
-      row :id
-      row :user
-      row(:active ) { |t| status_tag t.active? }
-      row(:session) { |t| status_tag t.session? }
-      row :expired_at
-      row :created_at
-      row :updated_at
+    panel 'Token' do
+      attributes_table_for token do
+        row :id
+        row :user
+        row(:active ) { |t| status_tag t.active? }
+        row(:session) { |t| status_tag t.session? }
+        row :expired_at
+        row :created_at
+        row :updated_at
+      end
     end
   end
 
