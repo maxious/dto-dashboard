@@ -6,6 +6,12 @@
     clear:both;
   }
 
+  div {
+    @media screen and (max-width: 992px) {
+      margin-bottom: $gutter * 2;
+    }
+  }
+
   .user-satisfaction {
     border-bottom: solid 2px $user-satisfaction-colour;
   }
@@ -24,6 +30,10 @@
 
   p {
     padding-top: 22px;
+
+    @media screen and (max-width: 992px) {
+      padding-top: $gutter;
+    }
   }
 
   h3 {
