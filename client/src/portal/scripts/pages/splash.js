@@ -46,6 +46,7 @@ class DashboardsIndex extends Component {
 
           <div className="col-xs-12 col-sm-4">
             <p>Edit Dashboard content:</p>
+
             {sortedDashboards.length ?
               editDashboardList(sortedDashboards) :
               <p>No dashboards</p>

@@ -31,7 +31,7 @@ let CreateDatapointForm = props => {
              optionProps={{exclusionDates:exclusionDates}} />
 
       <Field component={Input} name="value" type="number" label="Value"
-             fieldProps={{autoFocus:true}}
+             fieldProps={{}}
              optionProps={{infoText: `To save as "No data" leave blank`}} />
 
       <div>
