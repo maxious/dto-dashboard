@@ -1,0 +1,31 @@
+<%
+
+  # Based off
+  # https://github.com/AusDTO/gov-au-beta/blob/develop/app/views/devise/passwords/new.html.haml
+
+  content_for :title, 'Forgot Password Form'
+  content_for :description, 'Performance Dashboard Forgot Password Form'
+%>
+
+<div class="sign-in">
+  <h1>Forgot your password?</h1>
+
+  <section class="sign-in-form">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+        <%= devise_error_messages! %>
+
+        <p>
+          <%= f.label :email %><br/>
+          <%= f.email_field :email, autofocus: true %>
+        </p>
+
+        <div class="form-footer-actions">
+          <%= f.submit "Send me reset password instructions", :role => 'button' %>
+        </div>
+    <% end %>
+  </section>
+
+  <br />
+
+  <%= render "devise/shared/links" %>
+</div>
