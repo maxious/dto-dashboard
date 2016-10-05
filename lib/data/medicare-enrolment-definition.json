@@ -23,7 +23,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” in a survey conducted in July 2016.",
+      "description": "User satisfaction measures the percentage of users who responded “satisfied” and “very satisfied” in a survey conducted in July 2016.",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -53,7 +53,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Completion rate measures the number of users who were successfully enrolled in Medicare as a percentage of total users who opted-in to the trial. Completion rate dropped in July due to an increase in the number of conditional migrants who are unable to participate in the trial.",
+      "description": "Completion rate measures the number of users who were successfully enrolled in Medicare as a percentage of total users who opted-in to the trial. Completion rate dropped in July due to an increase in the number of conditional migrants who are unable to participate in the trial.",
       "datasets": ["completion-rate"]
     },
     {
