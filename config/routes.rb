@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         unlocks: "users/unlocks"
       },
       :path => '',
-      path_names: { sign_in: 'login', sign_out: 'logout' }
+      path_names: { sign_in: 'sign-in', sign_out: 'sign-out' }
 
     ActiveAdmin.routes(self)
 
