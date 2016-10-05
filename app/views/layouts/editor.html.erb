@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portal - Performance Dashboards</title>
+  <title>Editor - Performance Dashboards</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%
@@ -15,7 +15,7 @@
 </head>
 <body class="editor <%= body_class(yield(:body_class_names)) %>">
 
-  <div class="l-top-bar">
+  <div class="editor__top-bar">
     <div class="phase-banner">
       <div class="container">
         <div class="row">
@@ -26,7 +26,6 @@
         </div>
       </div>
     </div>
-
     <header class="main__header">
       <div class="container">
         <div class="row">
@@ -40,13 +39,7 @@
     </header>
   </div>
 
-  <div class="l-app">
-    <div class="editor__main">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <%= yield %>
 
   <%
     #

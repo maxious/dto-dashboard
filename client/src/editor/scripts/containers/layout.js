@@ -17,16 +17,15 @@ class Layout extends Component {
   }
 
   render() {
-    let { config } = this.props;
     return (
-      <div>
+      <div className="app-scene">
         <Toast />
         <TransitionGroup
           transitionName={{enter: "fadeIn", leave:'fadeOut'}}
-          transitionEnterTimeout={config.ROUTE_TRANSITION_ENTER}
-          transitionLeaveTimeout={config.ROUTE_TRANSITION_LEAVE}
+          transitionEnterTimeout={400}  // total time
+          transitionLeaveTimeout={200}  // total time
           component="div"
-          className="stage--route">
+          className="app-page-parent">
             {React.cloneElement(this.props.children, {
               key: this.props.location.pathname
             })}
