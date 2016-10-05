@@ -1,10 +1,10 @@
 {
   "name":         "Hobby or Business Tool",
   "url":          "https://start.business.gov.au/",
-  "agency":       "Hobby or Business Tool Performance Dashboard",
+  "agency":       "Department of Industry, Innovation and Science",
   "description":  "This public beta release of the tool is for people who are getting money or intend to get money from creative works, and are unsure if they are a hobby or a business. The tool guides them on their government obligations.",
   "target_users": "The first release applies to artists, creatives and makers. Future enhancements to the tool, building on the public beta, will add new user groups, and over time, the digital take-up figure will reflect the increasing number of users who are able to use it.",
-  "notes":        "",
+  "notes": "",
   "widgets":  [
     {
       "id":   "kpis",
@@ -23,7 +23,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "description": "User satisfaction measures the percentage of users who responded \“yes\” to finding the service useful in the feedback survey as compared to the total number of respondents.",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -33,6 +33,8 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "$",
+      "description": "We do not have this data at the moment because we are currently in the process of determining the best way to measure cost per transaction for information services.",
+
       "datasets": ["cost-per-transaction"]
     },
     {
@@ -42,6 +44,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
+      "description": "Digital take-up measures the percentage of visitors to the page on business.gov.au, where the tool can be found, who go on to use it. The percentage is calculated by comparing the total number of users who access the public beta tool to the total number of unique visits to the page on business.gov.au. We are working on a more precise measure of take-up, comparing use of the tool to users accessing this information through our contact centre. We will update the Dashboard in the near future with this data.",
       "datasets": ["digital-take-up"]
     },
     {
@@ -51,7 +54,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Percentage of transactions made using the digital service.",
+      "description": "Completion rate measures the percentage of users who successfully generate a result by using the public beta release of the tool. This percentage is calculated by dividing the total number of successfully completed interactions by the total number of started interactions.",
       "datasets": ["completion-rate"]
     },
     {

@@ -12,7 +12,6 @@
         "id": "user-satisfaction",
         "recorded_at": "2016-07-30T01:01:01.111Z",
         "units": "%",
-        "description": "User satisfaction measures the percentage of users who responded \“yes\” to finding the service useful in the feedback survey as compared to the total number of respondents.",
         "name": "User satisfaction",
         "note": "This data is currently unavailable due to....",
         "data":         [
@@ -23,7 +22,6 @@
         "id": "cost-per-transaction",
         "recorded_at": "2016-08-30T01:01:01.111Z",
         "units": "$",
-        "description": "We do not have this data at the moment because we are currently in the process of determining the best way to measure cost per transaction for information services.",
         "name": "Cost per transaction",
         "note": "This data is currently unavailable due to....",
         "data": null
@@ -31,7 +29,6 @@
         "id": "completion-rate",
         "recorded_at": "2016-08-30T01:01:01.111Z",
         "units": "%",
-        "description": "Completion rate measures the percentage of users who successfully generate a result by using the public beta release of the tool. This percentage is calculated by dividing the total number of successfully completed interactions by the total number of started interactions.",
         "name": "Completion rate",
         "note": "The percentage of visitors to the business.gov.au \'A business or a hobby?\' page who go on to use the tool. This is calculated by dividing the total number of ..... by the total number of .......",
         "data": [
@@ -42,7 +39,6 @@
         "id": "digital-take-up",
         "recorded_at": "2016-08-30T01:01:01.111Z",
         "units": "%",
-        "description": "Digital take-up measures the percentage of visitors to the page on business.gov.au, where the tool can be found, who go on to use it. The percentage is calculated by comparing the total number of users who access the public beta tool to the total number of unique visits to the page on business.gov.au. We are working on a more precise measure of take-up, comparing use of the tool to users accessing this information through our contact centre. We will update the Dashboard in the near future with this data.",
         "name": "Digital take-up",
         "note": "The percentage of users who successfully generate a result after starting the tool. This is calculated by dividing the total number of successfully completed transactions by the total number of started transactions.",
         "data": [
