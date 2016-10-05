@@ -15,7 +15,7 @@
 </head>
 <body class="<%= body_class(yield(:body_class_names)) %>">
 
-  <div class="editor__top-bar">
+  <div>
     <div class="phase-banner">
       <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <a href="/editor" title="Go to the GOV.AU Portal's homepage" class="logo">
+            <a href="/login" title="Login homepage" class="logo">
               <img src="<%= image_path('gov-performance.svg') %>" alt="Logo of GOV.AU Performance Dashboard" height="30px" />
             </a>
           </div>
@@ -39,8 +39,8 @@
     </header>
   </div>
 
-  <main role="main">
-    <article class="content-main">
+  <main role="main" class="login__main">
+    <article>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-xs-12">
