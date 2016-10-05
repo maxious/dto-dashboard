@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+@import '../../_common/styles/variables';
+
+/**
+ *
+ * Ui-kit and overrides
+ *
+ */
+
+@import "_vendor/ui-kit/ui-kit";
+
+@import './../../_common/styles/_vendor/bootstrap/bootstrap-grid';
+
+
+/**
+ *
+ * Login
+ *
+ */
+
+@import "variables";
+
+// vendor
+
+// components
+//@import '../../_common/styles/components/forms';
+@import '../../_common/styles/ui-patterns/phase-banner';
+@import '../../_common/styles/ui-patterns/main-header';
+@import '../../_common/styles/ui-patterns/main-footer';
+
+
+// layout
+@import 'layouts/main';
+

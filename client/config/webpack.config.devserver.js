@@ -16,6 +16,7 @@ let webpackConfig = {
     entry: {
       ['dashboard']: [`./dashboard`],
       ['editor']: [`./editor`],
+      ['login']: [`./login`],
     },
 	output: {
 	  path: CONFIG.DIR_DIST,

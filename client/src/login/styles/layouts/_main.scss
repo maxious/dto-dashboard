@@ -1,0 +1,16 @@
+$header-height: 118px;
+
+html,
+body {
+  min-width: $screen-min;
+  height: 100%;
+  width: 100%;
+}
+
+.login {
+  &__main {
+    min-height: 300px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+}

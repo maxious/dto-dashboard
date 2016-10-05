@@ -27,6 +27,7 @@ let webpackConfig = {
   entry: {
     ['dashboard']: [`./dashboard`],
     ['editor']: [`./editor`],
+    ['login']: [`./login`],
   },
   output: {
     filename: 'javascripts/[name].js',
