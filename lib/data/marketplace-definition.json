@@ -1,10 +1,10 @@
 {
   "name":         "Digital Marketplace",
   "url":          "https://gov.au/marketplace",
-  "agency":       "DTO",
+  "agency":       "Digital Transformation Office",
   "description":  "This beta release of the Digital Marketplace provides a richer and simpler environment for technology procurement, enabling businesses, especially SMEs and start-ups, to provide specialist digital services to Government. Our vision is for an end to end digital environment which accommodates the level of simplicity creativity and structure appropriate to each procurement interaction.",
   "target_users": "Government buyers and sellers of digital services are the primary target user groups.",
-  "notes":        "",
+  "notes": "",
   "widgets":  [
     {
       "id":   "kpis",
@@ -23,8 +23,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": " We will update the Dashboard in the near future with this data.",
-      "definition": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "description": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -34,7 +33,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "$",
-      "description": " We will update the Dashboard in the near future with this data.",
+      "description": "We will update the Dashboard in the near future with this data.",
       "datasets": ["cost-per-transaction"]
     },
     {
@@ -44,7 +43,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": " We will update the Dashboard in the near future with this data.",
+      "description": "We will update the Dashboard in the near future with this data.",
       "datasets": ["digital-take-up"]
     },
     {
@@ -54,8 +53,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": " We will update the Dashboard in the near future with this data.",
-      "definition": "Percentage of transactions made using the digital service.",
+      "description": "Percentage of transactions made using the digital service.",
       "datasets": ["completion-rate"]
     }
   ],
