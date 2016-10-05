@@ -88,6 +88,10 @@
   .widget__inner {
     .sparkline__inner {
       min-height: 122px;
+
+      @media screen and (max-width: 768px){
+        min-height: auto;
+      }
       .chart {
         display: none;
 

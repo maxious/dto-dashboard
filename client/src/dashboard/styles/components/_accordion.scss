@@ -1,4 +1,10 @@
-.kpi-definitions {
+.kpi-definition {
+  border-top: solid 1px #979797;
+  margin-top: 15px;
+
+  @media screen and (max-width: 768px){
+    border-top: 0;
+  }
 
   .aus-width-one-fourth {
     margin-top: 25px;
@@ -43,8 +49,16 @@
 .flex-row {
   display: flex;
 
+  @media screen and (max-width: 768px){
+    display:block;
+  }
+
   .aus-width-one-fourth{
     display: flex;
+
+    @media screen and (max-width: 768px){
+      display:block;
+    }
   }
 }
 
