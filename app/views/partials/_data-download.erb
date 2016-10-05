@@ -1,0 +1,12 @@
+<div class="container data-download">
+  <div class="row">
+    <div class=" aus-width-seven-twelfths">
+      <h4>Dashboard Data</h4>
+    </div>
+    <div class="download-link aus-width-five-twelfths">
+      <%= link_to export_dashboard_path(dashboard, :format => 'csv'), class: "link--external-alt" do %>
+        Download dashboard data as CSV
+      <% end %>
+    </div>
+  </div>
+</div>
