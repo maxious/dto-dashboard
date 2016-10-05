@@ -34,13 +34,22 @@ class DatasetDatapointPage extends Component {
     this.props.actions.editFormAtDatasetDatapointPage(true);
   }
 
+  handleCancel() {
+    this.exitForm();
+    this.handleExitPage();
+  }
+
+  handleExitPage() {
+    this.props.push(`/datasets/${this.props.dataset.id}`);
+  }
+
   exitForm() {
     this.props.actions.editFormAtDatasetDatapointPage(false);
   }
 
   onSubmitSuccess() {
     this.exitForm();
-    this.props.push(`/datasets/${this.props.dataset.id}`);
+    this.handleExitPage();
   }
 
   componentWillUnmount() {
@@ -78,7 +87,7 @@ class DatasetDatapointPage extends Component {
               dataset={dataset}
               isSubmitting={isPendingRequest}
               onSubmitSuccess={this.onSubmitSuccess.bind(this)}
-              onCancelSuccess={this.exitForm.bind(this)} />
+              onCancelSuccess={this.handleCancel.bind(this)} />
           </div>
         </div>
 
