@@ -53,7 +53,7 @@
       "stacking": "percentage",
       "units": "%",
       "displayRoundedData" : true,
-      "definition":"This shows the types of devices used by users to access the appointment booking service.",
+      "definition": "This shows the types of devices used by users to access the appointment booking service.",
       "datasets": ["device-type-01", "device-type-02", "device-type-03"]
     },
     {
