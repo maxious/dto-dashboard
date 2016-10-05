@@ -1,31 +1,18 @@
 .kpi-definitions {
-  display: flex;
+
+  .aus-width-one-fourth {
+    margin-top: 25px;
+  }
 
   @media screen and (max-width: 768px){
     display: block;
-    clear:both;
+    clear: both;
   }
 
   div {
     @media screen and (max-width: 992px) {
       margin-bottom: $gutter * 2;
     }
-  }
-
-  .user-satisfaction {
-    border-bottom: solid 2px $user-satisfaction-colour;
-  }
-
-  .cost-per-transaction {
-    border-bottom: solid 2px $cost-per-transaction-colour;
-  }
-
-  .digital-take-up {
-    border-bottom: solid 2px $digital-take-up-colour;
-  }
-
-  .completion-rate {
-    border-bottom: solid 2px $completion-rate-colour;
   }
 
   p {
@@ -40,9 +27,32 @@
     font-weight: 700;
     font-size: 1rem;
   }
+}
 
-  .aus-width-one-fourth {
-    margin-top: 25px;
+.dashboard__kpis {
+
+  .user-satisfaction {
+    border-bottom: solid 2px $user-satisfaction-colour;
+ }
+
+ .cost-per-transaction {
+    border-bottom: solid 2px $cost-per-transaction-colour;
+ }
+
+  .digital-take-up {
+    border-bottom: solid 2px $digital-take-up-colour;
+  }
+
+  .completion-rate {
+    border-bottom: solid 2px $completion-rate-colour;
+  }
+}
+
+.flex-row {
+  display: flex;
+
+  .aus-width-one-fourth{
+    display: flex;
   }
 }
 

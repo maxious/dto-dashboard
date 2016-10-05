@@ -61,7 +61,7 @@
     <div class=" metric-breakdown-view">
       <% if dashboard.show_kpis? %>
         <div class="clearfix dashboard__kpis">
-          <div class="row">
+          <div class="flex-row">
             <% dashboard.first_row.each do |widget| %>
               <%= render :partial => 'widget_kpi', :locals => {:widget => widget.decorate} %>
             <% end %>
