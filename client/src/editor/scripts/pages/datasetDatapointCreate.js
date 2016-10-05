@@ -29,12 +29,13 @@ const mapDispatchToProps = dispatch => ({
 class DatasetDatapointCreatePage extends Component {
 
   onSubmitSuccess() {
-    this.props.history.goBack() || this.props.push(`/datasets/${this.props.dataset.id}`);
+    this.exitForm();
+    this.props.push(`/datasets/${this.props.dataset.id}`);
+    // this.props.history.goBack() || this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   exitForm() {
     this.props.editForm(false);
-    this.props.history.goBack() || this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   componentWillUnmount() {
@@ -47,7 +48,7 @@ class DatasetDatapointCreatePage extends Component {
     let { dataset, exclusionDates, isPendingRequest } = this.props;
 
     return (
-      <div>
+      <div className="container">
 
         <div className="row">
           <div className="col-xs-12">

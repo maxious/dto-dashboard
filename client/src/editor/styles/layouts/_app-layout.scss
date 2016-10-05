@@ -1,3 +1,5 @@
+$header-height: 118px;
+
 html,
 body {
   min-width: $screen-min;
@@ -136,25 +138,27 @@ body {
  */
 
 .editor {
-  border: 8px solid red;
+  //border: 8px solid red;
   height: 100%;
   width: 100%;
 }
 
 .editor__top-bar {
-  display:none;
-  border: 8px solid orange;
-  //position: fixed;
-  //left: 0;
-  //right: 0;
-  //top: 0;
+  height: $header-height;
+  //border: 8px solid orange;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   //height: 202px;
 }
 
 .editor__app {
-  border: 6px solid purple;
+  //border: 6px solid purple;
   height: 100%;
   width: 100%;
+  padding-top: $header-height;
+
   > div {
     height: 100%;
     width: 100%;
@@ -162,7 +166,7 @@ body {
 }
 
 .app-scene {
-  border: 8px solid yellow;
+  //border: 8px solid yellow;
   height: 100%;
   width: 100%;
   position: relative;
@@ -173,19 +177,23 @@ body {
 }
 
 .app-page-parent {
-  border: 8px solid blue;
+  //border: 8px solid blue;
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
+  //top: #{69 +52}px;
   left: 0;
   right: 0;
   bottom: 0;
+  padding-bottom: 2em;
   overflow: hidden;
+  transform: translate3d(0, 0, 0);
 
   // .app-page
   > div {
-    border: 8px solid pink;
+    transform: translate3d(0, 0, 0);
+    //border: 8px solid pink;
     background-color: white;
     height: 100%;
     overflow: scroll;

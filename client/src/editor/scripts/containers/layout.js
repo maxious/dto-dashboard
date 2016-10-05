@@ -12,7 +12,7 @@ class Layout extends Component {
     if (appScrollNode && appScrollNode.length) {
       setTimeout(() => {
         appScrollNode[0].scrollTop = 0;
-      }, this.props.config.ROUTE_TRANSITION_SCROLL_TOP_DELAY);
+      }, 400);
     }
   }
 

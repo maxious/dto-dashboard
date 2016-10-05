@@ -6,7 +6,6 @@ import { push } from 'react-router-redux';
 
 import Breadcrumbs from './../components/breadcrumbs';
 import { humanisedLongDate } from './../utils/humanisedDates';
-import { getDatapointsCount } from './../reducers/datasets';
 
 
 const mapStateToProps = ({datapoints}, ownProps) => {
@@ -47,7 +46,7 @@ class DatasetsIndex extends Component {
               <td>{d.id}</td>
               <td>{d.name}</td>
               <td>{humanisedLongDate(d.updated_at)}</td>
-              <td>{getDatapointsCount(d)}</td>
+              <td>{d.datapoints.length}</td>
               <td><Link to={`/datasets/${d.id}`} className="a--ui-kit">Edit</Link></td>
               <td><Link to={`/datasets/${d.id}/datapoints-new`} className="a--ui-kit">Create datapoint</Link></td>
             </tr>
@@ -58,7 +57,7 @@ class DatasetsIndex extends Component {
     };
 
     return (
-      <div>
+      <div className="container">
 
         <div className="row">
           <div className="col-xs-12">

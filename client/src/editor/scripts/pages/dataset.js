@@ -82,7 +82,7 @@ class DatasetIndex extends Component {
     };
 
     return (
-      <div>
+      <div className="container">
 
         <div className="row">
           <div className="col-xs-12">

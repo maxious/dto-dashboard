@@ -32,7 +32,3 @@ export const getDatasetById = (state, id) => {
 export const getDatasetsByIds = (state, ids) => {
   return state.filter((d) => ids.includes(Number(d.id)));
 };
-
-export const getDatapointsCount = (dataset) => {
-  return dataset.datapoints.length || 0;
-};

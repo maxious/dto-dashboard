@@ -36,7 +36,6 @@ class DatasetDatapointPage extends Component {
 
   exitForm() {
     this.props.actions.editFormAtDatasetDatapointPage(false);
-    this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
   onSubmitSuccess() {
@@ -53,7 +52,7 @@ class DatasetDatapointPage extends Component {
   render() {
     let { datapoint, dataset, isPendingRequest } = this.props;
     return (
-      <div>
+      <div className="container">
 
         <div className="row">
           <div className="col-xs-12">
