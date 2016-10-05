@@ -39,6 +39,7 @@ class DatasetDatapointPage extends Component {
     this.handleExitPage();
   }
 
+  // todo - goBack instead or push to datasets
   handleExitPage() {
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }

@@ -28,8 +28,8 @@ const mapDispatchToProps = dispatch => ({
 
 class DatasetDatapointCreatePage extends Component {
 
+  // todo - goBack instead or push to datasets
   handleExitPage() {
-    // this.props.history.goBack() todo
     this.props.push(`/datasets/${this.props.dataset.id}`);
   }
 
