@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Login - Performance Dashboards</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <%
     #
     # Production mode or not required for webpack-dev-server mode
     #
     if !(Rails.env.development? && ENV['DEV_SERVER'] == 'true') %>
-      <link rel="stylesheet" href="/stylesheets/login.css"/>
+      <link rel="stylesheet" href="/stylesheets/login.css" />
   <% end %>
 </head>
 <body class="<%= body_class(yield(:body_class_names)) %>">
@@ -57,6 +57,6 @@
     #
     if !(Rails.env.development? && ENV['DEV_SERVER'] == 'true') %>
     <script src="/javascripts/login.js"></script>
-  <% else %>
+  <% end %>
 </body>
 </html>
