@@ -347,23 +347,6 @@
   .widget__title {
     padding: 0;
   }
-
-  .widget-text__footer {
-    text-align: left;
-
-    @include media($screen-sm) {
-      text-align: right;
-    }
-
-    a {
-      font-weight: 600;
-      padding-left: 5px;
-
-      .fa {
-        padding-left: 5px;
-      }
-    }
-  }
 }
 
 .missing-data {
