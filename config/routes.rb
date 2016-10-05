@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   unless Rails.env.production?
     devise_for :users,
-      controllers: { sessions: "users/sessions" },
+      controllers: {
+        sessions: "users/sessions",
+        passwords: "users/passwords",
+        unlocks: "users/unlocks"
+      },
       :path => '',
       path_names: { sign_in: 'login', sign_out: 'logout' }
 

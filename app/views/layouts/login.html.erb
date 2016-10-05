@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="/stylesheets/login.css" />
   <% end %>
 </head>
-<body class="<%= body_class(yield(:body_class_names)) %>">
+<body class="login <%= body_class(yield(:body_class_names)) %>">
 
   <div>
     <div class="phase-banner">
@@ -56,7 +56,9 @@
     # Production mode or webpack-dev-server mode
     #
     if !(Rails.env.development? && ENV['DEV_SERVER'] == 'true') %>
-    <script src="/javascripts/login.js"></script>
+    <% # <script src="/javascripts/login.js"></script> %>
+  <% else %>
+    <script src="http://localhost:8080/javascripts/login.js"></script>
   <% end %>
 </body>
 </html>
