@@ -2,6 +2,8 @@ class Api::V1::ApiController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
   include Sslify
 
+  rescue_from NotFoundException, :with => :not_found
+
   attr_reader :token, :current_user
 
   before_action :authenticate
@@ -14,6 +16,10 @@ class Api::V1::ApiController < ActionController::API
     rescue ActiveRecord::RecordInvalid => e
       render :json => { :code => 'RecordInvalid', :message => e.message}, :status => :bad_request
     end
+  end
+
+  def not_found
+    render :json => { :code => '404', message: 'Not Found' }
   end
 
   private
