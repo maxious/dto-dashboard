@@ -1,23 +1,31 @@
 <%
+
+  # Layout based off
+  # https://github.com/AusDTO/gov-au-beta/blob/develop/app/views/devise/unlocks/new.html.haml
+
   content_for :title, 'Unlock Form'
   content_for :description, 'Performance Dashboard Unlock Form'
 %>
 
-<div class="container">
-  <h2>Resend unlock instructions</h2>
+<p class="content-listing">
+  <h1>Resend unlock instructions</h1>
 
-  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
-      <%= devise_error_messages! %>
+  <section class="login-form">
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: {method: :post}) do |f| %>
+        <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, autofocus: true %>
-      </div>
+        <p>
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true %>
+        </p>
 
-      <div class="actions">
-        <%= f.submit "Resend unlock instructions" %>
-      </div>
-  <% end %>
+        <div class="form-footer-actions">
+          <%= f.submit "Resend unlock instructions", :role => 'button' %>
+        </div>
+    <% end %>
+  </section>
+
+  <br />
 
   <%= render "devise/shared/links" %>
 </div>
