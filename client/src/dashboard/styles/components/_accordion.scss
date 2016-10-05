@@ -32,25 +32,13 @@
 .dashboards_show {
   .dashboard__kpis {
 
-    .user-satisfaction {
-      border-bottom: solid 2px $user-satisfaction-colour;
-   }
-
-   .cost-per-transaction {
-      border-bottom: solid 2px $cost-per-transaction-colour;
-   }
-
-    .digital-take-up {
-      border-bottom: solid 2px $digital-take-up-colour;
-    }
-
-    .completion-rate {
-      border-bottom: solid 2px $completion-rate-colour;
+    @each $metric, $color in $metrics {
+      .#{$metric} {
+        border-bottom: 2px solid $color;
+      }
     }
   }
 }
-
-
 
 .flex-row {
   display: flex;
