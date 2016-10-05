@@ -1,0 +1,27 @@
+.data-download {
+  margin-top: 15px;
+  padding-bottom: 25px;
+
+  .row {
+    background-color: $white;
+  }
+
+  .link--external-alt {
+    color: #2e343b;
+
+    &:hover,
+    &:focus {
+      color: #f0f3f5;
+    }
+  }
+
+  .download-link {
+    text-align: right;
+    margin: 1.33rem 0;
+
+    @media(max-width: 774px) {
+      text-align: left;
+      margin: 0 0 1.33rem 0;
+    }
+  }
+}
