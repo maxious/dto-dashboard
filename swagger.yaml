@@ -12,7 +12,14 @@ securityDefinitions:
     in: header
     description: |
       API Key should be passed as an authorization Header.
+
       The value for the Authorization header is expected to have the prefix "Token" or "Bearer".
+
+      Samples using curl
+      ```
+        curl --header "Authorization: Token token=09e9e1cff7e4" http://dashboard.gov.au/api/v1/datasets
+        curl --header "Authorization: Bearer 09e9e1cff7e4" http://dashboard.gov.au/api/v1/datasets/1/datapoints
+      ```
 paths:
   /dashboards/{id}:
     put:
@@ -148,8 +155,8 @@ paths:
 
         Sample curl requests
         ```
-        curl --header "Authorization: Token token=09e9e1cff7e4" --data 'datapoint={ "ts": "2016-01-01T01:01:01.111Z", "value": "42"}' http://dashboard.gov.au/api/v1/datasets/1/datapoints
-        curl --header "Authorization: Bearer 09e9e1cff7e4" --data 'datapoint={ "ts": "2016-01-01T01:01:01.111Z", "value": "42"}' http://dashboard.gov.au/api/v1/datasets/1/datapoints
+        curl --header "Authorization: Token token=09e9e1cff7e4" --data '{"datapoints": { "ts": "2016-01-01T01:01:01.111Z", "value": "42"}}' http://dashboard.gov.au/api/v1/datasets/1/datapoints
+        curl --header "Authorization: Bearer 09e9e1cff7e4" --data '{ "ts": "2016-01-01T01:01:01.111Z", "value": "42"}' http://dashboard.gov.au/api/v1/datasets/1/datapoints
         ```
       security:
        - api_key: []
@@ -161,11 +168,16 @@ paths:
         - in: body
           name: body
           description: |
-            Datapoint object to be created
-            Only ts field is required for creation
+            An array of Datapoint objects to be created
+
+            Only ts field is required for creation, value can be null
+
+            Note that this endpoint also accepts a single datapoint, seem the samples and documentation.
           required: true
           schema:
-            $ref: "#/definitions/Datapoint"
+            type: array
+            items:
+              $ref: "#/definitions/Datapoint"
         - in: path
           name: datasetId
           description: ID of Dataset
@@ -510,6 +522,7 @@ definitions:
         format: double
         description: |
           Values are numeric, and encoded as strings to avoid precision errors.
+
   Error:
     type: object
     required:
