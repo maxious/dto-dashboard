@@ -21,8 +21,8 @@ class DashboardDecorator < Draper::Decorator
     name.downcase.parameterize()
   end
 
-  def notes_to_html
-    h.sanitize(markdown.render(notes))
+  def description_to_html
+    h.sanitize(markdown.render(description))
   end
 
   def name

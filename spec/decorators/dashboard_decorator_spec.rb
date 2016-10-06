@@ -34,7 +34,7 @@ RSpec.describe DashboardDecorator, type: :decorator do
   describe 'convert notes to html' do
     let(:opts) { {:notes => '# Heading'} }
 
-    subject { decorator.notes_to_html }
+    subject { decorator.description_to_html }
 
     it { is_expected.to eq "<h1>Heading</h1>\n" }
 
