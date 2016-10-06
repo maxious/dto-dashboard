@@ -50,6 +50,39 @@ RSpec.describe Api::V1::DatasetsController, :type => :controller do
     end
   end
 
+
+  describe '#create' do
+
+    context 'when unauthorised' do
+      before { post :create, :params => { :name => 'Vtha' } }
+      include_examples 'api_unauthorized_examples'
+    end
+
+    context 'when authorised' do
+      include_context 'api_authorisation'
+
+      context 'with invalid data' do
+        let(:status) { 400 }
+        let(:schema) { error_schema }
+
+        before { post :create, :params => { :name => '' } }
+
+        include_examples 'api_authorized_status_and_schema'
+      end
+
+      context 'with valid data' do
+        let(:status) { 201 }
+        let(:schema) { dataset_schema }
+
+        before { post :create, :params => { :name => 'Vtha' } }
+        include_examples 'api_authorized_status_and_schema'
+      end
+
+    end
+
+  end
+
+
   describe '#update' do
 
     context 'when unauthorised' do
@@ -60,23 +93,30 @@ RSpec.describe Api::V1::DatasetsController, :type => :controller do
     context 'when authorised' do
       include_context 'api_authorisation'
 
+      let(:dataset) { dashboard.datasets.first }
+
       context 'with unowned dataset' do
         before { put :update, :params => { :id => 999 } }
         it { expect(response).to have_http_status(404) }
       end
 
-      context 'with dashboard and widget' do
+      context 'with invalid data' do
+        let(:status) { 400 }
+        let(:schema) { error_schema }
 
-        let(:dataset)  { dashboard.datasets.first }
+        before { put :update, :params => { :id => dataset.id, :name => '' } }
 
-        let(:schema)      { dataset_schema }
+        include_examples 'api_authorized_status_and_schema'
+      end
+
+      context 'with valid data' do
+        let(:schema)  { dataset_schema }
 
         before { put :update, :params => { :id => dataset.id, :name => 'Vtha' } }
 
-        it { expect(dataset.reload.name).to eq 'Vtha' }
-
         include_examples 'api_authorized_ok'
       end
+
     end
 
   end
