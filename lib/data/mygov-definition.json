@@ -23,7 +23,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
+      "description": "Overall satisfaction score includes all ratings weighted from 100% for very satisfied to 0% for very dissatisfied",
       "datasets": ["user-satisfaction"]
     },
     {
@@ -33,6 +33,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "$",
+      "description": "",
       "datasets": ["cost-per-transaction"]
     },
     {
@@ -42,6 +43,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
+      "description": "",
       "datasets": ["digital-take-up"]
     },
     {
@@ -51,7 +53,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "definition": "Percentage of transactions made using the digital service.",
+      "description": "Percentage of transactions made using the digital service.",
       "datasets": ["completion-rate"]
     },
     {
