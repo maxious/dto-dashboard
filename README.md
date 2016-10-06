@@ -304,7 +304,7 @@ To rebase and deploy the staging branch
 ```
 git checkout staging
 git rebase master
-git push
+git push -f
 ```
 
 ### Production

@@ -1,5 +1,5 @@
 .dashboards-intro {
-  @include span-columns(8)
+  @include span-columns(8);
   clear: both;
   margin-bottom: 40px;
   margin-top: $spacing-unit;
@@ -9,7 +9,7 @@
   }
 
   @media(max-width: 768px) {
-   @include span-columns(12)
+   @include span-columns(12);
    margin: 0;
  }
 }
@@ -23,7 +23,7 @@
 }
 
 .dashboards-intro-sec {
-  @include span-columns(4)
+  @include span-columns(4);
   margin-top: 30px;
   color: $gov-au-brand-colour;
   display: flex;
