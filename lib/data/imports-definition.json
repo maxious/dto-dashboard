@@ -2,7 +2,7 @@
   "name":     "Import Permit Validation Service",
   "agency":   "Department of Imigration and Border Protection",
   "url":      "",
-  "description":  "<p>This service simplifies the permit validation process for importers and brokers. It enables the digital validation of permits directly with the Permit Issuing Authority.</p>",
+  "description":  "This service simplifies the permit validation process for importers and brokers. It enables the digital validation of permits directly with the Permit Issuing Authority.",
   "target_users": "Importers and brokers",
   "notes":    "",
   "widgets":  [

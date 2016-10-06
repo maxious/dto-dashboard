@@ -2,8 +2,8 @@
   "name":         "Hobby or Business Tool",
   "url":          "https://start.business.gov.au/",
   "agency":       "Department of Industry, Innovation and Science",
-  "description":  "<p>This public beta release of the tool is for people who are getting money or intend to get money from creative works, and are unsure if they are a hobby or a business. The tool guides them on their government obligations.",
-  "target_users": "The first release applies to artists, creatives and makers. Future enhancements to the tool, building on the public beta, will add new user groups, and over time, the digital take-up figure will reflect the increasing number of users who are able to use it.</p>",
+  "description":  "This public beta release of the tool is for people who are getting money or intend to get money from creative works, and are unsure if they are a hobby or a business. The tool guides them on their government obligations.",
+  "target_users": "The first release applies to artists, creatives and makers. Future enhancements to the tool, building on the public beta, will add new user groups, and over time, the digital take-up figure will reflect the increasing number of users who are able to use it.",
   "notes": "",
   "widgets":  [
     {

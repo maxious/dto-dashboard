@@ -2,7 +2,7 @@
   "name":         "Medicare Newborn Enrolment",
   "url":          "https://www.humanservices.gov.au/",
   "agency":       "Department of Human Services,",
-  "description":  "<p>The trial was conducted between 22 April 2016 and 29 July 2016. It shows how sharing of information with consent can be used so people don’t have to provide the same information multiple times. It is designed to significantly reduce paperwork for new parents by using hospital data to enrol their newborns into Medicare. The Department of Human Services will continue to work with the DTO to evaluate the trial and consider options for a future digital enrolment service.</p>",
+  "description":  "The trial was conducted between 22 April 2016 and 29 July 2016. It shows how sharing of information with consent can be used so people don’t have to provide the same information multiple times. It is designed to significantly reduce paperwork for new parents by using hospital data to enrol their newborns into Medicare. The Department of Human Services will continue to work with the DTO to evaluate the trial and consider options for a future digital enrolment service.",
   "target_users": "The trial was conducted with the Gold Coast University Hospital and applies only to mothers of newborns.",
   "notes": "",
   "widgets":  [
