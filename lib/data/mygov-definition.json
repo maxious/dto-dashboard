@@ -1,7 +1,7 @@
 {
   "name":     "myGov",
   "agency":   "Department of Human Services",
-  "description":  "myGov is a secure, fast and simple way to access Australian Government services online with one username and password.",
+  "description":  "<p>myGov is a secure, fast and simple way to access Australian Government services online with one username and password.</p><h3> What is an \"Active Account\"? </h3><p> An account on myGov with at least 1 linked member service. </p><h3> What is a \"Sign-in\"? </h3><p> A log in to the myGov service. In a given month, multiple sign-ins by a single account will be counted multiple times.</p> <h3>What is a member service?</h3><p>This is an Australian Government service available to users through the myGov account.</p> ",
   "target_users": "Users",
   "displayHero": false,
   "displayKPIs": false,
@@ -186,7 +186,7 @@
     }
   ],
   "url":    "https://my.gov.au",
-  "notes":  "<dt> What is an \"Active Account\"? <dd> An account on myGov with at least 1 linked member service. <dt> What is a \"Sign-in\"? <dd> A log in to the myGov service. In a given month, multiple sign-ins by a single account will be counted multiple times. <dt> What is a member service? <dd> This is an Australian Government service available to users through the myGov account. </dl>",
+  "notes":  "",
   "layout":   [
     ["kpis"],
     ["user-satisfaction", "cost-per-transaction", "digital-take-up", "completion-rate"],

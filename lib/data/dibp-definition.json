@@ -41,7 +41,7 @@
       "type": "kpi-sparkline",
       "size": "extra-small",
       "units": "%",
-      "description": "Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when rescheduling their appointment.",
+      "description": "<p>Completion rate measures the number of users who were able to use the digital service without having to contact the Department for assistance when rescheduling their appointment.</p>",
       "datasets": ["completion-rate"]
     },
     {
