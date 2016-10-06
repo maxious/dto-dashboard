@@ -1,0 +1,137 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "d3-charts-dto@git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+        "scope": null,
+        "escapedName": "d3-charts-dto",
+        "name": "d3-charts-dto",
+        "rawSpec": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+        "spec": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:AusDTO/d3-charts-dto.git#1.2",
+          "sshUrl": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+          "httpsUrl": "git+https://github.com/AusDTO/d3-charts-dto.git#1.2",
+          "gitUrl": "git://github.com/AusDTO/d3-charts-dto.git#1.2",
+          "shortcut": "github:AusDTO/d3-charts-dto#1.2",
+          "directUrl": "https://raw.githubusercontent.com/AusDTO/d3-charts-dto/1.2/package.json"
+        }
+      },
+      "/Users/elisechant/Sites/dto/dto-dashboard"
+    ]
+  ],
+  "_from": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+  "_id": "d3-charts-dto@1.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/d3-charts-dto",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "d3-charts-dto@git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+    "scope": null,
+    "escapedName": "d3-charts-dto",
+    "name": "d3-charts-dto",
+    "rawSpec": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+    "spec": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:AusDTO/d3-charts-dto.git#1.2",
+      "sshUrl": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+      "httpsUrl": "git+https://github.com/AusDTO/d3-charts-dto.git#1.2",
+      "gitUrl": "git://github.com/AusDTO/d3-charts-dto.git#1.2",
+      "shortcut": "github:AusDTO/d3-charts-dto#1.2",
+      "directUrl": "https://raw.githubusercontent.com/AusDTO/d3-charts-dto/1.2/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@github.com/AusDTO/d3-charts-dto.git#c85877bfafb12d25ea25d57f64fdb03d18f06050",
+  "_shasum": "06b62ffb02109015eb2863045c0230784a9c9716",
+  "_shrinkwrap": null,
+  "_spec": "d3-charts-dto@git+ssh://git@github.com/AusDTO/d3-charts-dto.git#1.2",
+  "_where": "/Users/elisechant/Sites/dto/dto-dashboard",
+  "author": {
+    "name": "chloe"
+  },
+  "browserify": {
+    "debug": true,
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ],
+          "plugins": [
+            "transform-proto-to-assign",
+            [
+              "transform-es2015-classes",
+              {
+                "loose": true
+              }
+            ]
+          ]
+        }
+      ]
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/AusDTO/d3-chart/issues"
+  },
+  "dependencies": {
+    "d3": "^3.5.17",
+    "lodash": "^4.12.0"
+  },
+  "description": "d3 chart",
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-es2015-classes": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-proto-to-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.1",
+    "eslintify": "^2.1.0",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-jsdoc3": "^0.3.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0",
+    "watchify": "^3.7.0"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "gitHead": "c85877bfafb12d25ea25d57f64fdb03d18f06050",
+  "homepage": "https://github.com/AusDTO/d3-chart#readme",
+  "keywords": [
+    "d3",
+    "chart"
+  ],
+  "license": "MIT",
+  "main": "d3-charts-dto.js",
+  "name": "d3-charts-dto",
+  "optionalDependencies": {},
+  "readme": "# d3-charts-dto\nd3 charts for dashboard\n\nD3-charts-dto is a D3-based reusable chart library that enables data visualisation. It is designed originally for the [Goverenment Performance Dashboard](https://dashboard.gov.au/).\n\n\n## Tutorials and examples\n[Getting started](https://github.com/AusDTO/d3-charts-dto/wiki/Getting-started)\n\n[Examples](http://ausdto.github.io/d3-charts-dto/)\n\nDesign principles\n\n\n## Playground\n\nSpin up a development environment:\n``npm run dev``\n\nWork in: ``/example``\n\n\n## Dependency\n[D3.js](https://d3js.org/) ~3.5.0\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AusDTO/d3-charts-dto.git"
+  },
+  "scripts": {
+    "dev": "npm run watch & npm run serve & open http://localhost:2000",
+    "serve": "http-server -p=2000 ./example",
+    "test": "gulp test",
+    "watch": "gulp watch-dev"
+  },
+  "version": "1.0.4"
+}

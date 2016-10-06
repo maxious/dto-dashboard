@@ -1,0 +1,20 @@
+# project
+example/dist/
+*.map
+*.*.map
+_trash
+
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Dev
+.sass-cache/
+node_modules/
+docs/
+doc/
+.idea/
+
+# build/
