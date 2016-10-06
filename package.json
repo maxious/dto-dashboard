@@ -23,7 +23,6 @@
     "bourbon": "git@github.com:thoughtbot/bourbon.git#v5.0.0.beta.6",
     "bourbon-neat": "git@github.com:thoughtbot/neat.git#v1.8.0",
     "d3": "^3.5.17",
-    "d3-charts-dto": "git+ssh://git@github.com:AusDTO/d3-charts-dto.git#1.2",
     "domready": "^1.0.8",
     "es6-promise": "^3.3.0",
     "eslint": "^3.1.1",
