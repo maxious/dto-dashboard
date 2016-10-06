@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160919025831) do
   end
 
   create_table "datasets", force: :cascade do |t|
-    t.integer  "organisation_id", null: false
+    t.integer  "organisation_id"
     t.text     "name",            null: false
     t.text     "label",           null: false
     t.text     "units",           null: false
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160919025831) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer  "organisation_id",                     null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -124,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160919025831) do
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["organisation_id"], name: "index_users_on_organisation_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end

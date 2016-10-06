@@ -7,11 +7,16 @@ class User < ApplicationRecord
     end
   end
 
+  belongs_to :organisation
+
   has_and_belongs_to_many :dashboards
 
-  has_many :datasets, :through => :dashboards
+  has_many :datasets, :through => :organisations
+
   has_many :datapoints, :through => :datasets
+
   has_many :widgets, :through => :dashboards
+
   has_many :organisations, :through => :dashboards
 
   def self.by_email
@@ -32,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def after_database_authentication
-    generate_session_token! if confirmed? 
+    generate_session_token! if confirmed?
   end
 
   def token

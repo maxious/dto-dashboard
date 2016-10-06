@@ -5,6 +5,8 @@ class Organisation < ApplicationRecord
 
   has_many :datasets
 
+  has_many :users
+
   validates :url, :presence => true
 
 end
