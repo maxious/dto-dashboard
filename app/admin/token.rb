@@ -24,7 +24,8 @@ ActiveAdmin.register Token do
       status_tag token.active?
     end
     actions defaults: true do |token|
-      link_to('Expire', expire_admin_token_path(token), :method => 'patch')
+      [link_to('Expire', expire_admin_token_path(token), :method => 'patch'),
+      link_to('Display', display_admin_token_path(token))].join(" ").html_safe
     end
   end
 
@@ -65,8 +66,8 @@ ActiveAdmin.register Token do
     link_to('Expire Token', expire_admin_token_path(resource), :method => 'patch')
   end
 
-  action_item :display_token, :only => [:show, :edit], :if => -> { resource.active? }  do
-    link_to('Display Token', display_admin_token_path(resource), :method => 'get')
+  action_item :display_token, :only => [:show, :edit] do
+    link_to('Display Token', display_admin_token_path(resource))
   end
 
   member_action :display, :method => :get do
