@@ -2,7 +2,9 @@ class Api::V1::ApiController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
   include Sslify
 
-  rescue_from NotFoundException, :with => :not_found
+  # rescue_from ActiveRecord::RecordInvalid, :with => :not_found
+
+  rescue_from ActionController::RoutingError, :with => :routing_error
 
   attr_reader :token, :current_user
 
@@ -18,9 +20,10 @@ class Api::V1::ApiController < ActionController::API
     end
   end
 
-  def not_found
-    render :json => { :code => '404', message: 'Not Found' }
+  def routing_error
+    render :json => { :code => '405', message: 'Method not Found' }, :status => :method_not_allowed
   end
+
 
   private
 
