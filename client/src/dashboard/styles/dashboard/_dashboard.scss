@@ -300,3 +300,12 @@
     }
   }
 }
+
+
+.dashboard__below-the-line {
+  .has-data-true {
+    .widget__last-updated {
+      display: block !important;
+    }
+  }
+}
