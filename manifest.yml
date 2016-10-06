@@ -4,3 +4,13 @@ applications:
     memory: 512M
     instances: 2
     command: bin/cf-start.sh
+qafire:
+  buildpack: https://github.com/cloudfoundry-incubator/multi-buildpack
+  command: npm install -g gulp && npm run build && bin/cf-start.sh
+  memory: 2048MB
+  disk_quota: 2048MB
+  health_check_type: none
+  instances: 1
+  services:
+  - plan: shared-pgsql
+    type: dto-shared-pgsql

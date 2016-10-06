@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer';
 
 import * as CONFIG from './client/config/_config';
 const projectName = require('./package').name;
-const DEBUG = !process.argv.includes('--release');
+const DEBUG = !process.argv.indexOf('--release') !== -1;
 
 
 if (!DEBUG) {

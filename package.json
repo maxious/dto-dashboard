@@ -2,6 +2,7 @@
   "name": "dto-dashboard",
   "version": "1.0.0-beta",
   "description": "DTO Dashboard (beta)",
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/AusDTO/dto-dashboard"
@@ -19,15 +20,15 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.11.6",
-    "bootstrap": "git@github.com:twbs/bootstrap.git#v4-npm",
-    "bourbon": "git@github.com:thoughtbot/bourbon.git#v5.0.0.beta.6",
-    "bourbon-neat": "git@github.com:thoughtbot/neat.git#v1.8.0",
+    "bootstrap": "https://github.com/twbs/bootstrap#v4-npm",
+    "bourbon": "https://github.com/thoughtbot/bourbon#v5.0.0.beta.6",
+    "bourbon-neat": "https://github.com/thoughtbot/neat#v1.8.0",
     "d3": "^3.5.17",
     "domready": "^1.0.8",
     "es6-promise": "^3.3.0",
     "eslint": "^3.1.1",
     "exports-loader": "^0.6.3",
-    "gov-au-ui-kit": "git@github.com:AusDTO/gov-au-ui-kit.git#1.8.0",
+    "gov-au-ui-kit": "https://github.com/AusDTO/gov-au-ui-kit#1.8.0",
     "gulp-autoprefixer": "^3.1.1",
     "imports-loader": "^0.6.5",
     "isomorphic-fetch": "^2.2.1",
@@ -46,9 +47,8 @@
     "redux-thunk": "^2.1.0",
     "textures": "^1.0.3",
     "uuid": "^2.0.3",
-    "validator": "^5.7.0"
-  },
-  "devDependencies": {
+    "validator": "^5.7.0",
+    "whatwg-fetch": "^1.0.0",
     "autoprefixer": "^6.4.1",
     "ava": "^0.15.2",
     "babel-core": "^6.14.0",
@@ -143,7 +143,7 @@
     ]
   },
   "engines": {
-    "node": "6.3.0"
+    "node": "6.7.0"
   },
   "jest": {
     "testPathDirs": [
