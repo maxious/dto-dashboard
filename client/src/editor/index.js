@@ -1,5 +1,7 @@
 import './styles/main'
 
+import './images/editor-skeleton.png';
+
 
 // // check if HMR is enabled
 if (module.hot) {

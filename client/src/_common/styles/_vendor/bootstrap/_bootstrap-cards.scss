@@ -1,0 +1,29 @@
+$border-radius:          .25rem !default;
+$border-radius-lg:       .3rem !default;
+$border-radius-sm:       .2rem !default;
+
+
+// Cards
+$card-spacer-x:            1.25rem !default;
+$card-spacer-y:            .75rem !default;
+$card-border-width:        1px !default;
+$card-border-radius:       $border-radius !default;
+$card-border-color:        rgba(0,0,0,.125) !default;
+$card-border-radius-inner: $card-border-radius !default;
+$card-cap-bg:              #f5f5f5 !default;
+$card-bg:                  #fff !default;
+
+$card-link-hover-color:    #fff !default;
+
+$card-img-overlay-padding: 1.25rem !default;
+
+$card-deck-margin:         .625rem !default;
+
+$card-columns-sm-up-column-gap: 1.25rem !default;
+
+
+@import '~bootstrap/scss/mixins/border-radius';
+@import '~bootstrap/scss/mixins/hover';
+@import '~bootstrap/scss/mixins/cards';
+
+@import "~bootstrap/scss/card";

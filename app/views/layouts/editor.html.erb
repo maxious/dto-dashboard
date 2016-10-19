@@ -41,7 +41,23 @@
     </header>
   </div>
 
-  <%= yield %>
+  <div class="editor__app">
+    <noscript>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-8 offset-xs-2">
+            <div class="card card-block">
+              <h4 class="card-title" style="margin-top:0">It looks like you have JavaScript turned off!</h4>
+              <p class="card-text">The use of the Editor requires JavaScript to be enabled. Please enable JavaScript in your Browser Settings and then refresh this page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </noscript>
+
+    <%= yield %>
+  </div>
+
 
   <%
     #

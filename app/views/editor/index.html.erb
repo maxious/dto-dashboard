@@ -2,4 +2,14 @@
   window.__CONFIG__ = <%== PORTAL_CONFIG.to_json %>;
   window.__STATE__ = <%== render(template: "/editor/index.json.jbuilder") %>;
 </script>
-<div id="editor_index" class="editor__app"></div>
+<div id="editor_index"></div>
+<script>
+  <%
+    # Insert skeleton screen with JavaScript, so that if JavaScript is disabled
+    # the user won't see this HTML and will only see the interstitial.
+   %>
+  document.getElementById('editor_index').innerHTML +=
+    '<div class="container" style="padding-top:1em;">' +
+      '<img src="<%= image_path('editor-skeleton.png') %>" width="1112" height="262" />' +
+    '</div>';
+</script>
